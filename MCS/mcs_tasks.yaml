@@ -1,0 +1,3577 @@
+Bot:
+  bot_name: Chatbot for MCS
+  bot_description: Chatbot for MCS
+
+OutputPrompts:
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your **10 digit** phone number."
+        - "Please enter your phone number."
+  ###############################################################################
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number."
+  ###############################################################################
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  ###############################################################################
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://myins.smartsellhub.com/my-bank.jpeg"
+      body_prologue:
+        long: "Please choose the desired service category"
+        short: "Please choose the desired service category"
+      footer_text: null
+      button_captions:
+        - long: "Bank Account Services"
+          short: "Account Services"
+        - long: "Share Services"
+          short: "Share Services"
+        - long: "Customer Services"
+          short: "Customer Services"
+  ###############################################################################
+  bank_account_services_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://myins.smartsellhub.com/my-bank.jpeg"
+      body_prologue:
+        long: "Please choose the desired product"
+        short: "Please choose the desired product"
+      footer_text: null
+      button_captions:
+        - long: "Loan"
+          short: "Loan"
+        - long: "Deposit"
+          short: "Deposit"
+        - long: "Retirement Savings"
+          short: "Retirement Savings"
+  ###############################################################################
+  main_menu_as_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Account Services Provided by MyBank Bot"
+        short: "Account Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose the desired service category."
+        short: "Please choose the desired service category."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Main Menu"
+        short: "Main Menu"
+      section_title:
+        long: "Main Menu"
+        short: "Main Menu"
+      menu_list_rows:
+        - title: "Customer Service"
+          description: null
+        - title: "Loan"
+          description: null
+        - title: "Deposit"
+          description: null
+        - title: "Retirement Savings"
+          description: null
+        - title: "Share Services"
+          description: null
+  ###############################################################################
+  bank_account_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Account Services Provided by MyBank Bot"
+        short: "Account Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Account Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "A/C Services Menu"
+        short: "A/C Services Menu"
+      section_title:
+        long: "A/C Services"
+        short: "A/C Services"
+      menu_list_rows:
+        - title: "Account Balance"
+          description: null
+        - title: "Transaction History"
+          description: null
+        - title: "Update My Records"
+          description: null
+        - title: "Setup Auto Transfer"
+          description: null
+        - title: "Order Cheque Book"
+          description: null
+        - title: "Track Cheque Book"
+          description: null
+        - title: "Email Account Statement"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
+  loans_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Loans offered by us. Please choose one to proceed further."
+        short: "Loans offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Home Loan"
+          short: "Home Loan"
+        - long: "Personal Loan"
+          short: "Personal Loan"
+        - long: "Car Loan"
+          short: "Car Loan"
+  ###############################################################################
+  loan_submenu_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Loan Services offered by us. Please choose one to proceed further."
+        short: "Loans Services offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Apply Loan"
+          short: "Apply Loan"
+        - long: "Loan Balance"
+          short: "Loan Balance"
+        - long: "Loan Interest Rates"
+          short: "Loan Interest Rates"
+  ###############################################################################
+  deposit_submenu_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Deposit Services offered by us. Please choose one to proceed further."
+        short: "Deposit Services offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Apply Deposit"
+          short: "Apply Deposit"
+        - long: "Deposit Balance"
+          short: "Deposit Balance"
+        - long: "Deposit Interest Rates"
+          short: "Deposit Interest"
+  ###############################################################################
+  deposits_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Deposits offered by us. Please choose one to proceed further."
+        short: "Deposits offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Fixed Deposit"
+          short: "Fixed Deposit"
+        - long: "Flexi Deposit"
+          short: "Flexi Deposit"
+        - long: "Junior Flexi Deposit"
+          short: "Junior Flexi Deposit"
+  ###############################################################################
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+  ###############################################################################
+
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+  ###############################################################################
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+  ###############################################################################
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+  ###############################################################################
+  loan_type:
+    args:
+      type: TEXT
+  ###############################################################################
+  deposit_type:
+    args:
+      type: TEXT
+  ###############################################################################
+
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons # main_menu_as_list
+  ###############################################################################
+  bank_account_services_menu:
+    description: show bank account menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Bank A/C Services"
+      short: "Bank A/C Services"
+    samples:
+      - bank account services
+      - Bank A/C Services
+    entities:
+      menu_options:
+        field_name: "Bank account services menu"
+        output_prompt:
+          pointer: bank_account_services_menu_as_buttons
+  ###############################################################################
+  loans_menu:
+    description: show loan menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan"
+      short: "Loan"
+    samples:
+      - Loan
+      - loan
+    entities:
+      menu_options:
+        field_name: "Bank account services menu"
+        output_prompt:
+          pointer: loan_submenu_as_three_buttons
+  ###############################################################################
+  apply_loan_menu:
+    description: show apply loan menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Apply Loan"
+      short: "Apply Loan"
+    samples:
+      - Apply Loan
+      - apply loan
+    entities:
+      menu_options:
+        field_name: "Bank account services menu"
+        output_prompt:
+          pointer: loans_as_three_buttons
+  ###############################################################################
+  deposit_menu:
+    description: show deposit menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit"
+      short: "Deposit"
+    samples:
+      - Deposit
+    entities:
+      menu_options:
+        field_name: "Bank account services menu"
+        output_prompt:
+          pointer: deposit_submenu_as_three_buttons
+  ###############################################################################
+  apply_deposit_menu:
+    description: show apply deposit menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Apply Deposit"
+      short: "Apply Deposit"
+    samples:
+      - Apply Deposit
+    entities:
+      menu_options:
+        field_name: "apply deposit menu"
+        output_prompt:
+          pointer: deposits_as_three_buttons
+  ###############################################################################
+  # 1 Table 1 Task 6 Private
+  get_loan_eligibility:
+    description: get loan eligibility
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Eligibility"
+      short: "Loan Eligibility"
+    samples:
+      - What is the amount of loan I am entitled to?
+      - loan eligibility
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan eligibilty."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your approximate annual salary."
+              short: "Please choose your approximate annual salary."
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "eligibility range"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You are eligibile for the range of 5M - 20M MUR."
+              - "You are eligibile for the range of 20M - 100M MUR."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 2 Table 1 Task 7 Private
+  get_loan_minimum_amount:
+    description: get loan minimum amount
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Minimum Loan Amount"
+      short: "Minimum Loan Amount"
+    samples:
+      - What is the minimum amount of loan I can apply for?
+      - Minimum Loan Amount
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your minimum loan amount eligible."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your approximate annual salary."
+              short: "Please choose your approximate annual salary."
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Minimum Loan Amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You are eligibile for the minimum amount 10M MUR"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 3 Table 1 Task 8 Private
+  get_loan_maximum_amount:
+    description: get loan maximum amount
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Maximum Loan Amount"
+      short: "Maximum Loan Amount"
+    samples:
+      - What is the maximum loan amount I can apply for?
+      - Maximum Loan Amount
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your maximum loan amount eligible."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your approximate annual salary."
+              short: "Please choose your approximate annual salary."
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Maximum Loan Amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You are eligibile for the maximum amount 10M MUR"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 4 Table 1 Task 17 Private, Table 4 Task 1 Private
+  get_loan_balance:
+    description: get loan balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Balance"
+      short: "Loan Balance"
+    samples:
+      - What is my loan balance?
+      - Loan Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan balance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your loan account number."
+              short: "Please choose your loan account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Loan Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_loan_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 5 Table 1 Task 18 Private, Table 2 Task 3 Private, Table 4 Task 2 Private
+  get_loan_maturity_date:
+    description: get loan maturity date 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan maturity date"
+      short: "Loan maturity date"
+    samples:
+      - What is my loan maturity date?
+      - What is the maturity date of my loan?
+      - Loan maturity date
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan maturity date."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Loan Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_loan_maturity_date
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 6 Table 1 Task 19 Private to be edited
+  get_rss_balance:
+    description: get_rss_balance 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Get RSS Balance"
+      short: "Get RSS Balance"
+    samples:
+      - What is my RSS balance?
+      - Get RSS Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan maturity date."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Loan Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_loan_maturity_date
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 7 Table 1 Task 21 Private
+  get_cif_id:
+    description: get cif id
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "MY CIF ID"
+      short: "MY CIF ID"
+    samples:
+      - What is my CIF id?
+      - MY CIF ID
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining your CIF ID."
+      account_holder_name:
+        field_name: "Account holder name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Holder Name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      eligibility_range:
+        field_name: "Loan Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_cif_id
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 8 Table 1 Task 3 Public
+  get_customer_documents:
+    description: get customer documents
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Customer Documents"
+      short: "Customer Documents"
+    samples:
+      - What are the documents required to become a member?
+      - Customer Documents
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details of the documents required to become a member."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number  
+      documents_required:
+        field_name: "Documents Required for Opening Account"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "National ID."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 9 Table 1 Task 4 Public
+  get_customer_age_limit:
+    description: get customer age limit
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Customer age limt"
+      short: "Customer age limit"
+    samples:
+      - What is the age limit to be a member?
+      - Customer age limit
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about customer age limit."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number  
+      eligibility_age:
+        field_name: "eligibility age"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You are eligibile for the minimum age 21."
+              - "You are eligibile for the maximum age 65."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 10 Table 1 Task 5 Public
+  get_pensioner_services:
+    description: get pensioner services
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Pensioner Services"
+      short: "Pensioner Services"
+    samples:
+      - What are the facilities available for pensioner?
+      - Pensioner Services
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about pensioner facility."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number  
+      facility_details:
+        field_name: "facility details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "National Pension System."
+              - "Civil Pension."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 11 Table 1 Task 9 Public
+  get_loan_interest_rate:
+    description: get loan interest rate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Interest Rate"
+      short: "Loan Interest Rate"
+    samples:
+      - What is the interest rate on loans at the association?
+      - loan Interest Rate
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 12 Table 1 Task 14 Public
+  get_loan_credited_period:
+    description: get loan credited period
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Credited Period"
+      short: "Loan Credited Period"
+    samples:
+      - How many days does the loan take to be credited?
+      - Loan Credited Period
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about customer loan credited period."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type
+      credited_period:
+        field_name: "Loan credited period"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "The loan amount will be credited in 5 to 10 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 13 Table 1 Task 15 Public
+  register_eservice:
+    description: register eservice
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Register E-Service"
+      short: "Register E-Service"
+    samples:
+      - How can I register for E-services?
+      - Register E-Service
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about register E-service."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      register_eservice:
+        field_name: "register eservice"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mymcs.eservice.com."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 14 Table 1 Task 16 Public
+  apply_loan_eservice:
+    description: apply loan eservices
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Apply Loan E-service"
+      short: "Apply Loan E-Service"
+    samples:
+      - How do I apply for a loan using e-services?
+      - Apply Loan E-Service
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about apply for a loan using  E-service."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      register_eservice:
+        field_name: "register eservice"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.loaneservice.com."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 15 Table 1 Task 20 Public
+  statement_procedure:
+    description: statement procedure
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Statement Procedure"
+      short: "Statement Procedure"
+    samples:
+      - What are the procedures for a request for a statement?
+      - Statement Procedure
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about statement procedure."
+      register_eservice:
+        field_name: "register eservice"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Customer can raise a statement for the last two financial years and same will be delivered on the registered email address within 2-3 working days.\n\nCustomer can raise the request in this path: Accounts --> Select the Account --> Financial Year Statement"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 16 Table 1 Task 22 Public
+  statement_attachment:
+    description: statement attachment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Statement Attachment"
+      short: "Statement Attachment"
+    samples:
+      - How do I open the attachment received for a statement of account?
+      - Statement Attachment
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about statement attachment."
+      statement_attachmet:
+        field_name: "statement attachment"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You would need a password to open the attachment. The details to view the email statement are   present in the mail."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 17 Table 1 Task 25 Public
+  address_change_procedure:
+    description: address change procedure
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Change My Address"
+      short: "Change My Address"
+    samples:
+      - How do I change my address?
+      - Change My Address
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about Change my address."
+      Change_address:
+        field_name: "Change address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You can visit us in person at your nearest MCS Bank Center along with an original and self-attested copy of your new address proof and photo identity\n\nBy using MCS Mobile App > Menu > Insta Services."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 18 Table 1 Task 26 Public
+  name_change_procedure:
+    description: name change procedure
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Change My Name"
+      short: "Change My Name"
+    samples:
+      - What are the procedures for the change in name?
+      - Change My Name
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining details about Change my name."
+      Change_address:
+        field_name: "Change address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "The procedure for name change is as follows:\n\nIf you have legally changed your name, please provide us a duly signed request letter with 'Gazette Order' confirming the name change.\n\nTo include your spouse's name with your name after marriage, kindly provide us with your 'Marriage Certificate.\n\nUpon receipt of the above-mentioned documents, your name change will be effected\n\nNRIs can refer to this document for name change procedure(Duly filled & Signed Name change application required).\n\nYou can update your personal details instantly using MSC Mobile App."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 19 Table 1 Task 27 Public
+  add_loan_spouse:
+    description: add loan spouse
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Spouse Join Loan"
+      short: "Spouse Join Loan"
+    samples:
+      - Can I apply for a loan jointly with my spouse?
+      - Spouse Join Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining the details about applying loan jointly."
+      add_spouse:
+        field_name: "Add spouse"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Yes, you can apply for a loan jointly with your spouse.\n\nAny member of your immediate family can be your co-applicant."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 20 Table 1 Task 28 Public
+  loans_in_case_of_death:
+    description: loans in case of death
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loans Case Of Death"
+      short: "Loans Case Of Death"
+    samples:
+      - What happens to my loans in case of death?
+      - Loan Case Of Death
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining the details about loans in case of death."
+      loan_in_case_of_death:
+        field_name: "Loan case Of Death"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Apart from the security created in favor of lenders, the legal heir(s) of the deceased borrower is/are liable to repay the loan taken by the deceased borrower to the extent of Estate of the deceased borrower received by them."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 21 Table 1 Task 29 Public
+  charges_for_loan:
+    description: charges for loan
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Charges For Loan"
+      short: "Charges For Loan"
+    samples:
+      - What are the charges when applying for a loan at your institution?
+      - Charges For Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining the details about charges of the institution."
+      loan_charges_institution:
+        field_name: "Loan Charge Institution"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "The bank has to bear some administrative costs while processing and sanctioning your loan. This is usually a small amount, which varies from bank to bank and typically costs about 0.5% to 2.50% of the total amount of the loan.\n\nfurther infomation please refer this link - http://mymcs.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 22 Table 1 Task 30 Public
+  change_in_interest_rate:
+    description: change in interest rate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Change Interest Rate"
+      short: "Change Interest Rate"
+    samples:
+      - In case there is a change in interest rate (repo rate) what happen to my monthly installments?
+      - Change Interest Rate
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining the details about the change in interest rate for monthly installments."
+      change_interest:
+        field_name: "Change interest"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Whenever there is a change in repo rate, MCS will change the interest rate accordingly and monthly installments will be adjusted accordingly."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  
+  # 23 Table 2 Task 1 Private
+  get_loan_amount_disbursed:
+    description: get loan amount disbursed
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Amt Disbursed"
+      short: "Loan Amt Disbursed"
+    samples:
+      - What is the amount disbursed?
+      - Loan amount disbursed
+      - Loan Amt Disbursed
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with  obtaining  your loan amount disbursed."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Loan Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function:  get_loan_amount_disbursed
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 24 Table 2 Task 2 Private
+  retained_charge_of_loan:
+    description: retained charge of loan
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Retained Charges"
+      short: "Retained Charges"
+    samples:
+      - What are the different charges retained on my loan?
+      - Retained Charges
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining the details about different charges retained loan."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      retained_charge:
+        field_name: "Retained Charge"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "MCS levies certain fees and charges on the loan such as Loan Processing Charges, Verification Charges, etc.\n\nFor more details about the fees and charges, please refer this link: https://mybanks.com/fees_and_charges"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 25 Table 2 Task 4 Private
+  get_loan_status:
+    description: get loan status 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Status"
+      short: "Loan Status"
+    samples:
+      - What is the status of the loan I have applied?
+      - Loan Status
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you check the status of your loan."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Loan Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_loan_Status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 26 Table 2 Task 5 Private
+  receive_disbursement:
+    description: receive disbursement
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Receive Disbursement"
+      short: "Receive Disbursement"
+    samples:
+      - How will I receive the loan disbursement (bank transfer or cheque)?
+      - Receive Disbursement
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure.I can assist you in obtaining the details about receiving the loan disbursement."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      receiving_disburesement:
+        field_name: "Receiving Disburesement"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You will receive the loan disbursement via bank transfer."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 27 Table 2 Task 6 Private
+  mode_of_payment:
+    description: mode of payment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Mode Of Payment"
+      short: "Mode Of Payment"
+    samples:
+      - What is the mode of payment (whether bank transfer or cheques)?
+      - Mode Of Payment
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure.I can assist you in obtaining the details about receiving the mode of payment."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      mode_payment:
+        field_name: "Mode Payment"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You will receive the loan disbursement via bank transfer."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  
+  # 28 Table 3 Task 5 Private
+  get_emi_amount:
+    description: get emi amount
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Get EMI Amount"
+      short: "Get EMI Amount"
+    samples:
+      - Queries on EMI amt for different loans
+      - Get EMI Amount
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining your CIF ID."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      emi_amount:
+        field_name: "EMI Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_emi_amount
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  
+  # 29 Table 4 Task 3 Public
+  docs_needed_for_preclosure:
+    description: docs needed for preclosure
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Preclosure Documents"
+      short: "Preclosure Documents"
+    samples:
+      - Documents needed when doing part-payment/full settlement of loan
+      - Preclosure Documents
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining your CIF ID."
+      docs_needed:
+        field_name: "Docs Needed"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "For part-payment/full settlement of loan, below documents are needed:\n\nIdentity proof (National ID or other government-issued identity document), other loan-related documents: This includes loan approval letter, loan account statement and other documents issued by the bank.\n\nFore more information, please refer this link: https://mybank.com/docs_needed_for_preclosure"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 30 Table 4 Task 4 Public
+  limit_for_transactions:
+    description: limit for transactions
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transaction Limit"
+      short: "Transaction Limit"
+    samples:
+      - Daily limit of cash and card transactions
+      - Transaction Limit
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining the daily limit of cash an card transactions."
+      transaction_limit:
+        field_name: "Transaction limit"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Transactions limit for Cash is 50,000 MUR per day.\nTransactions limit for Card depends on the type of card being used.\n\nThe transaction details notified by MCS is furnished in this link: https://mybank.com/transaction_limits"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 31 Table 4 Task 5 Private
+  get_fd_certificates:
+    description: get fd certificates
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Get FD Certificates"
+      short: "Get FD Certificates"
+    samples:
+      - When their FD Certificates will be ready
+      - Get FD Certificates
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can assist you in obtaining when the FD Certificates will be ready."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your FD account number."
+              short: "Please choose your FD account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      fd_certificates:
+        field_name: "FD Certificates"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_fd_certificates
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  
+  # 32 Table 5 Task 7 Private
+  deposit_account_maturity_date:
+    description: deposit account maturity date
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep. Maturity Date"
+      short: "Dep. Maturity Date"
+    samples:
+      - When will my account matured?
+      - Dep. Maturity Date
+      - Deposit Maturity Date
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your deposit account maturity date."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      account_mature:
+        field_name: "Account Mature"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: deposit_account_maturity_date
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 33 Table 5 Task 8 Private
+  deposit_account_interest_rate:
+    description: deposit account interest rate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep Account Interest"
+      short: "Dep Account Interest"
+    samples:
+      - What are the current interest rates on my account- fixed/ flexi /Junior flexi?
+      - Account Interest Rate
+      - Dep Account Interest
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your deposit account interest rate."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you. 
+      list_of_deposits:
+        field_name: "Deposit type"
+        output_prompt:
+          pointer: deposits_as_three_buttons
+        user_input:
+          pointer: deposit_type
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      deposit_interest_rate:
+        field_name: "deposit interest rate"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_deposit_interest_rate
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 34 Table 5 Task 9 Private
+  deposit_account_start_date:
+    description: deposit account start date
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep. Account Date"
+      short: "Dep. Account Date"
+    samples:
+      - What was the start date of my account?
+      - Account Start Date
+      - Account Opening Date
+      - Dep. Account Date
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your account start date."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      account_start_date:
+        field_name: "Account Start Date"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: deposit_account_start_date
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 35 Table 5 Task 10 Private
+  interest_credit_account_number:
+    description: interest credit account number
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Interest Cr. Account"
+      short: "Interest Cr. Account"
+    samples:
+      - To which account number is my interest being paid to specific fixed deposit?
+      - Interest Cr. Account
+      - Interest Credit Account Number
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your which account number interest to be paid for a specific fixed deposit."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      interest_credit_account_number:
+        field_name: "Interest Credit Account Number"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_interest_credit_number
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 36 Table 5 Task 11 Private
+  deposit_interest_accrued:
+    description: deposit interest accrued
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep Interest Accrued"
+      short: "Dep Interest Accrued"
+    samples:
+      - What is the total interest accrued on my account?
+      - Dep Interest Accrued
+      - Deposit Total Interest
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the total interest accrued on your deposit account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      deposit_interest_accrued:
+        field_name: "deposit interest accrued"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_deposit_interest_accrued
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 37 Table 5 Task 12 Private
+  deposit_account_statement:
+    description: deposit account statement
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep. Ac. Statement"
+      short: "Dep. Ac. Statement"
+    samples:
+      - Can I have a statement for my account?
+      - Dep. Ac. Statement
+      - Deposit Account Statement
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with obtaining the account statement for your deposit account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      deposit_accounts_as_buttons:
+        field_name: "Deposit Accounts"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      deposit_account_statement:
+        field_name: "deposit account statement"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Deposit Account Statement for your account has been sent to your registered email."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 38 Table 5 Task 13 Private
+  deposit_account_certificate:
+    description: deposit account certificate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep. Ac. Certificate"
+      short: "Dep. Ac. Certificate"
+    samples:
+      - When will I receive my certificate?
+      - Dep. Ac. Certificate
+      - Deposit Account Certificate
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with obtaining the account certificate for your deposit account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      deposit_accounts_as_buttons:
+        field_name: "Deposit Accounts"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      deposit_account_certificate:
+        field_name: "deposit account certificate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Deposit Account Certificate for your account will be sent to your registered email."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 39 Table 5 Task 15 Private
+  get_fixed_deposit_number:
+    description: get fixed deposit number
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Fixed Deposit Number"
+      short: "Fixed Deposit Number"
+    samples:
+      - What is my fixed deposit number?	
+      - Fd Number
+      - Fixed Deposit Number
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your fixed deposit account number."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.            
+      fixed_deposit_account_number:
+        field_name: "Fixed Deposit"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_fixed_deposit_number
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 40 Table 5 Task 25 Private
+  deposit_account_balance:
+    description: deposit account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit Balance"
+      short: "Deposit Balance"
+    samples:
+      - What is my account balance?
+      - Deposit Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your deposit account balance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your deposit account number."
+              short: "Please choose your deposit account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "deposit Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_deposit_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 41 Table 5 Task 29 Private
+  increase_decrease_deposit_contribution:
+    description: Increase Decrease Deposit Contribution
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Modify Contribution"
+      short: "Modify Contribution"
+    samples:
+      - How to increase/decrease my contribution?
+      - I want to increase my contribution
+      - I want to decrease my contribution
+      - Increase Decrease Deposit Contribution
+      - Modify Contribution
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with modifying your contribution to deposit account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      deposit_accounts_as_buttons:
+        field_name: "Deposit Accounts"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      modify_in_deposit_account:
+        field_name: "Modify in deposit account"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to increase/decrease the contribution?"
+              short: "Do you want to increase/decrease the contribution?"
+            footer_text: null
+            button_captions:
+              - long: "Increase"
+                short: "Increase"
+              - long: "Decrease"
+                short: "Decrease"
+        user_input:
+          args:
+            type: TEXT
+      modify_amount:
+        field_name: "Modify amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please mention your Amount. Specify in MUR.
+        user_input:
+          args:
+            type: TEXT
+      modify_effective_month:
+        field_name: "Modify effective month"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to make this change from this month?"
+              short: "Do you want to make this change from this month?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your change request *FDCR753987* has been successfully filed on *02-Dec-2023*.\n\nStatus is *'In Progress'*. This request usually take _1-2_ business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 42 Table 5 Task 37 Private - to be edited
+  deposit_refund_effected:
+    description: deposit refund effected
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit Refund"
+      short: "Deposit Refund"
+    samples:
+      - When will my refund be effected?
+      - Deposit Refund
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your deposit account refund."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "deposit Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 43 Table 5 Task 38 Private - to be edited
+  deposit_credit_in_account:
+    description: deposit_credit_in_account
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit Credit"
+      short: "Deposit Credit"
+    samples:
+      - Has my bank account already been credited?
+      - Deposit Credit
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your deposit account refund."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      salary_amount_as_buttons:
+        field_name: "account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "deposit Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 44 Table 5 Task 39 Private - to be edited
+  get_credit_interest:
+    description: get credit interest
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dep. Interest Credit"
+      short: "Dep. Interest Credit"
+    samples:
+      - When will the interest be credited?
+      - Dep. Interest Credit
+      - Deposit Interest Credit
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 45 Table 5 Task 39 Private - to be edited
+  get_credit_advice:
+    description: get credit advice
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Get Credit Advice"
+      short: "Get Credit Advice"
+    samples:
+      - I have not received my credit advice, may I have a copy?
+      - Get Credit Advice
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+  # 46 Table 6 Task 1 Private - to be edited
+  shares_intimation:
+    description: shares intimation
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Shares Intimation"
+      short: "Shares Intimation"
+    samples:
+      - I have received a letter concerning the shares of my late father/mother/brother/sister/grand-mother/grand-father. Can you please provide more information?
+      - Shares Intimation
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with your query on shares."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+  # 47 Table 7 Task 1 private - to be edited
+  last_dividend_payment:
+    description: last dividend payment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Last Dividend Payout"
+      short: "Last Dividend Payout"
+    samples:
+      - When was the last dividend payment effected?
+      - Last Dividend Payout
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 48 Table 7 Task 2 private - to be edited
+  shares_dividend_info:
+    description: shares dividend info 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Shares Dividend Info"
+      short: "Shares Dividend Info"
+    samples:
+      - How many shares do I have with the Association and how much do I receive as dividends?
+      - Shares Dividend Info
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 49 Table 7 Task 5 private - to be edited
+  dividend_contribution_info:
+    description: dividend contribution info
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Contribution Info"
+      short: "Contribution Info"
+    samples:
+      - I make a contribution of Rs 20/- every month. I want to know what this contribution is about?
+      - Contribution Info
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+  # 50 Table 8 Task 3 Private - to be edited
+  get_existing_loan:
+    description: get existing loan 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Get Existing Loan"
+      short: "Get Existing Loan"
+    samples:
+      - How to obtain information about a member’s existing loan?
+      - Get Existing Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your loan interest rate"
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      list_of_loans:
+        field_name: "Loan type"
+        output_prompt:
+          pointer: loans_as_three_buttons
+        user_input:
+          pointer: loan_type         
+      eligibility_interest_rate:
+        field_name: "eligibility interest rate"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please refer this link - http://mybank.interestrate.com"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 51 Apply personal loan
+  apply_personal_loan:
+    description: apply for a personal loan
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Personal Loan"
+      short: "Personal Loan"
+    samples:
+      - i want to apply for a personal loan
+      - personal loan
+      - need some money urgently
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a personal loan."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your approximate annual salary."
+              short: "Please choose your approximate annual salary."
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT
+      loan_amount_as_buttons:
+        field_name: "Loan amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+            body_prologue:
+              long: "Please choose the loan amount category"
+              short: "Please choose the loan amount category"
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              # - "Thank you for applying for a personal loan. Our loan officers are working it. Please expect a callback in 3-5 business days."
+              - "Please click on this link to complete your persoanl loan application: https://mybank.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 52 Apply housing loan
+  apply_housing_loan:
+    description: apply for a housing loan
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Home Loan"
+      short: "Home Loan"
+    samples:
+      - i want to apply for a housing loan
+      - housing loan
+      - loan for an apartment
+      - Home Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a housing loan."
+      home_loan_offer_as_buttons:
+        field_name: "Loan offer"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://drive.google.com/uc?export=download&id=1aaLsEmQL4f-Rv5-fH8W0fdaifT7vK8sv"
+            body_prologue:
+              long: "We have an exciting offer for you!"
+              short: "We have an exciting offer for you!"
+            footer_text: null
+            button_captions:
+              - long: "Get a callback"
+                short: "Get a callback"
+              - long: "Apply Now"
+                short: "Apply Now"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your approximate annual salary."
+              short: "Please choose your approximate annual salary."
+            footer_text: null
+            button_captions:
+              - long: "1M - 5M MUR"
+                short: "1M - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "More than 10M MUR"
+                short: "More than 10M MUR"
+        user_input:
+          args:
+            type: TEXT
+      loan_amount_as_buttons:
+        field_name: "Loan amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+            body_prologue:
+              long: "Please choose the loan amount category"
+              short: "Please choose the loan amount category"
+            footer_text: null
+            button_captions:
+              - long: "10M - 25M MUR"
+                short: "10M - 25M MUR"
+              - long: "25M - 50M MUR"
+                short: "25M - 50M MUR"
+              - long: "50M - 100M MUR"
+                short: "50M - 100M MUR"
+        user_input:
+          args:
+            type: TEXT
+      tenure_length_as_menu_list:
+        field_name: "Tenure length"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            body_prologue:
+              long: "Please choose the tenure length"
+              short: "Please choose the tenure length"
+            option_button_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            section_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            menu_list_rows:
+              - title: "36 months"
+                description: null
+              - title: "60 months"
+                description: null
+              - title: "72 months"
+                description: null
+              - title: "120 months"
+                description: null
+              - title: "240 months"
+                description: null
+              - title: "360 months"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 52 Apply fixed deposit
+  apply_fixed_deposit:
+    description: apply for a fixed deposit
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Fixed Deposit"
+      short: "Fixed Deposit"
+    samples:
+      - i want to apply for a Fixed Deposit
+      - Fixed Deposit
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a fixed deposit."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      account_holder_name:
+        field_name: "Account holder name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Holder Name."
+        user_input:
+          args:
+            type: TEXT
+      deposit_amount:
+        field_name: "Deposit amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Deposit Amount (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      tenure_length_as_menu_list:
+        field_name: "Tenure length"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            body_prologue:
+              long: "Please choose the tenure length"
+              short: "Please choose the tenure length"
+            option_button_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            section_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            menu_list_rows:
+              - title: "36 months"
+                description: null
+              - title: "60 months"
+                description: null
+              - title: "72 months"
+                description: null
+              - title: "120 months"
+                description: null
+              - title: "240 months"
+                description: null
+              - title: "360 months"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your fixed deposit application: https://mybank.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+
+
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ###############################################################################
+
+FAQ:
+  faq_fd_account_info:
+    samples:
+      - How to open a fixed deposit account?
+      - "Open FD Account"
+    answers:
+      - |
+      
+        Fixed deposit account can be opened quickly by providing a few details
+        
+        1. Deposit Amount
+        2. Tenure
+        
+        And an identity proof in the below link: https://mybank.com/fd_account_details
+  ###############################################################################
+  faq_fd_account_docs_info:
+    samples:
+      - What are the documents required to open a fixed deposit account?
+      - "FD Account Documents"
+    answers:
+      - |
+      
+        Following are the documents required to open a fixed deposit account.
+        
+        1. ID Proof (National ID or any government-issued identity card)
+        2. Passport Size Photograph
+        
+        For further details, please refer the below link: https://mybank.com/fd_account_document_details
+  ###############################################################################
+  faq_flext_dep_account_docs_info:
+    samples:
+      - What are the documents required to open a flexi deposit account?
+      - "Flexi Dep Documents"
+    answers:
+      - |
+      
+        Following are the documents required to open a fixed deposit account.
+        
+        1. ID Proof (National ID or any government-issued identity card)
+        2. Passport Size Photograph
+        
+        For further details, please refer the below link: https://mybank.com/flexi_dep_account_document_details
+  ###############################################################################
