@@ -100,20 +100,20 @@ def get_cif_id(
 def get_loan_Status(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
-    message = "Your loan status is Approved"
+    message = "Your loan status is Approved."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_loan_amount_disbursed(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
-    message = "Available loan amount is 2,671.32 MUR"
+    message = "Available loan amount is **2,671.32 MUR**."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_emi_amount(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     account_number = context.user_response
-    message = "EMI Amount for your loan account " + account_number + " is 2,450.00 MUR."
+    message = "EMI Amount for your loan account " + account_number + " is **2,450.00 MUR**."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_deposit_interest_rate(
@@ -134,7 +134,21 @@ def get_deposit_interest_accrued(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     account_number = context.user_response
-    message = "For your  deposit account **" + account_number + "**, the total interest accrued is **3560.00 MUR.%**."
+    message = "For your deposit account **" + account_number + "**, the total interest accrued is **3560.00 MUR**."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+def get_and_display_last_dividend_payout(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    investment_type = context.user_response
+    message = "The last dividend payment for your **" + investment_type + "** was on **28-Dec-2023**. The dividend amount was **1255.00 MUR**."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+def get_and_display_shares_and_dividends(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    investment_type = context.user_response
+    message = "You currently have **505** shares with the Association, and the last dividend payment for your **" + investment_type + "** was on **28-Dec-2023**. The dividend amount was **1255.00 MUR**."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_fd_certificates(

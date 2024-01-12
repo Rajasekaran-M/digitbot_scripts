@@ -7,7 +7,7 @@ OutputPrompts:
     args:
       type: TEXT
       content:
-        - "I need to validate your identity. Please enter your **10 digit** phone number."
+        - "I need to validate your identity. Please enter your **8 digit** phone number."
         - "Please enter your phone number."
   ###############################################################################
   OTP:
@@ -32,12 +32,12 @@ OutputPrompts:
         short: "Please choose the desired service category"
       footer_text: null
       button_captions:
-        - long: "Bank Account Services"
-          short: "Account Services"
-        - long: "Share Services"
-          short: "Share Services"
-        - long: "Customer Services"
-          short: "Customer Services"
+        - long: "Loan"
+          short: "Loan"
+        - long: "Deposit"
+          short: "Deposit"
+        - long: "Other Services"
+          short: "Other Services"
   ###############################################################################
   bank_account_services_menu_as_buttons:
     args:
@@ -83,7 +83,7 @@ OutputPrompts:
           description: null
         - title: "Retirement Savings"
           description: null
-        - title: "Share Services"
+        - title: "Share and Dividend"
           description: null
   ###############################################################################
   bank_account_services_menu_as_menu_list:
@@ -160,6 +160,36 @@ OutputPrompts:
         - long: "Loan Interest Rates"
           short: "Loan Interest Rates"
   ###############################################################################
+  loan_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Loan Services Provided by MCS Bot"
+        short: "Loan Services Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Account Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Loan Services Menu"
+        short: "Loan Services Menu"
+      section_title:
+        long: "Loan Services"
+        short: "Loan Services"
+      menu_list_rows:
+        - title: "Apply Loan"
+          description: null
+        - title: "Loan Balance"
+          description: null
+        - title: "Loan Interest Rates"
+          description: null
+        - title: "Loan FAQs"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
   deposit_submenu_as_three_buttons:
     args:
       type: BUTTONS
@@ -178,6 +208,36 @@ OutputPrompts:
           short: "Deposit Balance"
         - long: "Deposit Interest Rates"
           short: "Deposit Interest"
+  ###############################################################################
+  deposit_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Deposit Services Provided by MCS Bot"
+        short: "Deposit Services Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Deposit Services and choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Deposit Services"
+        short: "Deposit Services"
+      section_title:
+        long: "Deposit Services"
+        short: "Deposit Services"
+      menu_list_rows:
+        - title: "Apply Deposit"
+          description: null
+        - title: "Deposit Balance"
+          description: null
+        - title: "Deposit Interest Rates"
+          description: null
+        - title: "Deposit FAQs"
+          description: null
+        - title: "Show Main Menu"
+          description: null
   ###############################################################################
   deposits_as_three_buttons:
     args:
@@ -198,11 +258,205 @@ OutputPrompts:
         - long: "Junior Flexi Deposit"
           short: "Junior Flexi Deposit"
   ###############################################################################
+  retirement_savings_fund_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Retirement Savings Fund Services Provided by MCS Bot"
+        short: "Retirement Savings Fund Services Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Retirement Savings Fund Services and choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Retirement Savings"
+        short: "Retirement Savings"
+      section_title:
+        long: "Retirement Savings Fund"
+        short: "Retirement Savings Fund"
+      menu_list_rows:
+        - title: "Minimum Contribution"
+          description: null
+        - title: "Projection of Lump Sum"
+          description: null
+        - title: "Lump Sum Calculator"
+          description: null
+        - title: "Retirement Savings FAQs"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
+  share_dividend_submenu_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Share and Dividend Services offered by us. Please choose one to proceed further."
+        short: "Share and Dividend Services offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Share"
+          short: "Share"
+        - long: "Dividend"
+          short: "Dividend"
+  ###############################################################################
+  customer_services_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Customer Services Provided by MCS Bot"
+        short: "Customer Services Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Customer Services and choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Customer Services"
+        short: "Customer Services"
+      section_title:
+        long: "Customer Services"
+        short: "Customer Services"
+      menu_list_rows:
+        - title: "New Customer Information"
+          description: null
+        - title: "Benefits of a Member"
+          description: null
+        - title: "Creation on E-Services"
+          description: null
+        - title: "Customer FAQs"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
+  dividend_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Dividend Services offered by us. Please choose one to proceed further."
+        short: "Dividend Services offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Last Dividend"
+          short: "Last Dividend"
+        - long: "Dividend Information"
+          short: "Dividend Information"
+        - long: "Contribution Info"
+          short: "Contribution Info"
+  ###############################################################################
   exit_message_at_task_end:
     args:
       type: TEXT
       content:
         - "Hope this was helpful?\n\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+  ###############################################################################
+  loan_faq_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for Loans"
+        short: "FAQs for Loans"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs for Loans"
+        short: "FAQs for Loans"
+      section_title:
+        long: "FAQs for Loans"
+        short: "FAQs for Loans"
+      menu_list_rows:
+        - title: "Documents for Loan"
+          description: null
+        - title: "FAQs about Bank A/C"
+          description: null
+        - title: "FAQs about Cards/ATMs"
+          description: null
+        - title: "FAQs about Mob. Banking"
+          description: null
+        - title: "FAQs about Loans"
+          description: null
+        - title: "FAQs about Agents"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
+  deposit_faq_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for Deposits"
+        short: "FAQs for Deposits"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs for Deposits"
+        short: "FAQs for Deposits"
+      section_title:
+        long: "FAQs for Deposits"
+        short: "FAQs for Deposits"
+      menu_list_rows:
+        - title: "Documents for Deposits"
+          description: null
+        - title: "FAQs about Bank A/C"
+          description: null
+        - title: "FAQs about Cards/ATMs"
+          description: null
+        - title: "FAQs about Mob. Banking"
+          description: null
+        - title: "FAQs about Loans"
+          description: null
+        - title: "FAQs about Agents"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
+  other_services_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Other Services Provided by MCS Bot"
+        short: "Other Services Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Other Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Other Services Menu"
+        short: "Other Services Menu"
+      section_title:
+        long: "Other Services"
+        short: "Other Services"
+      menu_list_rows:
+        - title: "Retirement Savings Fund"
+          description: null
+        - title: "Share and Dividend"
+          description: null
+        - title: "Customer Services"
+          description: null
+        - title: "General FAQs"
+          description: null
+        - title: "Show Main Menu"
+          description: null
   ###############################################################################
 
 UserInputs:
@@ -264,7 +518,8 @@ Task:
       menu_options:
         field_name: "Main menu"
         output_prompt:
-          pointer: main_menu_as_buttons # main_menu_as_list
+          # pointer: main_menu_as_list
+          pointer: main_menu_as_buttons
   ###############################################################################
   bank_account_services_menu:
     description: show bank account menu
@@ -289,12 +544,12 @@ Task:
       short: "Loan"
     samples:
       - Loan
-      - loan
     entities:
       menu_options:
         field_name: "Bank account services menu"
         output_prompt:
-          pointer: loan_submenu_as_three_buttons
+          # pointer: loan_submenu_as_three_buttons
+          pointer: loan_submenu_as_menu_list
   ###############################################################################
   apply_loan_menu:
     description: show apply loan menu
@@ -311,6 +566,21 @@ Task:
         output_prompt:
           pointer: loans_as_three_buttons
   ###############################################################################
+  loan_faq_main_menu:
+    description: show loan FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan FAQs"
+      short: "Loan FAQs"
+    samples:
+      - Loan FAQs
+      - I have a question about loan
+    entities:
+      menu_options:
+        field_name: "FAQ menu"
+        output_prompt:
+          pointer: loan_faq_menu_as_menu_list
+  ###############################################################################
   deposit_menu:
     description: show deposit menu
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -321,9 +591,25 @@ Task:
       - Deposit
     entities:
       menu_options:
-        field_name: "Bank account services menu"
+        field_name: "Deposit services menu"
         output_prompt:
-          pointer: deposit_submenu_as_three_buttons
+          # pointer: deposit_submenu_as_three_buttons
+          pointer: deposit_submenu_as_menu_list
+  ###############################################################################
+  retirement_savings_fund_menu:
+    description: show retirement savings menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Retirement Savings"
+      short: "Retirement Savings"
+    samples:
+      - Retirement Savings Fund
+      - Retirement Savings
+    entities:
+      menu_options:
+        field_name: "Retirement savings fund services menu"
+        output_prompt:
+          pointer: retirement_savings_fund_submenu_as_menu_list
   ###############################################################################
   apply_deposit_menu:
     description: show apply deposit menu
@@ -338,6 +624,79 @@ Task:
         field_name: "apply deposit menu"
         output_prompt:
           pointer: deposits_as_three_buttons
+  ###############################################################################
+  deposit_faq_main_menu:
+    description: show deposit FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit FAQs"
+      short: "Deposit FAQs"
+    samples:
+      - Deposit FAQs
+      - I have a question about deposit
+    entities:
+      menu_options:
+        field_name: "FAQ menu"
+        output_prompt:
+          pointer: deposit_faq_menu_as_menu_list
+  ###############################################################################
+  other_services_menu:
+    description: show other services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Other Services"
+      short: "Other Services"
+    samples:
+      - Other Services
+    entities:
+      menu_options:
+        field_name: "Bank account services menu"
+        output_prompt:
+          pointer: other_services_submenu_as_menu_list
+  ###############################################################################
+  customer_services_menu:
+    description: show customer services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Customer Services"
+      short: "Customer Services"
+    samples:
+      - Customer Services
+    entities:
+      menu_options:
+        field_name: "Customer services menu"
+        output_prompt:
+          pointer: customer_services_submenu_as_menu_list
+  ###############################################################################
+  share_dividend_menu:
+    description: show loan menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Share and Dividend"
+      short: "Share and Dividend"
+    samples:
+      - Share and Dividend
+    entities:
+      menu_options:
+        field_name: "Share and Dividend services menu"
+        output_prompt:
+          # pointer: loan_submenu_as_three_buttons
+          pointer: share_dividend_submenu_as_three_buttons
+  ###############################################################################
+  dividend_menu:
+    description: show dividend menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dividend"
+      short: "Dividend"
+    samples:
+      - Dividend
+    entities:
+      menu_options:
+        field_name: "Dividend services menu"
+        output_prompt:
+          # pointer: loan_submenu_as_three_buttons
+          pointer: dividend_as_three_buttons
   ###############################################################################
   # 1 Table 1 Task 6 Private
   get_loan_eligibility:
@@ -848,7 +1207,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please enter the Account Holder Name."
+              - "Please enter your name."
         user_input:
           args:
             type: TEXT
@@ -1011,26 +1370,20 @@ Task:
           args:
             type: TEXT
             content:
-              - "Sure. I can help you with getting your loan interest rate"
-      phone_number:
-        field_name: "Phone number"
-        output_prompt:
-          pointer: phone_number
-        user_input:
-          pointer: phone_number
+              - "Sure. I can help you with getting the loan interest rates."
       list_of_loans:
         field_name: "Loan type"
         output_prompt:
           pointer: loans_as_three_buttons
         user_input:
           pointer: loan_type         
-      eligibility_interest_rate:
-        field_name: "eligibility interest rate"
+      loan_interest_rates:
+        field_name: "Loan interest rates"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please refer this link - http://mybank.interestrate.com"
+              - "We are providing lower interest rates as low as 6.5% for the home loans. For more details, please refer the below link:\n\nhttp://mybank.com/loan_interest_rates"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -2925,7 +3278,7 @@ Task:
           pointer: exit_message_at_task_end
   ###############################################################################
 
-  # 47 Table 7 Task 1 private - to be edited
+  # 47 Table 7 Task 1 private
   last_dividend_payment:
     description: last dividend payment
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -2942,32 +3295,62 @@ Task:
           args:
             type: TEXT
             content:
-              - "Sure. I can help you with getting your loan interest rate"
+              - "Sure. I can help you with getting your last dividend payout."
       phone_number:
         field_name: "Phone number"
         output_prompt:
           pointer: phone_number
         user_input:
           pointer: phone_number
-      list_of_loans:
-        field_name: "Loan type"
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
         output_prompt:
-          pointer: loans_as_three_buttons
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      types_of_investments:
+        field_name: "Investment type"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Below are the types of investments. Please choose one to proceed further."
+              short: "Below are the types of investments. Please choose one to proceed further."
+            footer_text: null
+            button_captions:
+              - long: "Stock Portfolio"
+                short: "Stock Portfolio"
+              - long: "Mutual Funds"
+                short: "Mutual Funds"
+              - long: "Bonds"
+                short: "Bonds"
         user_input:
           pointer: loan_type         
       eligibility_interest_rate:
         field_name: "eligibility interest rate"
         output_prompt:
           args:
-            type: TEXT
-            content:
-              - "Please refer this link - http://mybank.interestrate.com"
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_last_dividend_payout
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-  # 48 Table 7 Task 2 private - to be edited
+  # 48 Table 7 Task 2 private
   shares_dividend_info:
     description: shares dividend info 
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -2984,26 +3367,56 @@ Task:
           args:
             type: TEXT
             content:
-              - "Sure. I can help you with getting your loan interest rate"
+              - "Sure. I can help you with getting the information about shares and dividends."
       phone_number:
         field_name: "Phone number"
         output_prompt:
           pointer: phone_number
         user_input:
           pointer: phone_number
-      list_of_loans:
-        field_name: "Loan type"
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
         output_prompt:
-          pointer: loans_as_three_buttons
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      types_of_investments:
+        field_name: "Investment type"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Below are the types of investments. Please choose one to proceed further."
+              short: "Below are the types of investments. Please choose one to proceed further."
+            footer_text: null
+            button_captions:
+              - long: "Stock Portfolio"
+                short: "Stock Portfolio"
+              - long: "Mutual Funds"
+                short: "Mutual Funds"
+              - long: "Bonds"
+                short: "Bonds"
         user_input:
           pointer: loan_type         
       eligibility_interest_rate:
         field_name: "eligibility interest rate"
         output_prompt:
           args:
-            type: TEXT
-            content:
-              - "Please refer this link - http://mybank.interestrate.com"
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_shares_and_dividends
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -3220,25 +3633,6 @@ Task:
             type: TEXT
             content:
               - "Sure. I can help you with applying for a housing loan."
-      home_loan_offer_as_buttons:
-        field_name: "Loan offer"
-        output_prompt:
-          args:
-            type: BUTTONS
-            header_type: image
-            header_image: "https://drive.google.com/uc?export=download&id=1aaLsEmQL4f-Rv5-fH8W0fdaifT7vK8sv"
-            body_prologue:
-              long: "We have an exciting offer for you!"
-              short: "We have an exciting offer for you!"
-            footer_text: null
-            button_captions:
-              - long: "Get a callback"
-                short: "Get a callback"
-              - long: "Apply Now"
-                short: "Apply Now"
-        user_input:
-          args:
-            type: TEXT
       phone_number:
         field_name: "Phone number"
         output_prompt:
@@ -3406,13 +3800,13 @@ Task:
           pointer: email_address
         user_input:
           pointer: email_address
-      account_holder_name:
-        field_name: "Account holder name"
+      customer_name:
+        field_name: "Customer name"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter the Account Holder Name."
+              - "Please provide your Name."
         user_input:
           args:
             type: TEXT
@@ -3471,9 +3865,43 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-
-
-
+  # 53 Table 5 Task 20 Public
+  get_deposit_interest_rate:
+    description: get deposit interest rate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit Interest Rate"
+      short: "Deposit Interest"
+    samples:
+      - What is the prevailing interest rate table?
+      - Deposit Interest Rate
+      - Deposit Interest
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the deposit interest rates."
+      list_of_deposits:
+        field_name: "Deposit type"
+        output_prompt:
+          pointer: deposits_as_three_buttons
+        user_input:
+          pointer: deposit_type         
+      deposit_interest_rates:
+        field_name: "deposit_interest_rates"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "MCS provides higher interest rates as high as 7.1% for the Deposits. For more details, please refer the below link:\n\nhttp://mybank.com/deposit_interest_rates"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
   positive:
     description: polarity
     type: "polarity"
@@ -3574,4 +4002,19 @@ FAQ:
         2. Passport Size Photograph
         
         For further details, please refer the below link: https://mybank.com/flexi_dep_account_document_details
+  ###############################################################################
+  faq_loan_account_docs_info:
+    samples:
+      - What are the documents required for application of loans?
+      - "Documents for Loan"
+    answers:
+      - |
+      
+        The following documents are required for a Personal Loan:
+        1. Identity proof (copy of Passport/Driving License/National ID)
+        2. Address proof (copy of Passport/Driving License/National ID)
+        3. Bank statement of previous 3 months (Passbook of previous 6 months)
+        4. Two latest salary slip/current dated salary certificate with the latest income tax receipt
+        
+        For further details, please refer the below link: https://mybank.com/loan_account_document_details
   ###############################################################################
