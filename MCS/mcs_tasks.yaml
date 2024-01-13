@@ -183,6 +183,8 @@ OutputPrompts:
           description: null
         - title: "Loan Balance"
           description: null
+        - title: "Loan Eligibility"
+          description: null
         - title: "Loan Interest Rates"
           description: null
         - title: "Loan FAQs"
@@ -334,6 +336,25 @@ OutputPrompts:
           description: null
         - title: "Show Main Menu"
           description: null
+  ###############################################################################
+  share_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Share Services offered by us. Please choose one to proceed further."
+        short: "Share Services offered by us. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Deceased Shares Info"
+          short: "Deceased Shares Info"
+        - long: "Transfer Info"
+          short: "Transfer Info"
+        - long: "Oher FAQs"
+          short: "Oher FAQs"
   ###############################################################################
   dividend_as_three_buttons:
     args:
@@ -682,6 +703,21 @@ Task:
         output_prompt:
           # pointer: loan_submenu_as_three_buttons
           pointer: share_dividend_submenu_as_three_buttons
+  ###############################################################################
+  share_menu:
+    description: show share menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Share"
+      short: "Share"
+    samples:
+      - Share
+    entities:
+      menu_options:
+        field_name: "Share services menu"
+        output_prompt:
+          # pointer: loan_submenu_as_three_buttons
+          pointer: share_as_three_buttons
   ###############################################################################
   dividend_menu:
     description: show dividend menu
@@ -2797,7 +2833,7 @@ Task:
         failure_validation_responses:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
-          - We were unable to authenticate you.            
+          - We were unable to authenticate you.
       fixed_deposit_account_number:
         field_name: "Fixed Deposit"
         output_prompt:
@@ -3235,16 +3271,16 @@ Task:
           pointer: exit_message_at_task_end
   ###############################################################################
 
-  # 46 Table 6 Task 1 Private - to be edited
-  shares_intimation:
-    description: shares intimation
+  # 46 Table 6 Task 1 Private
+  deceased_shares_info:
+    description: Deceased Shares Info
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
     task_suggestion:
-      long: "Shares Intimation"
-      short: "Shares Intimation"
+      long: "Deceased Shares Info"
+      short: "Deceased Shares Info"
     samples:
       - I have received a letter concerning the shares of my late father/mother/brother/sister/grand-mother/grand-father. Can you please provide more information?
-      - Shares Intimation
+      - Deceased Shares Info
     entities:
       welcome_text:
         field_name: "Welcome text"
@@ -3252,26 +3288,55 @@ Task:
           args:
             type: TEXT
             content:
-              - "Sure. I can help you with your query on shares."
+              - "Sure. We are sorry for your loss. I can help you with your query."
       phone_number:
         field_name: "Phone number"
         output_prompt:
           pointer: phone_number
         user_input:
           pointer: phone_number
-      list_of_loans:
-        field_name: "Loan type"
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
         output_prompt:
-          pointer: loans_as_three_buttons
+          pointer: OTP
         user_input:
-          pointer: loan_type         
-      eligibility_interest_rate:
-        field_name: "eligibility interest rate"
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      deceased_members_name:
+        field_name: "Deceased members name"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please refer this link - http://mybank.interestrate.com"
+              - "Please enter the deceased family member's name."
+        user_input:
+          args:
+            type: TEXT
+      letter_reference_number:
+        field_name: "Letter reference number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the reference number mentioned in the letter."
+        user_input:
+          args:
+            type: TEXT
+      share_query_response:
+        field_name: "Share query response"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your family member held 100 shares in account MCSDA052178.\n\nThe letter you received might contain details about the transfer of these shares. Please reach out to our customer support team at the nearest branch. They can guide you through the necessary steps and assist with any documentation needed during this process."
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:

@@ -1,0 +1,1193 @@
+Bot:
+  bot_name: Chatbot for Accra Police Department
+  bot_description: Chatbot for Accra Police Department
+
+OutputPrompts:
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your **10 digit** phone number."
+        - "Please enter your phone number."
+  ###############################################################################
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number."
+  ###############################################################################
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://myins.smartsellhub.com/gps_logo.png"
+      body_prologue:
+        long: "Please choose the desired service category"
+        short: "Please choose the desired service category"
+      footer_text: null
+      button_captions:
+        - long: "Emergency"
+          short: "Emergency"
+        - long: "Report a Crime"
+          short: "Report a Crime"
+        - long: "Other Services"
+          short: "Other Services"
+  ###############################################################################
+  incidents_as_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What type of incident are you reporting?"
+        short: "What type of incident are you reporting?"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Incident Type"
+        short: "Incident Type"
+      section_title:
+        long: "Incident Type"
+        short: "Incident Type"
+      menu_list_rows:
+        - title: "Theft"
+          description: null
+        - title: "Vandalism"
+          description: null
+        - title: "Assault"
+          description: null
+        - title: "Burglary"
+          description: null
+        - title: "Harassment"
+          description: null
+  ###############################################################################
+  fines_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://img.freepik.com/free-vector/traffic-fine-abstract-concept-vector-illustration-traffic-law-violation-speeding-fine-ticket-pay-online-driving-rules-offence-speed-control-red-light-camera-stop-sign-abstract-metaphor_335657-1804.jpg"
+      body_prologue:
+        long: "What type of fine are you looking to pay?"
+        short: "What type of fine are you looking to pay?"
+      footer_text: null
+      button_captions:
+        - long: "Traffic Violation"
+          short: "Traffic Violation"
+        - long: "Parking Ticket"
+          short: "Parking Ticket"
+        - long: "Citation"
+          short: "Citation"
+  ###############################################################################
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+  ###############################################################################
+  other_services_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      # header_image: "https://img.freepik.com/free-vector/police-station-background-design_1300-4.jpg"
+      header_image: "https://img.freepik.com/free-vector/cartoon-police-station-building-with-patrol-cars_107791-15791.jpg"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Traffic/Parking Fine"
+          short: "Traffic/Parking Fine"
+        - long: "Emergency Services"
+          short: "Emergency Services"
+        - long: "Show Main Menu"
+          short: "Show Main Menu"
+  ###############################################################################
+  traffic_parking_fines_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://img.freepik.com/free-vector/cartoon-police-station-building-with-patrol-cars_107791-15791.jpg"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Pay Traffic Fine"
+          short: "Pay Traffic Fine"
+        - long: "Contest Tickets"
+          short: "Contest Tickets"
+        - long: "Show Main Menu"
+          short: "Show Main Menu"
+  ###############################################################################
+
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+  ###############################################################################
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+  ###############################################################################
+  incident_type:
+    args:
+      type: TEXT
+  ###############################################################################
+  fine_type:
+    args:
+      type: TEXT
+  ###############################################################################
+
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons # main_menu_as_list
+  ###############################################################################
+  other_services_menu:
+    description: show other services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Other Services"
+      short: "Other Services"
+    samples:
+      - Other Services
+    entities:
+      menu_options:
+        field_name: "Oher services menu"
+        output_prompt:
+          pointer: other_services_menu_as_buttons
+  ###############################################################################
+  # Report a Crime
+  report_a_crime:
+    description: report a crime
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Report a Crime"
+      short: "Report a Crime"
+    samples:
+      - Report a Crime
+      - I want to report a crime
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with reporting the crime."
+      type_of_incident:
+        field_name: "Type of incident"
+        output_prompt:
+          pointer: incidents_as_list
+        #user_input:
+          #pointer: incident_type
+  ###############################################################################
+  # Vandalism
+  vandalism_reporting:
+    description: vandalism reporting
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Vandalism"
+      short: "Vandalism"
+    samples:
+      - Vandalism
+    entities:
+      complainant_confirmation:
+        field_name: "Complainant confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you the complainant?"
+              short: "Are you the complainant?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      name_of_reportee:
+        field_name: "Name of the reportee"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      address_of_complainant:
+        field_name: "Address of the complainant"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          args:
+            type: TEXT
+      vandalised_property:
+        field_name: "Vandalised property"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose the vandalised property"
+              short: "Please choose the vandalised property"
+            option_button_title:
+              long: "Vandalised Property"
+              short: "Vandalised Property"
+            section_title:
+              long: "Vandalised Property"
+              short: "Vandalised Property"
+            menu_list_rows:
+              - title: "Building"
+                description: null
+              - title: "Land"
+                description: null
+              - title: "Vehicle"
+                description: null
+              - title: "Personal Belongings"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      date_of_incident:
+        field_name: "Date of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "When did the incident happen? Please enter the date in DD-MM-YYYY format (such as 01-01-2024)."
+        user_input:
+          args:
+            type: TEXT
+      time_of_incident:
+        field_name: "Time of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide the approximate time of incident."
+        user_input:
+          args:
+            type: TEXT
+      details_of_incident:
+        field_name: "Details of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please explain the incident briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      report_document:
+        field_name: "Report document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/police-complaint-report.pdf"
+            web_title: "Report PDF"
+            web_description: "Please click on the link to view the police complaint report."
+      exit_message:
+        field_name: "Exit messsage"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for reporting the incident. Your complaint number is ACA16CR100789.\n\nYour complaint falls to Accra A16 Police Station's jurisdiction. Officers from the station will get in touch with you as quickly as possible."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # Theft
+  theft_reporting:
+    description: Theft reporting
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Theft"
+      short: "Theft"
+    samples:
+      - Theft
+    entities:
+      complainant_confirmation:
+        field_name: "Complainant confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you the complainant?"
+              short: "Are you the complainant?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      name_of_reportee:
+        field_name: "Name of the reportee"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      address_of_complainant:
+        field_name: "Address of the complainant"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          args:
+            type: TEXT
+      description_of_stolen_property:
+        field_name: "Description of Stolen Property"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What was stolen? Provide a detailed description of the stolen item(s)."
+        user_input:
+          args:
+            type: TEXT
+      estimated_value_of_stolen_property:
+        field_name: "Estimated Value of Stolen Property"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What is the estimated value of the stolen item(s)?"
+        user_input:
+          args:
+            type: TEXT
+      date_of_incident:
+        field_name: "Date of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "When did the incident happen? Please enter the date in DD-MM-YYYY format (such as 01-01-2024)."
+        user_input:
+          args:
+            type: TEXT
+      time_of_incident:
+        field_name: "Time of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide the approximate time of incident."
+        user_input:
+          args:
+            type: TEXT
+      details_of_incident:
+        field_name: "Details of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please explain the incident briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      insurance_information:
+        field_name: "Insurance information"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Do you have insurance for the stolen items? If yes, provide relevant policy details."
+        user_input:
+          args:
+            type: TEXT
+      report_document:
+        field_name: "Report document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/police-complaint-report.pdf"
+            web_title: "Report PDF"
+            web_description: "Please click on the link to view the police complaint report."
+      exit_message:
+        field_name: "Exit messsage"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for reporting the incident. Your complaint number is ACA16CR100790.\n\nYour complaint falls to Accra A16 Police Station's jurisdiction. Officers from the station will get in touch with you as quickly as possible."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # Assault
+  assault_reporting:
+    description: Assault reporting
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Assault"
+      short: "Assault"
+    samples:
+      - Assault
+    entities:
+      complainant_confirmation:
+        field_name: "Complainant confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you the complainant?"
+              short: "Are you the complainant?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      name_of_reportee:
+        field_name: "Name of the reportee"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      address_of_complainant:
+        field_name: "Address of the complainant"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          args:
+            type: TEXT
+      nature_of_assault:
+        field_name: "Nature of Assault"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose the nature of assault."
+              short: "Please choose the nature of assault."
+            footer_text: null
+            button_captions:
+              - long: "Physical"
+                short: "Physical"
+              - long: "Verbal"
+                short: "Verbal"
+              - long: "Sexual"
+                short: "Sexual"
+        user_input:
+          args:
+            type: TEXT
+      relationship_to_assailant:
+        field_name: "Relationship to Assailant"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Relationship to the assailant?"
+              short: "Relationship to the assailant?"
+            footer_text: null
+            button_captions:
+              - long: "Stranger"
+                short: "Stranger"
+              - long: "Acquaintance"
+                short: "Acquaintance"
+              - long: "Family Member"
+                short: "Family Member"
+        user_input:
+          args:
+            type: TEXT
+      witnesses_to_the_assault:
+        field_name: "Witnesses to the assault"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Were there any witnesses to the assault? If yes, provide their contact information if available."
+        user_input:
+          args:
+            type: TEXT
+      weapons_involved:
+        field_name: "Weapons involved"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Were any weapons involved in the assault? If yes, describe the weapons."
+        user_input:
+          args:
+            type: TEXT
+      date_of_incident:
+        field_name: "Date of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "When did the incident happen? Please enter the date in DD-MM-YYYY format (such as 01-01-2024)."
+        user_input:
+          args:
+            type: TEXT
+      time_of_incident:
+        field_name: "Time of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide the approximate time of incident."
+        user_input:
+          args:
+            type: TEXT
+      details_of_incident:
+        field_name: "Details of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please explain the incident briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      report_document:
+        field_name: "Report document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/police-complaint-report.pdf"
+            web_title: "Report PDF"
+            web_description: "Please click on the link to view the police complaint report."
+      exit_message:
+        field_name: "Exit messsage"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for reporting the incident. Your complaint number is ACA16CR100789.\n\nYour complaint falls to Accra A16 Police Station's jurisdiction. Officers from the station will get in touch with you as quickly as possible."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # Burglary
+  burglary_reporting:
+    description: Burglary reporting
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Burglary"
+      short: "Burglary"
+    samples:
+      - Burglary
+    entities:
+      complainant_confirmation:
+        field_name: "Complainant confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you the complainant?"
+              short: "Are you the complainant?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      name_of_reportee:
+        field_name: "Name of the reportee"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      address_of_complainant:
+        field_name: "Address of the complainant"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          args:
+            type: TEXT
+      description_of_stolen_items:
+        field_name: "Description of Stolen Items"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What items were stolen? Provide a detailed description of each stolen items."
+        user_input:
+          args:
+            type: TEXT
+      estimated_value_of_stolen_items:
+        field_name: "Estimated Value of Stolen Items"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What is the estimated value of the stolen item(s)?"
+        user_input:
+          args:
+            type: TEXT
+      date_of_incident:
+        field_name: "Date of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "When did the incident happen? Please enter the date in DD-MM-YYYY format (such as 01-01-2024)."
+        user_input:
+          args:
+            type: TEXT
+      time_of_incident:
+        field_name: "Time of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide the approximate time of incident."
+        user_input:
+          args:
+            type: TEXT
+      details_of_incident:
+        field_name: "Details of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please explain the incident briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      insurance_information:
+        field_name: "Insurance information"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Do you have insurance for the stolen items? If yes, provide relevant policy details."
+        user_input:
+          args:
+            type: TEXT
+      report_document:
+        field_name: "Report document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/police-complaint-report.pdf"
+            web_title: "Report PDF"
+            web_description: "Please click on the link to view the police complaint report."
+      exit_message:
+        field_name: "Exit messsage"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for reporting the incident. Your complaint number is ACA16CR100790.\n\nYour complaint falls to Accra A16 Police Station's jurisdiction. Officers from the station will get in touch with you as quickly as possible."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # Harassment
+  harassment_reporting:
+    description: Harassment reporting
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Harassment"
+      short: "Harassment"
+    samples:
+      - Harassment
+    entities:
+      complainant_confirmation:
+        field_name: "Complainant confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you the complainant?"
+              short: "Are you the complainant?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      name_of_reportee:
+        field_name: "Name of the reportee"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      address_of_complainant:
+        field_name: "Address of the complainant"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          args:
+            type: TEXT
+      nature_of_harassment:
+        field_name: "Nature of Harassment"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose the nature of harassment."
+              short: "Please choose the nature of harassment."
+            footer_text: null
+            button_captions:
+              - long: "Physical"
+                short: "Physical"
+              - long: "Verbal"
+                short: "Verbal"
+              - long: "Online"
+                short: "Online"
+        user_input:
+          args:
+            type: TEXT
+      date_of_incident:
+        field_name: "Date of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "When did the incident happen? Please enter the date in DD-MM-YYYY format (such as 01-01-2024)."
+        user_input:
+          args:
+            type: TEXT
+      time_of_incident:
+        field_name: "Time of incident"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide the approximate time of incident."
+        user_input:
+          args:
+            type: TEXT
+      details_of_harassment:
+        field_name: "Details of harassment"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please explain the incident briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      witnesses_to_the_harassment:
+        field_name: "Witnesses to the harassment"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Were there any witnesses to the harassment? If yes, provide their contact information if available."
+        user_input:
+          args:
+            type: TEXT
+      means_of_harassment:
+        field_name: "Means of harassment"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "How did the harassment take place?"
+              short: "How did the harassment take place?"
+            option_button_title:
+              long: "Means of Harassment"
+              short: "Means of Harassment"
+            section_title:
+              long: "Means of Harassment"
+              short: "Means of Harassment"
+            menu_list_rows:
+              - title: "In Person"
+                description: null
+              - title: "Phone Calls"
+                description: null
+              - title: "Text Messages"
+                description: null
+              - title: "Social Media"
+                description: null
+              - title: "Email"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      report_document:
+        field_name: "Report document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/police-complaint-report.pdf"
+            web_title: "Report PDF"
+            web_description: "Please click on the link to view the police complaint report."
+      exit_message:
+        field_name: "Exit messsage"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for reporting the incident. Your complaint number is ACA16CR100790.\n\nYour complaint falls to Accra A16 Police Station's jurisdiction. Officers from the station will get in touch with you as quickly as possible."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  traffic_parking_fines_menu:
+    description: traffic parking fines menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Traffic/Parking Fine"
+      short: "Traffic/Parking Fine"
+    samples:
+      - Traffic/Parking Fine
+    entities:
+      menu_options:
+        field_name: "traffic parking fines menu"
+        output_prompt:
+          pointer: traffic_parking_fines_menu_as_buttons
+  ###############################################################################
+  # Pay Traffic Fine
+  pay_traffic_fine:
+    description: pay traffic fine
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Pay Traffic Fine"
+      short: "Pay Traffic Fine"
+    samples:
+      - Pay Traffic Fine
+      - I want to pay traffic fine
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with paying the traffic fine."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      type_of_fine:
+        field_name: "Type of fine"
+        output_prompt:
+          pointer: fines_as_buttons
+        user_input:
+          pointer: fine_type
+      fine_details:
+        field_name: "Fine details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Can you provide the citation or ticket number related to the fine?"
+        user_input:
+          args:
+            type: TEXT
+      name_of_reportee:
+        field_name: "Name of the reportee"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your Name."
+        user_input:
+          args:
+            type: TEXT
+      payment_portal_link:
+        field_name: "Payment portal link"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please pay the fine in the below link. Further instructions are available in the same link.\n\nhttps://accrapolicedepartment.com/fine_payment_portal.html"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ###############################################################################

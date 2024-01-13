@@ -57,7 +57,7 @@ def get_and_display_loan_balance(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     loan_account_number = context.user_response
-    message = "The loan balance in your loan account **" + loan_account_number + "** is 234,450.00 MUR."
+    message = "The loan balance in your loan account **" + loan_account_number + "** is **234,450.00 MUR**."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_and_display_deposit_account_balance(
