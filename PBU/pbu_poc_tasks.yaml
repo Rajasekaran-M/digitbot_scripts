@@ -831,33 +831,10 @@ Task:
           args:
             type: BUTTONS
             header_type: image
-            header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+            header_image: "https://mybank.smartsellhub.com/home_loan.png"
             body_prologue:
               long: "What is the estimated value of the property you're looking to finance with a home loan?"
               short: "What is the estimated value of the property you're looking to finance with a home loan?"
-            footer_text: null
-            button_captions:
-              - long: "1 - 5M MUR"
-                short: "1 - 5M MUR"
-              - long: "5M - 10M MUR"
-                short: "5M - 10M MUR"
-              - long: "10M - 50M MUR"
-                short: "10M - 50M MUR"
-        user_input:
-          args:
-            type: TEXT
-      salary_amount_as_buttons:
-        field_name: "Salary amount"
-        output_prompt:
-          args:
-            type: BUTTONS
-            header_type: "text"
-            header_text:
-              long: ""
-              short: ""
-            body_prologue:
-              long: "What is the loan amount that you are seeking?"
-              short: "What is the loan amount that you are seeking?"
             footer_text: null
             button_captions:
               - long: "1 - 5M MUR"
@@ -875,17 +852,46 @@ Task:
           args:
             type: TEXT
             content:
-              - "What is the loan amount that you are seeking? Please enter in MUR."
+              - "May I ask, what is the loan amount you are seeking? Please enter it in MUR."
         user_input:
           args:
             type: TEXT
+      address_of_the_property:
+        field_name: "Address of the property"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Could you please share the address of the property you're considering for the home loan?"
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Congratulations! You've received provisional approval for your loan amount. Our dedicated loan department will be in touch with you shortly to guide you through the final steps of the approval process."
+  ###############################################################################
+  main_menu_for_campaign_maybe_later:
+    description: show not interested
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Maybe later!"
+      short: "Maybe later!"
+    samples:
+      - Maybe later!
+      - show not interested
+    entities:
       exit_message:
         field_name: "Exit message"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Thank you for applying for a personal loan. Our loan officers are working it. Please expect a callback in 3-5 business days."
+              - "Thank you very much for your time. Please do respond to this WhatsApp anytime when you are in need of home loan."
   ###############################################################################
   credit_debit_services_menu:
     description: show card services menu
