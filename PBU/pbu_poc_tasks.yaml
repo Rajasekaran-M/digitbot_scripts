@@ -787,6 +787,106 @@ Task:
         output_prompt:
           pointer: bank_account_services_menu_as_menu_list
   ###############################################################################
+  main_menu_for_campaign:
+    description: show campaign menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "I'm interested!"
+      short: "I'm interested!"
+    samples:
+      - I'm interested!
+      - show campaign menu
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Great. I can help you with applying for a home loan."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      value_of_the_property:
+        field_name: "value of the property"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+            body_prologue:
+              long: "What is the estimated value of the property you're looking to finance with a home loan?"
+              short: "What is the estimated value of the property you're looking to finance with a home loan?"
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "What is the loan amount that you are seeking?"
+              short: "What is the loan amount that you are seeking?"
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT
+      loan_amount:
+        field_name: "Loan amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What is the loan amount that you are seeking? Please enter in MUR."
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for applying for a personal loan. Our loan officers are working it. Please expect a callback in 3-5 business days."
+  ###############################################################################
   credit_debit_services_menu:
     description: show card services menu
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -2103,16 +2203,6 @@ Task:
             type: TEXT
             content:
               - "Please enter the Branch Name in which the recipient holds the account."
-        user_input:
-          args:
-            type: TEXT
-      account_number_to_transfer:
-        field_name: "Account number to transfer"
-        output_prompt:
-          args:
-            type: TEXT
-            content:
-              - "Please enter the Account Number to which the amount to be transferred."
         user_input:
           args:
             type: TEXT
