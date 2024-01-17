@@ -1,0 +1,96 @@
+#GiG
+
+Bot:
+  bot_name: chatbot for Digid
+  bot_description: Add any other details
+
+OutputPrompts:
+  email_address_for_campaign:
+    args:
+      type: TEXT
+      content:
+        - "Thank you very much. Can you please share your email id where we can connect?"
+UserInputs:
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+###############################################################################
+Task:
+  main_menu_for_campaign:
+    description: show campaign menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "I'm interested"
+      short: "I'm interested"
+    samples:
+      - I'm interested
+      - show campaign menu
+    entities:
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address_for_campaign
+        user_input:
+          pointer: email_address
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you. We'll get back to you very shortly."
+  ###############################################################################
+  main_menu_for_campaign_maybe_later:
+    description: show not interested
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Maybe later"
+      short: "Maybe later"
+    samples:
+      - Maybe later
+      - show not interested
+    entities:
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you very much for your time. Please do respond to this WhatsApp anytime when you are ready to see a demo."
+  ###############################################################################
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
