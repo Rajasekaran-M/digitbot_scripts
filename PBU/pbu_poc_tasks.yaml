@@ -771,7 +771,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please click on this link to complete your KYC update: https://mybank.digid.ai/#?prod_code=UPDKYC&mno=254709907876&fmt_otp=E"
+              - "Please click on this link to complete your KYC update: https://mauritius.digid.ai/#?prod_code=UPDKYC&mno=254709907876&fmt_otp=E"
   bank_account_services_menu:
     description: show bank account menu
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -852,7 +852,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "May I ask, what is the loan amount you are seeking? Please enter it in MUR."
+              - "May I ask, what is the loan amount you are seeking (ex: 0.5M)?"
         user_input:
           args:
             type: TEXT
@@ -862,18 +862,31 @@ Task:
           args:
             type: TEXT
             content:
-              - "Could you please share the address of the property you're considering for the home loan?"
+              - "Could you please share the locality of the property, which you're considering for the home loan?"
         user_input:
           args:
             type: TEXT
       exit_message_success:
         field_name: "Exit message Success"
-        next_entity: exit_message_at_task_end
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Congratulations! You've received provisional approval for your loan amount. Our dedicated loan department will be in touch with you shortly to guide you through the final steps of the approval process."
+              - "Thank you for providing all the necessary information."
+      exit_message_success_1:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our dedicated loan officer shall reach out to you shortly for taking this further."
+      exit_message_success_2:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Alternately, you can also submit all proofs here https://mauritius.digid.ai/#?prod_code=MORLOA to get a loan approval document."
   ###############################################################################
   main_menu_for_campaign_maybe_later:
     description: show not interested
@@ -1221,7 +1234,7 @@ Task:
             type: TEXT
             content:
               # - "We have disabled your card. You will receive a new card in 7-10 business days."
-              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=SINM&mno=233244567654&fmt_otp=E"
+              - "Click on this link to complete your application: https://mauritius.digid.ai/#?prod_code=SINM&mno=233244567654&fmt_otp=E"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -3006,7 +3019,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=MORLOA"
+              - "Click on this link to complete your application: https://mauritius.digid.ai/#?prod_code=MORLOA"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
