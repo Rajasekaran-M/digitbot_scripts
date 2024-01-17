@@ -1,0 +1,3392 @@
+#GiG
+
+Bot:
+  bot_name: chatbot for Digid
+  bot_description: Add any other details
+
+OutputPrompts:
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your **10 digit** phone number."
+        - "Please enter your phone number."
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number."
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      #header_image: "https://drive.google.com/uc?export=download&id=1ORIy4gs3Z5VEW3QTgrN6qNx-exZsKYjM"
+      # header_image: "https://cbg.smartsellhub.com/CBG-Logo.jpg"
+      # header_image: "https://cbg.smartsellhub.com/MAUBank.png"
+      header_image: "https://myins.smartsellhub.com/my-bank.jpeg"
+      body_prologue:
+        long: "Please choose the desired service category"
+        short: "Please choose the desired service category"
+      footer_text: null
+      button_captions:
+        - long: "Bank Account Services"
+          short: "Account Services"
+        - long: "Mobile Services"
+          short: "Mobile Services"
+        - long: "Other Services"
+          short: "Other Services"
+  bank_account_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Account Services Provided by MyBank Bot"
+        short: "Account Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Account Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "A/C Services Menu"
+        short: "A/C Services Menu"
+      section_title:
+        long: "A/C Services"
+        short: "A/C Services"
+      menu_list_rows:
+        - title: "Account Balance"
+          description: null
+        - title: "Transaction History"
+          description: null
+        - title: "Update My Records"
+          description: null
+        - title: "Setup Auto Transfer"
+          description: null
+        - title: "Order Cheque Book"
+          description: null
+        - title: "Track Cheque Book"
+          description: null
+        - title: "Email Account Statement"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  mobile_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Mobile Services Provided by MyBank Bot"
+        short: "Mobile Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Mobile Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Mobile Services Menu"
+        short: "Mobile Services Menu"
+      section_title:
+        long: "Mobile Services"
+        short: "Mobile Services"
+      menu_list_rows:
+        - title: "Mobile Money"
+          description: null
+        - title: "Wallet Balance"
+          description: null
+        - title: "Transfers"
+          description: null
+        - title: "E-Levy Complaints"
+          description: null
+        - title: "Bill Payments"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  credit_debit_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Card Services Provided by MyBank Bot"
+        short: "Card Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Card Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Card Services Menu"
+        short: "Card Services Menu"
+      section_title:
+        long: "Card Services"
+        short: "Card Services"
+      menu_list_rows:
+        - title: "Block Card"
+          description: null
+        - title: "Unblock Card"
+          description: null
+        - title: "Renew Card"
+          description: null
+        - title: "Card Transaction History"
+          description: null
+        - title: "Dispute Transaction"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  loan_account_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Loan Services Provided by MyBank Bot"
+        short: "Loan Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Loan Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Loan Services Menu"
+        short: "Loan Services Menu"
+      section_title:
+        long: "Loan Services"
+        short: "Loan Services"
+      menu_list_rows:
+        - title: "Apply for Personal Loan"
+          description: null
+        - title: "Apply for Home Loan"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  other_services_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Loan Services"
+          short: "Loan Services"
+        - long: "Card Services"
+          short: "Card Services"
+        - long: "Show Main Menu"
+          short: "Show Main Menu"
+  loan_account_services_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Personal Loan"
+          short: "Personal Loan"
+        - long: "Home Loan"
+          short: "Home Loan"
+        - long: "Show Main Menu"
+          short: "Show Main Menu"
+  mobile_services_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Mobile Money"
+          short: "Mobile Money"
+        - long: "Transfers"
+          short: "Transfers"
+        - long: "Bill Payments"
+          short: "Bill Payments"
+  mobile_money_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Account to Wallet"
+          short: "Account to Wallet"
+        - long: "Wallet to Account"
+          short: "Wallet to Account"
+        - long: "Account Linkage"
+          short: "Account Linkage"
+  bill_payments_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+      body_prologue:
+        long: "Please choose the desired option"
+        short: "Please choose the desired option"
+      footer_text: null
+      button_captions:
+        - long: "Electricity"
+          short: "Electricity"
+        - long: "Mobile Prepaid"
+          short: "Mobile Prepaid"
+
+  bank_account_as_two_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We found two accounts associated with your phone number. Please choose one to proceed further."
+        short: "We found two accounts associated with your phone number. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "XXXXXXX1234"
+          short: "XXXXXXX1234"
+        - long: "XXXXXXX5678"
+          short: "XXXXXXXX5678"
+
+  bank_options_as_two_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Where do you want to transfer?"
+        short: "Where do you want to transfer?"
+      footer_text: null
+      button_captions:
+        - long: "Within Bank"
+          short: "Within Bank"
+        - long: "Outside of the Bank"
+          short: "Outside of the Bank"
+
+  frequency_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose the frequency in which the auto transfer has to be setup."
+        short: "Please choose the frequency in which the auto transfer has to be setup."
+      footer_text: null
+      button_captions:
+        - long: "Monthly"
+          short: "Monthly"
+        - long: "Half-Yearly"
+          short: "Half-Yearly"
+        - long: "Yearly"
+          short: "Yearly"
+
+  cards_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We found three accounts associated with your phone number. Please choose one to proceed further."
+        short: "We found three accounts associated with your phone number. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "XXXX-XXXX-XXXX-1234"
+          short: "XXXX-XXXX-XXXX-1234"
+        - long: "XXXX-XXXX-XXXX-5678"
+          short: "XXXX-XXXX-XXXX-5678"
+        - long: "XXXX-XXXX-XXXX-9012"
+          short: "XXXX-XXXX-XXXXX-9012"
+  credit_or_debit_card:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "You have both credit and debit cards with our bank. Please choose the type of card."
+        short: "You have both credit and debit cards with our bank. Please choose the type of card."
+      footer_text: null
+      button_captions:
+        - long: "Debit Card"
+          short: "Debit Card"
+        - long: "Credit Card"
+          short: "Credit Card"
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n Type 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+
+  faq_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for Post Bank Uganda"
+        short: "FAQs for Post Bank Uganda"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs for PBU"
+        short: "FAQs for PBU"
+      section_title:
+        long: "FAQs for PBU"
+        short: "FAQs for PBU"
+      menu_list_rows:
+        - title: "FAQs about PBU"
+          description: null
+        - title: "FAQs about Bank A/C"
+          description: null
+        - title: "FAQs about Cards/ATMs"
+          description: null
+        - title: "FAQs about Mob. Banking"
+          description: null
+        - title: "FAQs about Loans"
+          description: null
+        - title: "FAQs about Agents"
+          description: null
+
+  faq_for_general_pbu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for Post Bank Uganda"
+        short: FAQs for Post Bank Uganda"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs about PBU"
+        short: "FAQs about PBU"
+      section_title:
+        long: "FAQs about PBU"
+        short: "FAQs about PBU"
+      menu_list_rows:
+        - title: "PBU Help Channels"
+          description: null
+        - title: "PBU Center Services"
+          description: null
+        - title: "PBU SWIFT Code"
+          description: null
+  faq_for_general_pbu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "PBU Help Channels"
+          short: "PBU Help Channels"
+        - long: "PBU Center Services"
+          short: "PBU Center Services"
+        - long: "PBU SWIFT Code"
+          short: "PBU SWIFT Code"
+
+  faq_for_bank_accounts_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs about PBU Bank Accounts"
+        short: "FAQs about PBU Bank Accounts"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs about Bank A/C"
+        short: "FAQs about Bank A/C"
+      section_title:
+        long: "FAQs about Bank A/C"
+        short: "FAQs about Bank A/C"
+      menu_list_rows:
+        - title: "Reqmts for A/C Opening"
+          description: null
+        - title: "Type of Accounts"
+          description: null
+        - title: "Min Bal for A/C Opening"
+          description: null
+        - title: "Enable SMS Alerts"
+          description: null
+        - title: "Ways to know A/C Balance"
+          description: null
+        - title: "A/C Stm w/o Branch Visit"
+          description: null
+        - title: "Transfer from out of UG"
+          description: null
+
+  faq_for_cards_atms_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for PBU Cards and ATMs"
+        short: "FAQs for PBU Cards and ATMs"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs for Cards/ATMs"
+        short: "FAQs for Cards/ATMs"
+      section_title:
+        long: "FAQs for Cards and ATMs"
+        short: "FAQs for Cards and ATMs"
+      menu_list_rows:
+        - title: "Find nearest ATM"
+          description: null
+        - title: "Cost of Processing Card"
+          description: null
+        - title: "Max withdrawal from ATM"
+          description: null
+        - title: "Services of PBU ATM"
+          description: null
+
+  faq_for_mobile_banking_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for Mobile Banking"
+        short: "FAQs for Mobile Banking"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Mobile Banking FAQ"
+        short: "Mobile Banking FAQ"
+      section_title:
+        long: "Mobile Banking FAQ"
+        short: "Mobile Banking FAQ"
+      menu_list_rows:
+        - title: "Access Mobile Banking"
+          description: null
+        - title: "Services of Mob. Banking"
+          description: null
+        - title: "Daily Transaction Limits"
+          description: null
+        - title: "Deposit via Mbl. Banking"
+          description: null
+        - title: "Mbl. Banking Withdrawal"
+          description: null
+        - title: "Mbl. Banking Transfer"
+          description: null
+        - title: "Reset Mobile Banking Pin"
+          description: null
+        - title: "Login via New Phone"
+          description: null
+
+  faq_for_loans_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Type of Loan Offered"
+          short: "Type of Loan Offered"
+        - long: "How do I get a Loan?"
+          short: "How do I get a Loan?"
+
+  faq_for_agents_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs about PBU Agents"
+        short: "FAQs about PBU Agents"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs about Agents"
+        short: "FAQs about Agents"
+      section_title:
+        long: "FAQs about PBU Agents"
+        short: "FAQs about PBU Agents"
+      menu_list_rows:
+        - title: "Agent Qualifications"
+          description: null
+        - title: "Reqmnts for Agents"
+          description: null
+        - title: "Authorized Agt. Services"
+          description: null
+        - title: "Deposit/Withdrawl Limts"
+          description: null
+        - title: "Float Access for Agents"
+          description: null
+        - title: "Prohibited Services"
+          description: null
+  date_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+  mother_maiden_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your mother's maiden name."
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *debit* card."
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *account number*."
+  nominee_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your nominee."
+  first_pet_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your first pet."
+  city_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the city that you were born in."
+  recent_transaction_and_amount:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select a recent transaction made by you on 15-Jul-2023."
+        short: "Please select a recent transaction made by you on 15-Jul-2023."
+      footer_text: null
+      button_captions:
+        - long: "50K MUR at KFC"
+          short: "50K MUR at KFC"
+        - long: "100K MUR at Meza"
+          short: "100K MUR at Meza"
+        - long: "750 MUR at Pizza Hut"
+          short: "750 MUR at Pizza Hut"
+  list_of_account_numbers_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: https://img.freepik.com/free-vector/saving-money-concept-illustration_114360-8060.jpg
+      body_prologue:
+        long: You have two Savings accounts. Choose one from the list.
+        short: You have two Savings accounts. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "1017234262"
+          short: "1017234262"
+        - long: "1018264842"
+          short: "1018264842"
+
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+
+  bank_account:
+    args:
+      type: TEXT
+
+  bank_category:
+    args:
+      type: TEXT
+  
+  frequency:
+    args:
+      type: TEXT
+
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+
+  date_of_birth:
+    args:
+      type: TEXT
+  mother_maiden_name:
+    args:
+      type: TEXT
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+  nominee_name:
+    args:
+      type: TEXT
+  first_pet_name:
+    args:
+      type: TEXT
+  city_of_birth:
+    args:
+      type: TEXT
+  recent_transaction_and_amount:
+    args:
+      type: TEXT
+###############################################################################
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons
+  ###############################################################################
+  main_menu_for_kyc:
+    description: show kyc main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show KYC Main Menu"
+      short: "Show KYC Main Menu"
+    samples:
+      - show kyc main menu
+      - hola
+      - kyc
+    entities:
+      update_kyc_as_buttons:
+        field_name: "Update kyc"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Dear Ramesh,\n\nYour KYC update for your Savings Account is pending. To keep your account active, please update your KYC."
+              short: "Dear Ramesh,\n\nYour KYC update for your Savings Account is pending. To keep your account active, please update your KYC."
+            footer_text: null
+            button_captions:
+              - long: "Update Now"
+                short: "Update Now"
+              - long: "Later"
+                short: "Later"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have sent an OTP via SMS to the WhatsApp number you are currently chatting with us."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_account_numbers_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please click on this link to complete your KYC update: https://mybank.digid.ai/#?prod_code=UPDKYC&mno=254709907876&fmt_otp=E"
+  bank_account_services_menu:
+    description: show bank account menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Bank A/C Services"
+      short: "Bank A/C Services"
+    samples:
+      - bank account services
+      - Bank A/C Services
+    entities:
+      menu_options:
+        field_name: "Bank account services menu"
+        output_prompt:
+          pointer: bank_account_services_menu_as_menu_list
+  ###############################################################################
+  credit_debit_services_menu:
+    description: show card services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Card Services"
+      short: "Card Services"
+    samples:
+      - Debit/Credit Card Services
+      - Card Services
+    entities:
+      menu_options:
+        field_name: "Card services menu"
+        output_prompt:
+          pointer: credit_debit_services_menu_as_menu_list
+  ###############################################################################
+  other_services_menu:
+    description: show other services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Other Services"
+      short: "Other Services"
+    samples:
+      - Other Services
+    entities:
+      menu_options:
+        field_name: "Oher services menu"
+        output_prompt:
+          pointer: other_services_menu_as_buttons
+  ###############################################################################
+  loan_account_services_menu:
+    description: show loan account services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Services"
+      short: "Loan Services"
+    samples:
+      - Loan Services
+    entities:
+      menu_options:
+        field_name: "Loan services menu"
+        output_prompt:
+          pointer: loan_account_services_menu_as_buttons
+  ###############################################################################
+  mobile_services_menu:
+    description: show mobile services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Mobile Services"
+      short: "Mobile Services"
+    samples:
+      - Mobile Services
+    entities:
+      menu_options:
+        field_name: "Mobile services menu"
+        output_prompt:
+          # pointer: mobile_services_menu_as_buttons
+          pointer: mobile_services_menu_as_menu_list
+  ###############################################################################
+  mobile_money_menu:
+    description: show mobile money menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Mobile Money"
+      short: "Mobile Money"
+    samples:
+      - Mobile Money
+    entities:
+      menu_options:
+        field_name: "Mobile Money menu"
+        output_prompt:
+          pointer: mobile_money_menu_as_buttons
+  ###############################################################################
+  transfers_menu:
+    description: show transfers menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfers"
+      short: "Transfers"
+    samples:
+      - Transfers
+      - transfers
+    entities:
+      menu_options:
+        field_name: "Transfers menu"
+        output_prompt:
+          pointer: bank_options_as_two_buttons
+  ###############################################################################
+  bill_payments_menu:
+    description: show bill payments menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Bill Payments"
+      short: "Bill Payments"
+    samples:
+      - Bill Payments
+    entities:
+      menu_options:
+        field_name: "Bill Payments menu"
+        output_prompt:
+          pointer: bill_payments_menu_as_buttons
+  ###############################################################################
+  faq_main_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs"
+      short: "FAQs"
+    samples:
+      - FAQ
+      - FAQs
+      - I have a question
+    entities:
+      menu_options:
+        field_name: "FAQ menu"
+        output_prompt:
+          pointer: faq_menu_as_menu_list
+
+  ###############################################################################
+  faq_general_pbu_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs about PBU"
+      short: "FAQs about PBU"
+    samples:
+      - FAQs about PBU
+    entities:
+      menu_options:
+        field_name: "FAQ about PBU"
+        output_prompt:
+          #pointer: faq_for_general_pbu_as_menu_list
+          pointer: faq_for_general_pbu_as_buttons
+
+  ###############################################################################
+  faq_bank_accounts_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs about Bank A/C"
+      short: "FAQs about Bank A/C"
+    samples:
+      - FAQs about Bank Accounts
+      - FAQs about Bank A/C
+    entities:
+      menu_options:
+        field_name: "Bank A/C FAQ"
+        output_prompt:
+          pointer: faq_for_bank_accounts_as_menu_list
+
+  ###############################################################################
+  faq_cards_atms_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs about Card/ATM"
+      short: "FAQs about Card/ATM"
+    samples:
+      - FAQs about Cards/ATMs
+    entities:
+      menu_options:
+        field_name: "FAQ for Card/ATM"
+        output_prompt:
+          pointer: faq_for_cards_atms_as_menu_list
+
+  ###############################################################################
+  faq_mobile_banking_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Mob. Banking FAQ"
+      short: "Mob. Banking FAQ"
+    samples:
+      - FAQs about Mob. Banking
+      - "Mob. Banking FAQ"
+    entities:
+      menu_options:
+        field_name: "Mob. Banking FAQ"
+        output_prompt:
+          pointer: faq_for_mobile_banking_as_menu_list
+
+  ###############################################################################
+  faq_loans_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs about Loans"
+      short: "FAQs about Loans"
+    samples:
+      - FAQs about Loans
+    entities:
+      menu_options:
+        field_name: "FAQ for Loans"
+        output_prompt:
+          pointer: faq_for_loans_as_buttons
+  ###############################################################################
+  faq_agent_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs about Agents"
+      short: "FAQs about Agents"
+    samples:
+      - FAQs about Agents
+    entities:
+      menu_options:
+        field_name: "FAQ for Agents"
+        output_prompt:
+          pointer: faq_for_agents_as_menu_list
+  ###############################################################################
+  get_account_balance:
+    description: show your account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "A/C Balance"
+      short: "A/C Balance"
+    samples:
+      - What is my account balance?
+      - How much money do I have in my account?
+      - Show my account balance
+      - Bank balance
+      - A/C Balance
+      - Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your account balance. "
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      account_balance:
+        field_name: "Account balance"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  setup_auto_transfer:
+    description: setup auto transfer
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Setup Auto Transfer"
+      short: "Setup Auto Transfer"
+    samples:
+      - how to setup auto transfer?
+      - Setup Auto Transfer
+      - Auto Transfer
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with setting up auto transfer."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have sent an OTP via SMS to the WhatsApp number you are currently chatting with us."
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      list_of_frequency:
+        field_name: "List of frequency"
+        output_prompt:
+          pointer: frequency_as_buttons
+        user_input:
+          pointer: frequency
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              # - "We have disabled your card. You will receive a new card in 7-10 business days."
+              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=SINM&mno=233244567654&fmt_otp=E"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  update_my_records:
+    description: update my records
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Update My Records"
+      short: "Update My Records"
+    samples:
+      - how to update my records?
+      - Update My Records
+      - update records
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with updating your records."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have sent an OTP via SMS to the WhatsApp number you are currently chatting with us."
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please click on this link to complete your request: https://selfserviceportal.apps.cbg.com.gh/Identity/Account/Login"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  get_account_transaction_history:
+    description: bank account transaction history
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transaction History"
+      short: "Transaction History"
+    samples:
+      - bank account transaction history
+      - Show my recent bank account transactions
+      - A/C Transaction History
+      - A/C Txn History
+      - Transaction History
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your recent account transactions."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      account_transactions_text:
+        field_name: "Account transactions"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the list of transactions below. We also have provided it as a document for your convenience.
+      account_transactions_image:
+        field_name: "Account transactions image"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://myins.smartsellhub.com/MyBank-Statement.png"
+            web_title: "Account transactions"
+            web_description: "Please click on the button to view it in full screen"
+      account_transactions_document:
+        field_name: "Account transactions document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/MyBank_Statement.pdf"
+            web_title: "Account transactions PDF"
+            web_description: "Please click on the link to view the document"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  order_cheque_book:
+    description: order cheque book
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Order Cheque book"
+      short: "Order Cheque book"
+    samples:
+      - order cheque book
+      - cheque book request
+      - mail cheque book
+      - Order Cheque book
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with ordering a cheque book."
+      num_cheque_leaves:
+        field_name: "Number of cheque leaves"
+        validation_function: validate_num_cheque_leaves
+        success_responses:
+          - We have successfully ordered cheque book. It will be sent to your home address in 5-7 business days.
+        failure_validation_responses:
+          - Please enter a valid number of cheque leaves
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose the number of cheque leaves"
+              short: "Please choose the number of cheque leaves"
+            footer_text: null
+            button_captions:
+              - long: "16"
+                short: "16"
+              - long: "32"
+                short: "32"
+              - long: "64"
+                short: "64"
+        user_input:
+          args:
+            type: INTEGER
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  get_cheque_book_status:
+    description: get status of a cheque book request
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Track Cheque Book"
+      short: "Track Cheque Book"
+    samples:
+      - get status of a cheque
+      - get cheque status
+      - what happened to my cheque
+      - Cheque Status
+      - Track Cheque Book
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with finding the status of a cheque book request."
+      cheque_book_number:
+        field_name: "Cheque book request number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your cheque book request number."
+        user_input:
+          args:
+            type: TEXT
+      cheque_book_status:
+        field_name: "Cheque book status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_cheque_book_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  email_account_statement:
+    description: email account statement
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Email A/C Statement"
+      short: "Email A/C  Statement"
+    samples:
+      - email my account statement
+      - mail my account statement
+      - send me my account statement
+      - Email Account Statement
+      - Email A/C Statement
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with emailing the bank account statements."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      account_transactions_document_prelude:
+        field_name: "Account transactions confirmation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - We have mailed the bank statement to your email address. You can also download it below.
+      account_transactions_document:
+        field_name: "Account transactions document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/MyBank_Statement.pdf"
+            web_title: "Account transactions PDF"
+            web_description: "Please click on the link to view the document"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  block_card:
+    description: block debit/credit card
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Block Card"
+      short: "Block Card"
+    samples:
+      - block my card
+      - suspend my card
+      - disable my card
+      - temporarily block my card
+      - deactivate my card
+      - Block Card
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        next_entity_fn: choose_next_security_question
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with blocking your card. As a security measure, please enter the answers to two security questions."
+
+      date_of_birth:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for date of birth."
+        output_prompt:
+          pointer: date_of_birth
+        user_input:
+          pointer: date_of_birth
+      mother_maiden_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for your mother's maiden name."
+        output_prompt:
+          pointer: mother_maiden_name
+        user_input:
+          pointer: mother_maiden_name
+      last_4_digits_of_debit_card:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for last 4 digits of debit card."
+        output_prompt:
+          pointer: last_4_digits_of_debit_card
+        user_input:
+          pointer: last_4_digits_of_debit_card
+      last_4_digits_of_account_number:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for last 4 digits of account number."
+        output_prompt:
+          pointer: last_4_digits_of_account_number
+        user_input:
+          pointer: last_4_digits_of_account_number
+      nominee_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect value for the nominee name."
+        output_prompt:
+          pointer: nominee_name
+        user_input:
+          pointer: nominee_name
+      first_pet_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for the name of your first pet."
+        output_prompt:
+          pointer: first_pet_name
+        user_input:
+          pointer: first_pet_name
+      city_of_birth:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for the name of your birth city."
+        output_prompt:
+          pointer: city_of_birth
+        user_input:
+          pointer: city_of_birth
+      recent_transaction_and_amount:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have selected an incorrect amount and location for your recent transaction."
+        output_prompt:
+          pointer: recent_transaction_and_amount
+        user_input:
+          pointer: recent_transaction_and_amount
+
+      credit_or_debit_card:
+        field_name: "Type of card"
+        validation_function: validate_debit_or_credit_card
+        failure_validation_responses:
+          - "Please choose either debit or credit card"
+        output_prompt:
+          pointer: credit_or_debit_card
+        user_input:
+          args:
+            type: TEXT
+      list_of_cards:
+        field_name: "List of cards"
+        next_entity: exit_message_success
+        output_prompt:
+          pointer: cards_as_three_buttons
+        user_input:
+          args:
+            type: TEXT
+
+      exit_message_failure:
+        field_name: "Exit message Failure"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "I am sorry. I am unable to complete your request as you provided incorrect answers to the security questions"
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "I have successfully blocked the card."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  account_to_wallet:
+    description: account to wallet
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account to Wallet"
+      short: "Account to Wallet"
+    samples:
+      - account to wallet
+      - Account to Wallet
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with transferring amount to your wallet."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      amount_to_be_transferred:
+        field_name: "Amount to be transferred"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the amount to be transferred (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your payment is successful.\n\nYour transaction id is CBG00896756."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  wallet_to_account:
+    description: wallet to account
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Wallet to Account"
+      short: "Wallet to Account"
+    samples:
+      - wallet to account
+      - Wallet to Account
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with transferring amount to your account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      amount_to_be_transferred:
+        field_name: "Amount to be transferred"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the amount to be transferred (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your payment is successful.\n\nYour transaction id is CBG00654343."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  account_linkage:
+    description: account linkage
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account Linkage"
+      short: "Account Linkage"
+    samples:
+      - account linkage
+      - Account Linkage
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with linking the wallet to your account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      wallet_number_to_be_linked:
+        field_name: "Wallet to be linked"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Wallet ID / Mobile Number to be linked."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your linking request *CBGSR008592* has been successfully filed on *11-Oct-2023*. Linking usually take _1-2_ business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  get_wallet_balance:
+    description: show your wallet balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Wallet Balance"
+      short: "Wallet Balance"
+    samples:
+      - Wallet Balance
+      - what is my wallet balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your wallet balance. "
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_balance:
+        field_name: "Account balance"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_wallet_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  transfers_to_other_wallets:
+    description: transfer to other wallets
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Wallet"
+      short: "Transfer to Wallet"
+    samples:
+      - Transfer to Wallet
+      - transfer to wallet
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with transferring amount to other wallet."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      wallet_number_to_transfer_amount:
+        field_name: "Wallet number to transfer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Wallet ID / Mobile Number to which you would like to transfer the amount."
+        user_input:
+          args:
+            type: TEXT
+      amount_to_be_transferred:
+        field_name: "Amount to be transferred"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the amount to be transferred (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your payment is successful.\n\nYour transaction id is CBGW00749358."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  electricity_bill_payment:
+    description: electricity bill payment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Electricity"
+      short: "Electricity"
+    samples:
+      - Electricity
+      - electricity
+      - electricity bill
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with paying electricity bill."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Consumer Number."
+        user_input:
+          args:
+            type: TEXT
+      amount_to_be_transferred:
+        field_name: "Amount to be transferred"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the bill amount to be paid (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your payment is successful.\n\nYour transaction id is CBGB00159753."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  transfers_to_other_accounts:
+    description: transfers to other accounts
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Within Bank"
+      short: "Within Bank"
+    samples:
+      - Within Bank
+      - within bank
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with transferring amount."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      account_number_to_transfer:
+        field_name: "Account number to transfer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Number to which the amount to be transferred."
+        user_input:
+          args:
+            type: TEXT
+      account_holder_name:
+        field_name: "Account holder name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Holder Name."
+        user_input:
+          args:
+            type: TEXT
+      amount_to_be_transferred:
+        field_name: "Amount to be transferred"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the amount to be transferred (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your payment is successful.\n\nYour transaction id is CBGF00684268."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  transfers_to_other_bank_accounts:
+    description: transfers to other bank accounts
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Outside of the Bank"
+      short: "Outside of the Bank"
+    samples:
+      - Outside of the Bank
+      - outside of the bank
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with transferring amount."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      bank_name_to_transfer:
+        field_name: "Bank name to transfer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Bank Name in which the recipient holds the account."
+        user_input:
+          args:
+            type: TEXT
+      branch_name_to_transfer:
+        field_name: "Branch name to transfer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Branch Name in which the recipient holds the account."
+        user_input:
+          args:
+            type: TEXT
+      account_number_to_transfer:
+        field_name: "Account number to transfer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Number to which the amount to be transferred."
+        user_input:
+          args:
+            type: TEXT
+      account_number_to_transfer:
+        field_name: "Account number to transfer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Number to which the amount to be transferred."
+        user_input:
+          args:
+            type: TEXT
+      account_holder_name:
+        field_name: "Account holder name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Account Holder Name."
+        user_input:
+          args:
+            type: TEXT
+      amount_to_be_transferred:
+        field_name: "Amount to be transferred"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the amount to be transferred (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your payment is successful.\n\nYour transaction id is CBGF00684268."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  elevy_complaints:
+    description: elevy complaints
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "E-Levy Complaints"
+      short: "E-Levy Complaints"
+    samples:
+      - E-Levy Complaints
+      - e-levy complaints
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sorry for the inconvenience. I can help you with raising your complaint."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      transaction_reference_number:
+        field_name: "Transaction reference number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the transaction reference number."
+        user_input:
+          args:
+            type: TEXT
+      complaint_desc:
+        field_name: "Complaint description"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please type your complaint."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your complaint is successfully registered. The request number is CBGSR00754625.\n\nOur agents will attend to it shortly."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  unblock_card:
+    description: unblock debit/credit card
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Unblock Card"
+      short: "Unblock Card"
+    samples:
+      - unblock my card
+      - unsuspend my card
+      - enable my card
+      - reenable my card
+      - activate my card
+      - Unblock Card
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with unblocking your card."
+      credit_or_debit_card:
+        field_name: "Type of card"
+        validation_function: validate_debit_or_credit_card
+        failure_validation_responses:
+          - "Please choose either debit or credit card"
+        output_prompt:
+          pointer: credit_or_debit_card
+        user_input:
+          args:
+            type: TEXT
+      list_of_cards:
+        field_name: "List of cards"
+        output_prompt:
+          pointer: cards_as_three_buttons
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have successfully unblocked the card."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  replace_card:
+    description: replace debit/credit card
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Renew Card"
+      short: "Renew Card"
+    samples:
+      - replace my card
+      - I lost my card
+      - send me a new card
+      - Renew Card
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with renewing your card."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      welcome_to_security:
+        field_name: "Welcome to security"
+        next_entity_fn: choose_next_security_question
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "As a security measure, please enter the answers to two security questions."
+
+      date_of_birth:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for date of birth."
+        output_prompt:
+          pointer: date_of_birth
+        user_input:
+          pointer: date_of_birth
+      mother_maiden_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for your mother's maiden name."
+        output_prompt:
+          pointer: mother_maiden_name
+        user_input:
+          pointer: mother_maiden_name
+      last_4_digits_of_debit_card:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for last 4 digits of debit card."
+        output_prompt:
+          pointer: last_4_digits_of_debit_card
+        user_input:
+          pointer: last_4_digits_of_debit_card
+      last_4_digits_of_account_number:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for last 4 digits of account number."
+        output_prompt:
+          pointer: last_4_digits_of_account_number
+        user_input:
+          pointer: last_4_digits_of_account_number
+      nominee_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect value for the nominee name."
+        output_prompt:
+          pointer: nominee_name
+        user_input:
+          pointer: nominee_name
+      first_pet_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for the name of your first pet."
+        output_prompt:
+          pointer: first_pet_name
+        user_input:
+          pointer: first_pet_name
+      city_of_birth:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for the name of your birth city."
+        output_prompt:
+          pointer: city_of_birth
+        user_input:
+          pointer: city_of_birth
+      recent_transaction_and_amount:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have selected an incorrect amount and location for your recent transaction."
+        output_prompt:
+          pointer: recent_transaction_and_amount
+        user_input:
+          pointer: recent_transaction_and_amount
+
+      credit_or_debit_card:
+        field_name: "Type of card"
+        validation_function: validate_debit_or_credit_card
+        failure_validation_responses:
+          - "Please choose either debit or credit card"
+        output_prompt:
+          pointer: credit_or_debit_card
+        user_input:
+          args:
+            type: TEXT
+      list_of_cards:
+        field_name: "List of cards"
+        next_entity: exit_message_success
+        output_prompt:
+          pointer: cards_as_three_buttons
+        user_input:
+          args:
+            type: TEXT
+
+      exit_message_failure:
+        field_name: "Exit message Failure"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "I am sorry. I am unable to complete your request as you provided incorrect answers to the security questions"
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              # - "We have disabled your card. You will receive a new card in 7-10 business days."
+              - "Click on this link to complete your application: https://mauritius.digid.ai/#?prod_code=DCR&mno=2302407899&fmt_otp=E"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  ###############################################################################
+  get_card_transaction_history:
+    description: get debit/credit card transaction history
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Card Txn History"
+      short: "Card Txn History"
+    samples:
+      - show my recent card transactions
+      - my recent credit card transactions
+      - my recent debit card transactions
+      - recent card transactions
+      - Card Transaction History
+      - Card Txn History
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your recent transactions in your card."
+      credit_or_debit_card:
+        field_name: "Type of card"
+        validation_function: validate_debit_or_credit_card
+        failure_validation_responses:
+          - "Please choose either debit or credit card"
+        output_prompt:
+          pointer: credit_or_debit_card
+        user_input:
+          args:
+            type: TEXT
+      list_of_cards:
+        field_name: "List of cards"
+        output_prompt:
+          pointer: cards_as_three_buttons
+        user_input:
+          args:
+            type: TEXT
+      card_transactions_text:
+        field_name: "List of card transactions"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the list of transactions below. We also have provided it as a document for your convenience.
+      card_transactions_image:
+        field_name: "List of card transactions as image"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://myins.smartsellhub.com/MyBank-Statement.png"
+            web_title: "Card transactions"
+            web_description: "Please click on the button to view it in full screen"
+
+      card_transactions_document:
+        field_name: "List of card transactions as document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            # url: "https://cbg.smartsellhub.com/CBG_Statement.pdf"
+            url: "https://myins.smartsellhub.com/MyBank_Statement.pdf"
+            web_title: "Card transactions PDF"
+            web_description: "Please click on the link to view the document"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  report_fraudulent_transaction:
+    description: report fradulent transaction
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Dispute Transaction"
+      short: "Dispute Transaction"
+    samples:
+      - report fradulent transaction
+      - report suspicious transaction
+      - raise a fraud
+      - Dispute a Transaction
+      - Dispute Transaction
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        next_entity_fn: choose_next_security_question
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with reporting a fraduelent transaction. As a security measure, please enter the answers to two security questions."
+      date_of_birth:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for date of birth."
+        output_prompt:
+          pointer: date_of_birth
+        user_input:
+          pointer: date_of_birth
+      mother_maiden_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for your mother's maiden name."
+        output_prompt:
+          pointer: mother_maiden_name
+        user_input:
+          pointer: mother_maiden_name
+      last_4_digits_of_debit_card:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for last 4 digits of debit card."
+        output_prompt:
+          pointer: last_4_digits_of_debit_card
+        user_input:
+          pointer: last_4_digits_of_debit_card
+      last_4_digits_of_account_number:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for last 4 digits of account number."
+        output_prompt:
+          pointer: last_4_digits_of_account_number
+        user_input:
+          pointer: last_4_digits_of_account_number
+      nominee_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect value for the nominee name."
+        output_prompt:
+          pointer: nominee_name
+        user_input:
+          pointer: nominee_name
+      first_pet_name:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for the name of your first pet."
+        output_prompt:
+          pointer: first_pet_name
+        user_input:
+          pointer: first_pet_name
+      city_of_birth:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have entered an incorrect response for the name of your birth city."
+        output_prompt:
+          pointer: city_of_birth
+        user_input:
+          pointer: city_of_birth
+      recent_transaction_and_amount:
+        field_name: "Date of birth"
+        next_entity_fn: choose_next_security_question
+        validation_function: validate_secret_questions
+        failure_validation_responses:
+          - "You have selected an incorrect amount and location for your recent transaction."
+        output_prompt:
+          pointer: recent_transaction_and_amount
+        user_input:
+          pointer: recent_transaction_and_amount
+
+      credit_or_debit_card:
+        field_name: "Type of card"
+        validation_function: validate_debit_or_credit_card
+        failure_validation_responses:
+          - "Please choose either debit or credit card"
+        output_prompt:
+          pointer: credit_or_debit_card
+        user_input:
+          args:
+            type: TEXT
+      list_of_cards:
+        field_name: "List of cards"
+        output_prompt:
+          pointer: cards_as_three_buttons
+        user_input:
+          args:
+            type: TEXT
+
+      list_of_transactions_as_menu_list:
+        field_name: "List of transactions"
+        next_entity: exit_message_success
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Recent transactions"
+              short: "Recent transactions"
+            body_prologue:
+              long: "Please identify the fradulent transaction from the list below."
+              short: "To begin, tap AcFraudcount Services Menu and identify the fradulent transaction."
+            footer_text:
+              long: "Click Send to select it"
+              short: "Click Send to select it"
+            option_button_title:
+              long: "Fraud Services Menu"
+              short: "Fraud Services Menu"
+            section_title:
+              long: "Fraud Services"
+              short: "Fraud Services"
+            menu_list_rows:
+              - title: "200 MUR / 11-Jun"
+                description: "Amazon.com"
+              - title: "10 MUR / 20-Jun"
+                description: "Starbucks"
+              - title: "5000 MUR / 1-Jul"
+                description: "toCode technologies"
+              - title: "1000 MUR / 5-Jul"
+                description: "Apple Inc"
+              - title: "150 MUR / 10-Jul"
+                description: "Instacart Inc"
+        user_input:
+          args:
+            type: TEXT
+
+      exit_message_failure:
+        field_name: "Exit message Failure"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "I am sorry. I am unable to complete your request as you provided incorrect answers to the security questions"
+      exit_message_success:
+        field_name: "Exit message Success"
+        next_entity: exit_message_at_task_end
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have disabled your card. You will receive a new card in 7-10 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  apply_personal_loan:
+    description: apply for a personal loan
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Personal Loan"
+      short: "Personal Loan"
+    samples:
+      - i want to apply for a personal loan
+      - personal loan
+      - need some money urgently
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a personal loan."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      salary_amount_as_buttons:
+        field_name: "Salary amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your approximate annual salary."
+              short: "Please choose your approximate annual salary."
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT
+      loan_amount_as_buttons:
+        field_name: "Loan amount"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+            body_prologue:
+              long: "Please choose the loan amount category"
+              short: "Please choose the loan amount category"
+            footer_text: null
+            button_captions:
+              - long: "1 - 5M MUR"
+                short: "1 - 5M MUR"
+              - long: "5M - 10M MUR"
+                short: "5M - 10M MUR"
+              - long: "10M - 50M MUR"
+                short: "10M - 50M MUR"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for applying for a personal loan. Our loan officers are working it. Please expect a callback in 3-5 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  apply_housing_loan:
+    description: apply for a housing loan
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Home Loan"
+      short: "Home Loan"
+    samples:
+      - i want to apply for a housing loan
+      - housing loan
+      - loan for an apartment
+      - Home Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a housing loan."
+      home_loan_offer_as_buttons:
+        field_name: "Loan offer"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://drive.google.com/uc?export=download&id=1aaLsEmQL4f-Rv5-fH8W0fdaifT7vK8sv"
+            body_prologue:
+              long: "We have an exciting offer for you!"
+              short: "We have an exciting offer for you!"
+            footer_text: null
+            button_captions:
+              - long: "Get a callback"
+                short: "Get a callback"
+              - long: "Apply Now"
+                short: "Apply Now"
+        user_input:
+          args:
+            type: TEXT
+#      email_address:
+#        field_name: "Email address"
+#        validation_function: validate_email_address
+#        failure_validation_responses:
+#          - Your email address seems to be in an incorrect format.
+#        output_prompt:
+#          pointer: email_address
+#        user_input:
+#          pointer: email_address
+#      salary_amount_as_buttons:
+#        field_name: "Salary amount"
+#        output_prompt:
+#          args:
+#            type: BUTTONS
+#            header_type: "text"
+#            header_text:
+#              long: ""
+#              short: ""
+#            body_prologue:
+#              long: "Please choose your approximate annual salary."
+#              short: "Please choose your approximate annual salary."
+#            footer_text: null
+#            button_captions:
+#              - long: "1M - 5M MUR"
+#                short: "1M - 5M MUR"
+#              - long: "5M - 10M MUR"
+#                short: "5M - 10M MUR"
+#              - long: "More than 10M MUR"
+#                short: "More than 10M MUR"
+#        user_input:
+#          args:
+#            type: TEXT
+#      loan_amount_as_buttons:
+#        field_name: "Loan amount"
+#        output_prompt:
+#          args:
+#            type: BUTTONS
+#            header_type: image
+#            header_image: "https://drive.google.com/uc?export=download&id=1J4o5AiJ6jj0qkIUdzgvchFuCAdvi6xBn"
+#            body_prologue:
+#              long: "Please choose the loan amount category"
+#              short: "Please choose the loan amount category"
+#            footer_text: null
+#            button_captions:
+#              - long: "10M - 25M MUR"
+#                short: "10M - 25M MUR"
+#              - long: "25M - 50M MUR"
+#                short: "25M - 50M MUR"
+#              - long: "50M - 100M MUR"
+#                short: "50M - 100M MUR"
+#        user_input:
+#          args:
+#            type: TEXT
+#      tenure_length_as_menu_list:
+#        field_name: "Tenure length"
+#        output_prompt:
+#          args:
+#            type: MENU_LIST
+#            header_text:
+#              long: "Tenure Length"
+#              short: "Tenure Length"
+#            body_prologue:
+#              long: "Please choose the tenure length"
+#              short: "Please choose the tenure length"
+#            option_button_title:
+#              long: "Tenure Length"
+#              short: "Tenure Length"
+#            section_title:
+#              long: "Tenure Length"
+#              short: "Tenure Length"
+#            menu_list_rows:
+#              - title: "36 months"
+#                description: null
+#              - title: "60 months"
+#                description: null
+#              - title: "72 months"
+#                description: null
+#              - title: "120 months"
+#                description: null
+#              - title: "240 months"
+#                description: null
+#              - title: "360 months"
+#                description: null
+#        user_input:
+#          args:
+#            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ########################################################################
+
+FAQ:
+  faq_channels:
+    samples:
+      - What channels can be used to easily get help from the bank without visiting a branch?
+      - "PBU Help Channels"
+    answers:
+      - |
+
+        1. Toll-free (0800 217 200), non-toll free (0417 517 711)
+        2. WhatsApp (0707 993 930)
+        3. USSD code - *263*1#
+        4. Email - customerservice@postbank.co.ug
+        5. Facebook
+        6. LinkedIn
+        7. Chatbot (website - www.postbank.co.ug) 
+        8. Twitter
+        9. QR Code
+  faq_services_contact_center:
+    samples:
+      - What services can be received through the contact center?
+      - "PBU Center Services"
+    answers:
+      - |
+
+        1. Balance requests (loan requests and account requests) 
+        2. Pin reset for mobile banking and online banking only. 
+        3. ATM card blocking 
+        4. IMEI reset. 
+        5. Receiving requests, feedback, enquiries, and complaints
+  faq_reqmts_opening_bank_account:
+    samples:
+      - What are the requirements for opening an account?
+      - "Reqmts for A/C Opening"
+    answers:
+      - |
+
+        1. National Identity for Uganda nationals 
+        2. Refugee ID 
+        3. Passport for foreigners 
+        4. One passport photo
+  faq_type_of_bank_accounts:
+    samples:
+      - What type of accounts do you offer?
+      - "Type of Accounts"
+    answers:
+      - |
+
+        1. Savings accounts (personal, group and business/company accounts)
+        2. Current accounts (personal, group and company accounts) 
+        3. Term deposits Accounts
+  faq_min_balance_bank_account:
+    samples:
+      - What is the minimum balance for opening an account?
+      - "Min Bal for A/C Opening"
+    answers:
+      - The minimum balance depends on the type of account you are opening with us. More information can be accessed on our website - www.postbank.co.ug under deposit products.
+  faq_atm_near_me:
+    samples:
+      - How can I find an ATM or branch nearest to me?
+      - "Find nearest ATM"
+    answers:
+      - |
+
+        This can be done by 
+        1. Visiting the website - www.postbank.co.ug
+        2. Calling Contact Center
+
+  faq_atm_card_processing_fees:
+    samples:
+      - What is the cost of processing an ATM card?
+      - "Cost of Processing Card"
+    answers:
+      - "The cost of processing an ATM card is *GHS 15,000* exclusive of taxes. "
+  faq_max_amt_atm_withdrawal:
+    samples:
+      - What is the maximum amount that can be withdrawn using the ATM card?
+      - "Max withdrawal from ATM"
+    answers:
+      - |
+
+        "1. *GHS 3 million* per day for Classic cards though this can be increased to *GHS 5 million* on request."
+        "2. *GHS 7 million* per day for Platinum cards and this can be adjusted to *GHS 10 million* on request."
+  faq_atm_services:
+    samples:
+      - What services can be accessed using the PostBank ATM machine?
+      - "Services of PBU ATM"
+    answers:
+      - |
+
+        1. Withdrawals
+        2. Deposits up to 2 million per transaction. Up to 30 million per day (GHS5,000 and above)
+        3. Internal Transfers 
+        4. Cardless withdraws up to 10 million
+        5. Inter-switch services 
+        6. Balance inquiry 
+        7. Mini statements
+  faq_online_mobile_services:
+    samples:
+      - Does your bank have online and mobile banking services?
+      - "Access Mobile Banking"
+    answers:
+      - |
+
+        Yes, it has, and these can be accessed in the following ways. 
+
+        Mobile banking can be accessed using the USSD code - *263# or by downloading the PostBank mobile banking app from google playstore or applestore. 
+
+        Online banking can be accessed by visiting the website(www.postbank.co.ug) and following the link on the website
+  faq_mobile_banking_services:
+    samples:
+      - What services can be accessed via the mobile banking platforms?
+      - "Services of Mob. Banking"
+    answers:
+      - |
+
+        1. Balance inquiry 
+        2. Bank to wallet and wallet to bank 
+        3. Transfers (PostBank to PostBank, EFT and RTGS)
+        4. Initiation of cardless transactions 
+        5. Statements 
+        6. Utility payments (airtime, umeme, NWSC, payTV services)
+  faq_daily_limits_txn:
+    samples:
+      - What are the daily limits for transactions done via the mobile and online banking channels?
+      - "Daily Transaction Limits"
+    answers:
+      - |
+
+        Mobile banking USSD - GHS 1 million  
+
+        Mobile banking app - GHS 10 million for wallet transfers and GHS 500,000 for Airtime purchase 
+
+        Online banking:
+        "   *Personal banking* - GHS 10 million for wallet transactions and GHS 10 million for transfers and GHS 500,000 for Airtime purchase "
+        "   *Corporate banking* - GHS 1 billion and these can be done as bulk payments. "
+  faq_deposit_mobile_banking:
+    samples:
+      - How can I deposit money using the mobile banking app?
+      - "Deposit via Mbl. Banking"
+    answers:
+      - |
+
+        1. Log into the mobile banking app using your mobile banking PIN 
+        2. Select Mobile Money Wallet 
+        3. Select wallet to bank
+        4. Fill in the required details 
+        5. Then submit. 
+        6. Input your PostBank mobile banking pin 
+        7. Complete the transaction 
+
+        For Airtel Customers - a USSD code (*185#) can be used to perform the same transaction
+
+        1. Dial *185# 
+        2. Select Option 7 - Financial Services
+        3. Select Option 1 - Banks
+        4. Select Option 10 - Next 
+        5. Select Option 9 - Post Bank 
+        6. Enter your Account Number 
+        7. Enter the amount to be deposited 
+        8. Enter your Airtel mobile money pin 
+        9. Submit
+
+  faq_withdraw_money_via_mobile:
+    samples:
+      - How can I withdraw money using the mobile banking app?
+      - "Mbl. Banking Withdrawal"
+    answers:
+      - |
+
+        "*Option One: Bank to wallet*"
+
+        1. Log into the mobile banking app 
+        2. Select Mobile Money Wallet 
+        3. Proceed to bank to wallet (sending money to other telephone numbers is enabled though you are required to add beneficiary) 
+        4. Fill in the required details 
+        5. Then submit 
+        6. In put your PostBank mobile banking pin 
+        7. Complete the transaction 
+
+        "*Option Two: Cardless withdraw*"
+
+        1. Log into the mobile banking app
+        2. Select card 
+        3. Select Cardless withdrawal at ATM
+        4. Fill in the required details and then submit (Amount should not exceed GHS2million)
+        5. You will receive an OTP and voucher to be able to complete the transaction at any PostBank ATM.
+
+  faq_transfer_mobile:
+    samples:
+      - How can I make a transfer using the mobile banking app?
+      - "Mbl. Banking Transfer"
+    answers:
+      - |
+
+        Currently a customer can only perform a same bank transfer, an RTGS or EFT using the mobile banking application, and this can be done as below: 
+
+        1. Log into the mobile banking app
+        2. Select Funds Transfer 
+        3. Select Add beneficiary 
+        4. Select the type of transfer required (same bank, other bank account) 
+        5. Fill in the required details and submit 
+        6. After the details have been added - select your preference
+        7. Fill in the required details and submit. 
+        8. Input your PostBank mobile banking pin 
+        9. Complete the transaction
+
+  faq_enable_sms_alerts:
+    samples:
+      - What can I do to enable SMS alerts for transactions on and off my account?
+      - "Enable SMS Alerts"
+    answers:
+      - |
+
+        "*For MTN users*"
+
+        1. Dial *196# 
+        2. Select option 5 - Allow all 
+
+        "*For Airtel users*"
+
+        1. Dial *196#
+        2. Select language - Option 1 or 2 
+        3. Select option 8 - Allow all
+  faq_reset_mobile_pin:
+    samples:
+      - What channels can I use to reset my mobile banking pin in case I have been blocked or forgotten the pin?
+      - "Reset Mobile Banking Pin"
+    answers:
+      - |
+
+        1. Call the Contact center 
+        2. Visit the nearest branch
+  faq_new_phone_login:
+    samples:
+      - I bought a new phone, and I am currently failing to log onto the mobile banking app. What should I do?
+      - "Login via New Phone"
+    answers:
+      - You need to call the Contact Center on *0800 217 200* or *0417 157 711* for the new phone to be enabled and to be able to log onto the mobile banking application.
+  faq_bank_balance:
+    samples:
+      - How can I know my account balance?
+      - "Ways to know A/C Balance"
+    answers:
+      - |
+
+        You can know your account balance by: 
+
+        1. Using the mobile banking USSD code *163# 
+        2. Using the mobile banking app and online platform 
+        3. At the ATM 
+        4. At Agent locations
+
+  faq_account_statement:
+    samples:
+      - How can I get an account statement without visiting the branch?
+      - "A/C Stm w/o Branch Visit"
+    answers:
+      - |
+
+        The account statement can be gotten through the following ways: 
+
+        1. Making a request through the mobile banking application and online banking application 
+        2. Sending an email through our email address - customerservice@postbank.co.ug
+
+        *NOTE:* The e-statement can only be sent to an email address provided and captured with us in the system. In case the email address is not registered, the customer can visit update the account by visiting our website - www.postbank.co.ug and select account update.
+
+  faq_loan_types:
+    samples:
+      - What kind of loans do you offer?
+      - "Type of Loan Offered"
+    answers:
+      - |
+
+        1. Personal Loans
+        2. Agriculture Loans (Micro and SME Loans)
+        3. Business Loans (Micro and SME Loans) 
+        4. Home & Land Loan
+        5. Asset Financing
+        6. Contract Financing
+        7. Green Financing
+        8. Education Loans
+        9. Quick Loans
+        10. Wash Loans
+
+  faq_get_loan_from_pbu:
+    samples:
+      - How can I get a loan from PostBank?
+      - "How do I get a Loan?"
+    answers:
+      - We encourage our customers  to visit the nearest branch to get a loan. This is mainly to  have the customers  to be advised properly and enable them to make the correct decision.
+
+  faq_pbu_swift_code:
+    samples:
+      - What is Postbank's swift code?
+      - "PBU SWIFT Code"
+    answers:
+      - |
+
+        "*USD:*" 
+          Correspondent Bank:  Sparkasse Aachen, Aachen
+          Account Number: 927206243 
+          IBAN:DE85390500000927206243
+
+        "*EUR:*" 
+          Correspondent Bank:  Sparkasse Aachen, Aachen
+          Account Number: 1072223520 
+          IBAN:DE07390500001072223520
+
+        "*GBP:*"
+          Correspondent Bank: Sparkasse Aachen, Aachen
+          Account Number: 927206235  
+          IBAN:DE10390500000927206235
+
+  faq_send_money_from_outside:
+    samples:
+      - How do I send money directly to my account being I am out of the country?
+      - "Transfer from out of UG"
+    answers:
+      - |
+
+        Money can be sent directly using the following means
+
+        1. Transfast 
+        2. MoneyGram
+        3. Western Union 
+        4. PostalPay 
+        5. Juba Express
+
+  faq_agent_qualification:
+    samples:
+      - Who qualifies to be an agent?
+      - "Agent Qualifications"
+    answers:
+      - |
+
+        Any of the following entities qualify to be an agent:
+        1. Registered sole owner of the business
+        2. Registered partnership 
+        3. Limited Liability Companies 
+        4. Cooperative Societies 
+        5. Micro-finance institutions 
+        6. Any other entity approved by the Central Bank  
+        7. NGO
+        8. Registered village savings group 
+        9. Community based organization
+
+  faq_registered_agent_reqmts:
+    samples:
+      - What are the requirements to become a registered agent?
+      - "Reqmnts for Agents"
+    answers:
+      - |
+
+        1. All the entities above should have operated a primary business for at least 6 months
+        2. A bank account of Mobile money statement 6 months 
+        3. A registered and licensed business
+        4. Tin number
+        5. A presentable physical business premise 
+        6. Capital to invest as float in the agent banking business
+        7. A clean criminal record 
+        8. Should at least have a minimum of 10 walk-in customers to the primary business daily.
+        9. Business registration documents and LC recommendation letter.
+        10. Any other requirements as determined by the principle bank the prospecting agent is applying to
+
+  faq_agent_authorized_services:
+    samples:
+      - What are the authorized services to be carried out by agents?
+      - "Authorized Agt. Services"
+    answers:
+      - |
+
+        1. Cash deposit and cash withdrawal 
+        2. Bill payments 
+        3. Account balance inquiry 
+        4. Money transfers 
+        5. Provide mini account statements 
+        6. Collecting and forwarding information and supporting documents for account opening
+        7. School fees payment
+        8. MTN float purchase 
+        9. Loan referrals
+
+  faq_limits_for_agents:
+    samples:
+      - Is there a deposit/withdrawal limit at Agents?
+      - "Deposit/Withdrawl Limts"
+    answers:
+      - Yes, the current deposit limit is GHS 20 million, and the withdrawal limit is per the ATM card daily limit which currently stands at GHS 3 million for Classic cards and GHS 7 million for Platinum cards.
+
+  faq_agent_access_float:
+    samples:
+      - How does an agent access float?
+      - "Float Access for Agents"
+    answers:
+      - |
+
+        1. An agent can visit the nearest branch to acquire float or re-balance. 
+        2. Can acquire float through exchanging MTN or Airtel float with the branch agent lines.
+        3. Can deposit across all our deposit taking ATMS.
+        4. Can receive float transfer from other Agents.
+
+  faq_agent_prohibited_services:
+    samples:
+      - What services are Agents prohibited from conducting?
+      - "Prohibited Services"
+    answers:
+      - |
+
+        1. Charge fees directly to customers
+        2. Distribute cheque books 
+        3. Distribute debit cards, credit cards and PIN mailers 
+        4. Conduct foreign exchange transactions 
+        5. Carry out a transaction when the system is down or in the customer’s absence
+        6. Carrying out agency banking activities when the primary business ceases or has collapsed
+        7. Trading without a renewed trading license for the primary business.
+        8. Conducting agent banking services outside the approved physical business location
