@@ -27,8 +27,8 @@ OutputPrompts:
       header_type: image
       #header_image: "https://drive.google.com/uc?export=download&id=1ORIy4gs3Z5VEW3QTgrN6qNx-exZsKYjM"
       # header_image: "https://cbg.smartsellhub.com/CBG-Logo.jpg"
-      # header_image: "https://cbg.smartsellhub.com/MAUBank.png"
-      header_image: "https://myins.smartsellhub.com/my-bank.jpeg"
+      header_image: "https://cbg.smartsellhub.com/MAUBank.png"
+      # header_image: "https://myins.smartsellhub.com/my-bank.jpeg"
       body_prologue:
         long: "Please choose the desired service category"
         short: "Please choose the desired service category"
