@@ -333,6 +333,38 @@ OutputPrompts:
         - title: "Show Main Menu"
           description: null
   ###############################################################################
+  savings_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Savings Provided by MCS Bot"
+        short: "Savings Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Deposit Services and choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Savings"
+        short: "Savings"
+      section_title:
+        long: "Savings"
+        short: "Savings"
+      menu_list_rows:
+        - title: "Savings Balance"
+          description: null
+        - title: "Savings Interest Rate"
+          description: null
+        - title: "Savings Maturity Date"
+          description: null
+        - title: "Minimum Contribution"
+          description: null
+        - title: "Projection of Lump Sum"
+          description: null     
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
   deposits_as_three_buttons:
     args:
       type: BUTTONS
@@ -382,7 +414,7 @@ OutputPrompts:
         - title: "Show Main Menu"
           description: null
   ###############################################################################
-  savings_submenu_as_menu_list:
+  savings_submenu_as_menu_list_old:
     args:
       type: MENU_LIST
       header_text:
@@ -558,15 +590,13 @@ OutputPrompts:
       menu_list_rows:
         - title: "Documents for Deposits"
           description: null
-        - title: "FAQs about Bank A/C"
+        - title: "What is Fixed Deposit?"
           description: null
-        - title: "FAQs about Cards/ATMs"
+        - title: "What is Flexi Deposit?"
           description: null
-        - title: "FAQs about Mob. Banking"
+        - title: "What is Junior Flexi?"
           description: null
-        - title: "FAQs about Loans"
-          description: null
-        - title: "FAQs about Agents"
+        - title: "What is Maturity Date?"
           description: null
         - title: "Show Main Menu"
           description: null
@@ -600,6 +630,55 @@ OutputPrompts:
           description: null
         - title: "Show Main Menu"
           description: null
+  ###############################################################################
+  faq_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for MCS"
+        short: "FAQs for MCS"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs for MCS"
+        short: "FAQs for MCS"
+      section_title:
+        long: "FAQs for MCS"
+        short: "FAQs for MCS"
+      menu_list_rows:
+        - title: "FAQs about MCS"
+          description: null
+        - title: "FAQs about Loans"
+          description: null
+        - title: "FAQs about Deposits"
+          description: null
+        - title: "FAQs about Savings"
+          description: null
+        - title: "FAQs about Shares"
+          description: null
+        - title: "FAQs about Dividends"
+          description: null
+  ###############################################################################
+  faq_for_general_mcs_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Help Channels"
+          short: "Help Channels"
+        - long: "Center Services"
+          short: "Center Services"
   ###############################################################################
 
 UserInputs:
@@ -769,6 +848,20 @@ Task:
           # pointer: deposit_submenu_as_menu_list
           pointer: deposit_submenu_as_three_buttons
   ###############################################################################
+  savings_menu:
+    description: show Savings menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Savings"
+      short: "Savings"
+    samples:
+      - Savings
+    entities:
+      menu_options:
+        field_name: "Savings menu"
+        output_prompt:
+          pointer: savings_submenu_as_menu_list
+  ###############################################################################
   deposit_servics_menu:
     description: show deposit services menu
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -783,21 +876,6 @@ Task:
         output_prompt:
           # pointer: deposit_submenu_as_three_buttons
           pointer: deposit_services_submenu_as_menu_list
-  ###############################################################################
-  retirement_savings_fund_menu:
-    description: show retirement savings menu
-    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
-    task_suggestion:
-      long: "Retirement Savings"
-      short: "Retirement Savings"
-    samples:
-      - Retirement Savings Fund
-      - Retirement Savings
-    entities:
-      menu_options:
-        field_name: "Retirement savings fund services menu"
-        output_prompt:
-          pointer: retirement_savings_fund_submenu_as_menu_list
   ###############################################################################
   apply_deposit_menu:
     description: show apply deposit menu
@@ -900,6 +978,36 @@ Task:
         output_prompt:
           # pointer: loan_submenu_as_three_buttons
           pointer: dividend_as_three_buttons
+  ###############################################################################
+  faq_main_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs"
+      short: "FAQs"
+    samples:
+      - FAQ
+      - FAQs
+      - I have a question
+    entities:
+      menu_options:
+        field_name: "FAQ menu"
+        output_prompt:
+          pointer: faq_menu_as_menu_list
+  ###############################################################################
+  faq_general_mcs_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs about MCS"
+      short: "FAQs about MCS"
+    samples:
+      - FAQs about MCS
+    entities:
+      menu_options:
+        field_name: "FAQ about MCS"
+        output_prompt:
+          pointer: faq_for_general_mcs_as_buttons
   ###############################################################################
   # 1 Table 1 Task 6 Private
   get_loan_eligibility:
@@ -1211,7 +1319,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "account number"
         output_prompt:
           args:
@@ -1283,7 +1391,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -1354,7 +1462,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -1916,36 +2024,6 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-  # 22 Table 1 Task 30 Public
-  change_in_interest_rate:
-    description: change in interest rate
-    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
-    task_suggestion:
-      long: "Change Interest Rate"
-      short: "Change Interest Rate"
-    samples:
-      - In case there is a change in interest rate (repo rate) what happen to my monthly installments?
-      - Change Interest Rate
-    entities:
-      welcome_text:
-        field_name: "Welcome text"
-        output_prompt:
-          args:
-            type: TEXT
-            content:
-              - "Sure. I can assist you in obtaining the details about the change in interest rate for monthly installments."
-      change_interest:
-        field_name: "Change interest"
-        output_prompt:
-          args:
-            type: TEXT
-            content:
-              - "Whenever there is a change in repo rate, MCS will change the interest rate accordingly and monthly installments will be adjusted accordingly."
-      exit_message_at_task_end:
-        field_name: "Exit message at end"
-        output_prompt:
-          pointer: exit_message_at_task_end
-  ###############################################################################
   
   # 23 Table 2 Task 1 Private
   get_loan_amount_disbursed:
@@ -1987,7 +2065,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2109,7 +2187,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2283,7 +2361,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2415,7 +2493,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2488,7 +2566,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2566,7 +2644,7 @@ Task:
           pointer: deposits_as_three_buttons
         user_input:
           pointer: deposit_type
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2639,7 +2717,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2711,7 +2789,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -2783,7 +2861,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "Account number"
         output_prompt:
           args:
@@ -3051,7 +3129,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "account number"
         output_prompt:
           args:
@@ -3249,7 +3327,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "account number"
         output_prompt:
           args:
@@ -3320,7 +3398,7 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      salary_amount_as_buttons:
+      accounts_as_buttons:
         field_name: "account number"
         output_prompt:
           args:
@@ -3592,6 +3670,7 @@ Task:
     samples:
       - How many shares do I have with the Association and how much do I receive as dividends?
       - Shares Dividend Info
+      - Dividend Info
     entities:
       welcome_text:
         field_name: "Welcome text"
@@ -3984,6 +4063,7 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  # 53
   apply_educational_loan:
     description: apply for a educational loan
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -4109,7 +4189,7 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-  # 52 Apply fixed deposit
+  # 54 Apply fixed deposit
   apply_fixed_deposit:
     description: apply for a fixed deposit
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -4222,6 +4302,7 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  # 55
   apply_flexi_deposit:
     description: apply for a flexi deposit
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -4334,6 +4415,7 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  # 56
   apply_junior_flexi_deposit:
     description: apply for a junior flexi deposit
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -4446,7 +4528,7 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-  # 53 Table 5 Task 20 Public
+  # 57 Table 5 Task 20 Public
   get_deposit_interest_rate:
     description: get deposit interest rate
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -4478,6 +4560,263 @@ Task:
             type: TEXT
             content:
               - "MCS provides higher interest rates as high as 7.1% for the Deposits. For more details, please refer the below link:\n\nhttp://mybank.com/deposit_interest_rates"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 58
+  get_savings_interest_rate:
+    description: Get savings interest rate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Savings Interest Rate"
+      short: "Savings Interest"
+    samples:
+      - Savings Interest Rate
+      - Savings Interest
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the savings interest rates."      
+      deposit_interest_rates:
+        field_name: "Savings_interest_rates"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "MCS provides higher interest rates as high as 4.1% for the Retirement Savings. For more details, please refer the below link:\n\nhttp://mybank.com/deposit_interest_rates"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 59
+  retirement_savings:
+    description: Retirement savings
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Retirement Savings"
+      short: "Retirement Savings"
+    samples:
+      - Retirement Savings
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your retirement savings account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your name."
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for providing all the necessary information."
+      exit_message_success_1:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our dedicated officer shall reach out to you shortly for taking this further."
+      exit_message_success_2:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Alternately, you can also submit the application here: https://mauritius.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 60
+  savings_account_maturity_date:
+    description: Savings account maturity date
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Maturity Date"
+      short: "Maturity Date"
+    samples:
+      - Savings Account Maturity Date
+      - Savings Maturity Date
+      - Maturity Date
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your savings account maturity date."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      accounts_as_buttons:
+        field_name: "Account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your account number."
+              short: "Please choose your account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT
+      account_mature:
+        field_name: "Account Mature"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: savings_account_maturity_date
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 61
+  savings_account_balance:
+    description: Savings account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Savings Balance"
+      short: "Savings Balance"
+    samples:
+      - What is my Savings account balance?
+      - Savings Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your savings account balance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      accounts_as_buttons:
+        field_name: "account number"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose your savings account number."
+              short: "Please choose your savings account number."
+            footer_text: null
+            button_captions:
+              - long: "AEDF1234567"
+                short: "AEDF1234567"
+              - long: "HTUY4567812"
+                short: "HTUY4567812"
+        user_input:
+          args:
+            type: TEXT            
+      eligibility_range:
+        field_name: "Savings Amount"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_savings_account_balance
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -4542,6 +4881,23 @@ Task:
   ###############################################################################
 
 FAQ:
+  faq_channels:
+    samples:
+      - What channels can be used to easily get help from the bank without visiting a branch?
+      - "Help Channels"
+    answers:
+      - |
+
+        1. Toll-free (0800 217 200), non-toll free (0417 517 711)
+        2. WhatsApp (0707 993 930)
+        3. USSD code - *230*1#
+        4. Email - m.c.s.mutualaid@intnet.mu
+        5. Facebook
+        6. LinkedIn
+        7. Website - https://www.mcsmutualaid.mu/ 
+        8. Twitter
+        9. QR Code
+  ###############################################################################
   faq_fd_account_info:
     samples:
       - How to open a fixed deposit account?
@@ -4555,6 +4911,54 @@ FAQ:
         2. Tenure
         
         And an identity proof in the below link: https://mybank.com/fd_account_details
+  ###############################################################################
+  faq_fixed_deposit:
+    samples:
+      - What is fixed deposit?
+      - "What is Fixed Deposit?"
+    answers:
+      - |
+      
+        A Fixed Deposit (FD) is a popular financial instrument offered by banks where you can deposit a lump sum amount for a specific period at a fixed interest rate. The deposited amount, along with the interest earned, is repaid to you at the end of the predetermined tenure, known as the maturity date.
+        
+        FDs are known for providing a secure and stable investment option, making them ideal for individuals looking to grow their savings with minimal risk. The interest rates on FDs are generally higher than regular savings accounts, and you can choose the tenure that suits your financial goals.
+        
+        Keep in mind that withdrawing funds before the maturity date may result in a penalty.
+  ###############################################################################
+  faq_flexi_deposit:
+    samples:
+      - What is flexi deposit?
+      - "What is Flexi Deposit?"
+    answers:
+      - |
+      
+        A Flexi Deposit is a flexible savings scheme offered by banks that allows you to deposit varying amounts at different times, offering more flexibility compared to traditional fixed deposits. Unlike a regular fixed deposit where you deposit a lump sum for a fixed tenure, a Flexi Deposit allows you to make multiple deposits throughout the tenure.
+
+        With a Flexi Deposit, you have the freedom to deposit additional funds whenever you have surplus money. This can be a convenient option for those who want to save regularly but may not have a fixed monthly savings amount.
+        
+        The interest is typically calculated on the daily balance, and you may have the option to withdraw a part of the deposit without affecting the entire scheme.
+  ###############################################################################
+  faq_junior_flexi_deposit:
+    samples:
+      - What is junior flexi deposit?
+      - "What is Junior Flexi?"
+    answers:
+      - |
+      
+        A Junior Flexi Deposit is a savings scheme tailored for children or minors, providing a flexible way to save and invest money on their behalf. Similar to a regular Flexi Deposit, it offers flexibility in deposit amounts and timings, allowing parents or guardians to make periodic contributions according to their financial capability.
+        
+        The objective of a Junior Flexi Deposit is to encourage saving for a child's future needs, such as education expenses or other significant milestones. The account is typically opened in the name of the child, and the parent or guardian manages the deposits until the child reaches a certain age or becomes financially independent.
+  ###############################################################################
+  faq_maturity_date:
+    samples:
+      - What is maturity date?
+      - "What is maturity date?"
+    answers:
+      - |
+      
+        The maturity date refers to the date on which a financial instrument, such as a fixed deposit, comes due and is repaid to the investor.
+
+        For a fixed deposit, it signifies the end of the investment period, and you can redeem the FD for the principal amount plus any accrued interest.
   ###############################################################################
   faq_fd_account_docs_info:
     samples:
@@ -4598,4 +5002,41 @@ FAQ:
         4. Two latest salary slip/current dated salary certificate with the latest income tax receipt
         
         For further details, please refer the below link: https://mybank.com/loan_account_document_details
+  ###############################################################################
+  faq_types_of_loans:
+    samples:
+      - What types of loans are offered at the MCS mutual aid?
+      - "Types of Loans"
+    answers:
+      - |
+        At MCS, we provide the below loans:
+      
+        Home Loan
+        Personal Loan
+        MQL Loan
+        Educational Loan
+        R.S.S Loan
+        Spouse Loan
+        Special Personal - Cat A
+        Special Personal - Cat B
+  ###############################################################################
+  faq_interest_rate_change:
+    samples:
+      - In case there is a change in interest rate (repo rate) what happen to my monthly installments?
+      - "Interest Rate Change"
+    answers:
+      - |
+        In case there is a change in interest rate (repo rate), MCS will change the interest rate accordingly and monthly installments will be adjusted accordingly.
+  ###############################################################################
+  faq_docs_for_standing_order:
+    samples:
+      - What documents are required for a standing order?
+      - "Doc for Standing Order"
+    answers:
+      - |
+        The documents required for a standing order are:
+        1. Application Form
+        2. Proof of Identity
+        3. Proof of Address
+        4. Account Details
   ###############################################################################

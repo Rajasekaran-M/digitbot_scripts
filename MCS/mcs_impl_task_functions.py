@@ -67,6 +67,13 @@ def get_and_display_deposit_account_balance(
     message = "For the deposit account **" + deposit_account_number + "**, available account balance is **2,677.72 MUR**."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
+def get_and_display_savings_account_balance(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    savings_account_number = context.user_response
+    message = "For the savings account **" + savings_account_number + "**, available account balance is **3,211.72 MUR**."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
 def get_loan_maturity_date(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
@@ -78,6 +85,13 @@ def deposit_account_maturity_date(
 ) -> TaskEntityFunctionResponse:
     message = "Maturity Date for your deposit account is 01-Dec-2035"
     return TaskEntityFunctionResponse(success=True, text_message=message)
+
+def savings_account_maturity_date(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    message = "Maturity Date for your savings account is 01-Jun-2035"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
 
 def deposit_account_start_date(
     context: "UserMessageWithContext",
