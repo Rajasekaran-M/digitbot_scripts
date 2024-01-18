@@ -245,7 +245,7 @@ OutputPrompts:
       menu_list_rows:
         - title: "Loan"
           description: null
-        - title: "Deposits"
+        - title: "Deposit Services"
           description: null
         - title: "Savings"
           description: null
@@ -264,12 +264,12 @@ OutputPrompts:
         short: "Deposit Services offered by us. Please choose one to proceed further."
       footer_text: null
       button_captions:
-        - long: "Apply Deposit"
-          short: "Apply Deposit"
-        - long: "Deposit Balance"
-          short: "Deposit Balance"
-        - long: "Deposit Interest Rates"
-          short: "Deposit Interest"
+        - long: "Fixed Deposit"
+          short: "Fixed Deposit"
+        - long: "Flexi Deposit"
+          short: "Flexi Deposit"
+        - long: "Junior Flexi Deposit"
+          short: "Junior Flexi Deposit"
   ###############################################################################
   deposit_submenu_as_menu_list:
     args:
@@ -294,7 +294,39 @@ OutputPrompts:
           description: null
         - title: "Deposit Balance"
           description: null
-        - title: "Deposit Interest Rates"
+        - title: "Deposit Interest Rate"
+          description: null
+        - title: "Deposit Maturity Date"
+          description: null
+        - title: "Deposit FAQs"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  ###############################################################################
+  deposit_services_submenu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Deposit Services Provided by MCS Bot"
+        short: "Deposit Services Provided by MCS Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Deposit Services and choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Deposit Services"
+        short: "Deposit Services"
+      section_title:
+        long: "Deposit Services"
+        short: "Deposit Services"
+      menu_list_rows:
+        - title: "Deposit Balance"
+          description: null
+        - title: "Deposit Interest Rate"
+          description: null
+        - title: "Deposit Maturity Date"
           description: null
         - title: "Deposit FAQs"
           description: null
@@ -392,10 +424,10 @@ OutputPrompts:
         short: "Share and Dividend Services offered by us. Please choose one to proceed further."
       footer_text: null
       button_captions:
-        - long: "Share"
-          short: "Share"
-        - long: "Dividend"
-          short: "Dividend"
+        - long: "Transfer"
+          short: "Transfer"
+        - long: "Dividend Info"
+          short: "Dividend Info"
   ###############################################################################
   customer_services_submenu_as_menu_list:
     args:
@@ -734,8 +766,23 @@ Task:
       menu_options:
         field_name: "Deposit services menu"
         output_prompt:
+          # pointer: deposit_submenu_as_menu_list
+          pointer: deposit_submenu_as_three_buttons
+  ###############################################################################
+  deposit_servics_menu:
+    description: show deposit services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Deposit Services"
+      short: "Deposit Services"
+    samples:
+      - Deposit Services
+    entities:
+      menu_options:
+        field_name: "Deposit services menu"
+        output_prompt:
           # pointer: deposit_submenu_as_three_buttons
-          pointer: deposit_submenu_as_menu_list
+          pointer: deposit_services_submenu_as_menu_list
   ###############################################################################
   retirement_savings_fund_menu:
     description: show retirement savings menu
@@ -2545,7 +2592,7 @@ Task:
         output_prompt:
           args:
             type: DYNAMIC_CONTENT
-            data_function: get_deposit_interest_rate
+            data_function: get_deposit_account_interest_rate
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -4170,6 +4217,230 @@ Task:
             type: TEXT
             content:
               - "Click on this link to complete your fixed deposit application: https://mybank.mcs.ai"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  apply_flexi_deposit:
+    description: apply for a flexi deposit
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Flexi Deposit"
+      short: "Flexi Deposit"
+    samples:
+      - i want to apply for a Flexi Deposit
+      - Flexi Deposit
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a flexi deposit."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your name."
+        user_input:
+          args:
+            type: TEXT
+      deposit_amount:
+        field_name: "Deposit amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Deposit Amount (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      tenure_length_as_menu_list:
+        field_name: "Tenure length"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            body_prologue:
+              long: "Please choose the tenure length"
+              short: "Please choose the tenure length"
+            option_button_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            section_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            menu_list_rows:
+              - title: "36 months"
+                description: null
+              - title: "60 months"
+                description: null
+              - title: "72 months"
+                description: null
+              - title: "120 months"
+                description: null
+              - title: "240 months"
+                description: null
+              - title: "360 months"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your faq_flext_dep_account_docs_info: deposit application: https://mybank.mcs.ai"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  apply_junior_flexi_deposit:
+    description: apply for a junior flexi deposit
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Junior Flexi Deposit"
+      short: "Junior Flexi Deposit"
+    samples:
+      - i want to apply for a Junior Flexi Deposit
+      - Junior Flexi Deposit
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a Junior flexi deposit."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your name."
+        user_input:
+          args:
+            type: TEXT
+      deposit_amount:
+        field_name: "Deposit amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the Deposit Amount (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      tenure_length_as_menu_list:
+        field_name: "Tenure length"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            body_prologue:
+              long: "Please choose the tenure length"
+              short: "Please choose the tenure length"
+            option_button_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            section_title:
+              long: "Tenure Length"
+              short: "Tenure Length"
+            menu_list_rows:
+              - title: "36 months"
+                description: null
+              - title: "60 months"
+                description: null
+              - title: "72 months"
+                description: null
+              - title: "120 months"
+                description: null
+              - title: "240 months"
+                description: null
+              - title: "360 months"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your faq_junior_flext_dep_account_docs_info: deposit application: https://mybank.mcs.ai"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:

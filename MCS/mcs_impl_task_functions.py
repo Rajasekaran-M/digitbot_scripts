@@ -116,7 +116,7 @@ def get_emi_amount(
     message = "EMI Amount for your loan account " + account_number + " is **2,450.00 MUR**."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
-def get_deposit_interest_rate(
+def get_deposit_account_interest_rate(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     account_number = context.user_response
