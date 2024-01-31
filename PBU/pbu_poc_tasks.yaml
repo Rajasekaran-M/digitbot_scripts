@@ -1174,6 +1174,132 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  loan_calculator:
+    description: loan calculator
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Calculator"
+      short: "Loan Calculator"
+    samples:
+      - Loan Calculator
+      - Loan Eligibility
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with calculating your loan eligibility."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      additional_welcome_text:
+        field_name: "Additional welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We would like to get a few details to calculate the loan eligibility."
+      total_earnings:
+        field_name: "Total Earnings"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your Total earnings."
+        user_input:
+          args:
+            type: TEXT
+      basic_salary:
+        field_name: "Basic Salary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your basic salary."
+        user_input:
+          args:
+            type: TEXT 
+      leave_Travel_allowance:
+        field_name: "Leave travel allowance"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your leave travel allowance."
+        user_input:
+          args:
+            type: TEXT
+      tax_30%_of_LTA:
+        field_name: "Tax-30% of LTA"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your tax 30% of LTA."
+        user_input:
+          args:
+            type: TEXT
+      total_deductions:
+        field_name: "Total Deductions"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your total deductions."
+        user_input:
+          args:
+            type: TEXT
+      deposits:
+        field_name: "Deposits"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your deposits."
+        user_input:
+          args:
+            type: TEXT
+      loans:
+        field_name: "Loan"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your loan."
+        user_input:
+          args:
+            type: TEXT
+      loan_eligibility:
+        field_name: "Loan eligibility"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_loan_eligibility
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
   setup_auto_transfer:
     description: setup auto transfer
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
