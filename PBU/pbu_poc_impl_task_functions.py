@@ -40,8 +40,16 @@ def validate_email_address(context: "UserMessageWithContext") -> TaskEntityFunct
     return TaskEntityFunctionResponse(success=ret_val is not None)
 
 
+def validate_amount(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
+    print("Entering validate_amount")
+    amount_pattern = re.compile(r'^\d+$')
+    input_amount = context.user_response
+    ret_val = re.fullmatch(amount_pattern, input_amount)
+    print(f"ret_val: {ret_val}")
+    return TaskEntityFunctionResponse(success=ret_val is not None)
+
+
 def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
-    print(f'context.dialog_context.entity_history: {context.dialog_context.entity_history}')
     loan = context.user_response
     total_earnings = context.dialog_context.entity_history['total_earnings']
     deposits = context.dialog_context.entity_history['deposits']

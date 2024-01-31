@@ -1224,6 +1224,9 @@ Task:
               - "We would like to get a few details to calculate the loan eligibility."
       total_earnings:
         field_name: "Total Earnings"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
         output_prompt:
           args:
             type: TEXT
@@ -1235,6 +1238,9 @@ Task:
             type: FLOAT
       basic_salary:
         field_name: "Basic Salary"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
         output_prompt:
           args:
             type: TEXT
@@ -1246,6 +1252,9 @@ Task:
             type: FLOAT
       leave_travel_allowance:
         field_name: "Leave travel allowance"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
         output_prompt:
           args:
             type: TEXT
@@ -1257,6 +1266,9 @@ Task:
             type: FLOAT
       total_deductions:
         field_name: "Total Deductions"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
         output_prompt:
           args:
             type: TEXT
@@ -1268,6 +1280,9 @@ Task:
             type: FLOAT
       deposits:
         field_name: "Deposits"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
         output_prompt:
           args:
             type: TEXT
@@ -1279,6 +1294,9 @@ Task:
             type: FLOAT
       loans:
         field_name: "Loan"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
         output_prompt:
           args:
             type: TEXT
