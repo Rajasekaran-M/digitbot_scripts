@@ -41,8 +41,24 @@ def validate_email_address(context: "UserMessageWithContext") -> TaskEntityFunct
 
 
 def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
+    print(f'context.dialog_context.entity_history: {context.dialog_context.entity_history}')
     loan = context.user_response
-    message = "Your existing loan: " + loan + ".\n\nAvailable Installment Amount: 12345 KES"
+    total_earnings = context.dialog_context.entity_history['total_earnings']
+    deposits = context.dialog_context.entity_history['deposits']
+    leave_travel_allowance = context.dialog_context.entity_history['leave_travel_allowance']
+    total_deductions = context.dialog_context.entity_history['total_deductions']
+    basic_salary = context.dialog_context.entity_history['basic_salary']
+
+    try:
+        adjusted_earnings = float(total_earnings) - float(leave_travel_allowance)
+        adjusted_deductions = float(total_deductions) + ( float(basic_salary) / 3) - (float(leave_travel_allowance) * 0.3 )
+        available_installment_amount = round(float(adjusted_earnings) - float(adjusted_deductions), 2)
+        available_loan_amount = round((float(deposits) * 3) - float(loan), 2)
+    except ValueError as e:
+        print(f"Error: {e}")
+        adjusted_earnings = adjusted_deductions = available_installment_amount = available_loan_amount = 0.0
+    
+    message = f"Available Installment Amount: {available_installment_amount:,} KES.\n\nAvailable Loan Amount: {available_loan_amount:,} KES."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 

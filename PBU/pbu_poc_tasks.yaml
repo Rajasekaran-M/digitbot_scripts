@@ -1183,6 +1183,8 @@ Task:
     samples:
       - Loan Calculator
       - Loan Eligibility
+      - What is my loan eligibility?
+      - I want to calculate the loan amount I'm eligible.
     entities:
       welcome_text:
         field_name: "Welcome text"
@@ -1225,70 +1227,66 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please enter your Total earnings."
+              - "Please provide your total earnings."
         user_input:
+          forget: False
           args:
-            type: TEXT
+            type: FLOAT
       basic_salary:
         field_name: "Basic Salary"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your basic salary."
+              - "Please provide your basic salary."
         user_input:
+          forget: False
           args:
-            type: TEXT 
-      leave_Travel_allowance:
+            type: FLOAT
+      leave_travel_allowance:
         field_name: "Leave travel allowance"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your leave travel allowance."
+              - "Please provide your leave travel allowance."
         user_input:
+          forget: False
           args:
-            type: TEXT
-      tax_30%_of_LTA:
-        field_name: "Tax-30% of LTA"
-        output_prompt:
-          args:
-            type: TEXT
-            content:
-              - "Please enter your tax 30% of LTA."
-        user_input:
-          args:
-            type: TEXT
+            type: FLOAT
       total_deductions:
         field_name: "Total Deductions"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your total deductions."
+              - "Please provide your total deductions."
         user_input:
+          forget: False
           args:
-            type: TEXT
+            type: FLOAT
       deposits:
         field_name: "Deposits"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your deposits."
+              - "Please provide your deposit amount."
         user_input:
+          forget: False
           args:
-            type: TEXT
+            type: FLOAT
       loans:
         field_name: "Loan"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your loan."
+              - "How much loan amount is remaining?"
         user_input:
+          forget: False
           args:
-            type: TEXT
+            type: FLOAT
       loan_eligibility:
         field_name: "Loan eligibility"
         output_prompt:
