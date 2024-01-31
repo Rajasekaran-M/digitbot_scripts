@@ -36,8 +36,8 @@ OutputPrompts:
       button_captions:
         - long: "Bank Account Services"
           short: "Account Services"
-        - long: "Mobile Services"
-          short: "Mobile Services"
+        - long: "Check Loan Eligibility"
+          short: "Loan Eligibility"
         - long: "Other Services"
           short: "Other Services"
   bank_account_services_menu_as_menu_list:
@@ -160,7 +160,7 @@ OutputPrompts:
           description: null
         - title: "Apply for Home Loan"
           description: null
-        - title: "Show Main Menu"
+        - title: "Check Loan Eligibility"
           description: null
   other_services_menu_as_buttons:
     args:
@@ -176,8 +176,8 @@ OutputPrompts:
           short: "Loan Services"
         - long: "Card Services"
           short: "Card Services"
-        - long: "Show Main Menu"
-          short: "Show Main Menu"
+        - long: "Mobile Services"
+          short: "Mobile Services"
   loan_account_services_menu_as_buttons:
     args:
       type: BUTTONS
@@ -1182,6 +1182,7 @@ Task:
       short: "Loan Calculator"
     samples:
       - Loan Calculator
+      - Check Loan Eligibility
       - Loan Eligibility
       - What is my loan eligibility?
       - I want to calculate the loan amount I'm eligible.
