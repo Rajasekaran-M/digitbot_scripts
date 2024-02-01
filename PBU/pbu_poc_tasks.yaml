@@ -1231,7 +1231,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your total earnings."
+              - "Please provide your total earnings (in KES)."
         user_input:
           forget: False
           args:
@@ -1245,7 +1245,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your basic salary."
+              - "Please provide your basic salary (in KES)."
         user_input:
           forget: False
           args:
@@ -1259,7 +1259,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your leave travel allowance."
+              - "Please provide your leave travel allowance (in KES)."
         user_input:
           forget: False
           args:
@@ -1273,7 +1273,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your total deductions."
+              - "Please provide your total deductions (in KES)."
         user_input:
           forget: False
           args:
@@ -1287,7 +1287,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your deposit amount."
+              - "Please provide your deposit amount (in KES)."
         user_input:
           forget: False
           args:
@@ -1323,7 +1323,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "How much loan amount is remaining?"
+              - "How much loan amount is remaining (in KES)?"
         user_input:
           forget: False
           args:

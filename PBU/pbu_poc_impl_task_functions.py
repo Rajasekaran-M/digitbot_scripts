@@ -62,8 +62,8 @@ def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctio
     try:
         adjusted_earnings = float(total_earnings) - float(leave_travel_allowance)
         adjusted_deductions = float(total_deductions) + ( float(basic_salary) / 3) - (float(leave_travel_allowance) * 0.3 )
-        available_installment_amount = round(float(adjusted_earnings) - float(adjusted_deductions), 2)
-        available_loan_amount = round((float(deposits) * 3) - float(loans), 2)
+        available_installment_amount = round(float(adjusted_earnings) - float(adjusted_deductions), 0)
+        available_loan_amount = round((float(deposits) * 3) - float(loans), 0)
     except ValueError as e:
         print(f"Error: {e}")
         adjusted_earnings = adjusted_deductions = available_installment_amount = available_loan_amount = 0.0
@@ -148,6 +148,8 @@ def choose_next_entity(context: "UserMessageWithContext") -> TaskEntityFunctionR
 
     if resp == 'No':
         next_entity_name = "loan_eligibility"
+        if 'loans' in context.dialog_context.entity_history:
+            context.dialog_context.entity_history['loans'] = '0'
     elif resp == 'Yes':
         next_entity_name = "loans"
 
