@@ -49,7 +49,10 @@ def validate_amount(context: "UserMessageWithContext") -> TaskEntityFunctionResp
 
 
 def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
-    loan = context.user_response
+    if 'loans' in context.dialog_context.entity_history:
+        loans = context.dialog_context.entity_history['loans']
+    else:
+        loans = float(0)
     total_earnings = context.dialog_context.entity_history['total_earnings']
     deposits = context.dialog_context.entity_history['deposits']
     leave_travel_allowance = context.dialog_context.entity_history['leave_travel_allowance']
@@ -60,7 +63,7 @@ def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctio
         adjusted_earnings = float(total_earnings) - float(leave_travel_allowance)
         adjusted_deductions = float(total_deductions) + ( float(basic_salary) / 3) - (float(leave_travel_allowance) * 0.3 )
         available_installment_amount = round(float(adjusted_earnings) - float(adjusted_deductions), 2)
-        available_loan_amount = round((float(deposits) * 3) - float(loan), 2)
+        available_loan_amount = round((float(deposits) * 3) - float(loans), 2)
     except ValueError as e:
         print(f"Error: {e}")
         adjusted_earnings = adjusted_deductions = available_installment_amount = available_loan_amount = 0.0
@@ -70,7 +73,7 @@ def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctio
     if available_installment_amount < 0:
         message += "There is not enough earnings to cover the installment.\n\n"
     if available_loan_amount < 0:
-        message += "There is not enough loan amount to provide the loan.\n\n"
+        message += "Sorry. The loan eligibility criteria has not been met. Please contact our branch for more details.\n\n"
     
     if message == "":
         message += f"Available Installment Amount: {available_installment_amount:,} KES.\n\nAvailable Loan Amount: {available_loan_amount:,} KES."
@@ -137,6 +140,18 @@ def validate_debit_or_credit_card(context: "UserMessageWithContext") -> TaskEnti
 
 def set_user_as_authenticated(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
     return TaskEntityFunctionResponse(success=True, text_message="User is authenticated")
+
+
+def choose_next_entity(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
+    resp = context.user_response
+    next_entity_name = None
+
+    if resp == 'No':
+        next_entity_name = "loan_eligibility"
+    elif resp == 'Yes':
+        next_entity_name = "loans"
+
+    return TaskEntityFunctionResponse(success=True, text_message=next_entity_name)
 
 
 ######PBU POC randomized authentication related functions

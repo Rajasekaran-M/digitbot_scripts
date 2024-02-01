@@ -1294,6 +1294,7 @@ Task:
             type: FLOAT
       loan_confirmation:
         field_name: "Loan confirmation"
+        next_entity_fn: choose_next_entity
         output_prompt:
           args:
             type: BUTTONS
