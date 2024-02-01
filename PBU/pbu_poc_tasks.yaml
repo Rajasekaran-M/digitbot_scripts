@@ -1292,6 +1292,27 @@ Task:
           forget: False
           args:
             type: FLOAT
+      loan_confirmation:
+        field_name: "Loan confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you have any existing loan?"
+              short: "Do you have any existing loan?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
       loans:
         field_name: "Loan"
         validation_function: validate_amount

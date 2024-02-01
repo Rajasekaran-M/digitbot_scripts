@@ -41,11 +41,10 @@ def validate_email_address(context: "UserMessageWithContext") -> TaskEntityFunct
 
 
 def validate_amount(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
-    print("Entering validate_amount")
-    amount_pattern = re.compile(r'^\d+$')
+    # amount_pattern = re.compile(r'^\d+$')
+    amount_pattern = re.compile(r'^\d+(\.\d+)?$')
     input_amount = context.user_response
     ret_val = re.fullmatch(amount_pattern, input_amount)
-    print(f"ret_val: {ret_val}")
     return TaskEntityFunctionResponse(success=ret_val is not None)
 
 
@@ -66,7 +65,15 @@ def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctio
         print(f"Error: {e}")
         adjusted_earnings = adjusted_deductions = available_installment_amount = available_loan_amount = 0.0
     
-    message = f"Available Installment Amount: {available_installment_amount:,} KES.\n\nAvailable Loan Amount: {available_loan_amount:,} KES."
+    message = ""
+    
+    if available_installment_amount < 0:
+        message += "There is not enough earnings to cover the installment.\n\n"
+    if available_loan_amount < 0:
+        message += "There is not enough loan amount to provide the loan.\n\n"
+    
+    if message == "":
+        message += f"Available Installment Amount: {available_installment_amount:,} KES.\n\nAvailable Loan Amount: {available_loan_amount:,} KES."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 
