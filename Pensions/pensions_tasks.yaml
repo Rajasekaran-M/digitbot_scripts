@@ -1,0 +1,933 @@
+#GiG
+
+Bot:
+  bot_name: Chatbot for Pensions
+  bot_description: Add any other details
+
+OutputPrompts:
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your **9 digits** phone number."
+        - "Please enter your phone number."
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number."
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://glico.smartsellhub.com/glicopensions-logo.png"
+      body_prologue:
+        long: "Please choose the desired service category"
+        short: "Please choose the desired service category"
+      footer_text: null
+      button_captions:
+        - long: "New Customer"
+          short: "New Customer"
+        - long: "Existing Customer"
+          short: "Existing Customer"
+        - long: "I have a question"
+          short: "I have a question"
+  new_customer_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Account Services Provided by MyBank Bot"
+        short: "Account Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Account Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "New Customer Menu"
+        short: "New Customer Menu"
+      section_title:
+        long: "New Customer"
+        short: "New Customer"
+      menu_list_rows:
+        - title: "Employee Registration"
+          description: null
+        - title: "Retirement Calculator"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  existing_customer_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Account Services Provided by MyBank Bot"
+        short: "Account Services Provided by MyBank Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Account Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Existing Customer"
+        short: "Existing Customer"
+      section_title:
+        long: "Existing Customer"
+        short: "Existing Customer"
+      menu_list_rows:
+        - title: "Account Balance"
+          description: null
+        - title: "Contribution History"
+          description: null
+        - title: "Beneficiary Update"
+          description: null
+        - title: "Email Account Statement"
+          description: null
+        - title: "View Claim Status"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+  
+  retirement_accounts_as_two_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We found two accounts associated with your phone number. Please choose one to proceed further."
+        short: "We found two accounts associated with your phone number. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "XXXXXXX1234"
+          short: "XXXXXXX1234"
+        - long: "XXXXXXX5678"
+          short: "XXXXXXXX5678"
+  
+  relationship_with_the_pensioner:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What is your relationship with the insured patient?"
+        short: "What is your relationship with the insured patient?"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Relationship"
+        short: "Relationship"
+      section_title:
+        long: "Relationship"
+        short: "Relationship"
+      menu_list_rows:
+        - title: "Spouse"
+          description: null
+        - title: "Child"
+          description: null
+        - title: "Parents"
+          description: null
+        - title: "Other"
+          description: null
+
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+
+  date_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+  mother_maiden_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your mother's maiden name."
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *debit* card."
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *account number*."
+  nominee_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your nominee."
+  first_pet_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your first pet."
+  city_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the city that you were born in."
+  recent_transaction_and_amount:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select a recent transaction made by you on 15-Jul-2023."
+        short: "Please select a recent transaction made by you on 15-Jul-2023."
+      footer_text: null
+      button_captions:
+        - long: "50K MUR at KFC"
+          short: "50K MUR at KFC"
+        - long: "100K MUR at Meza"
+          short: "100K MUR at Meza"
+        - long: "750 MUR at Pizza Hut"
+          short: "750 MUR at Pizza Hut"
+
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+
+  retirement_account:
+    args:
+      type: TEXT
+
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+
+  date_of_birth:
+    args:
+      type: TEXT
+  mother_maiden_name:
+    args:
+      type: TEXT
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+  nominee_name:
+    args:
+      type: TEXT
+  first_pet_name:
+    args:
+      type: TEXT
+  city_of_birth:
+    args:
+      type: TEXT
+  recent_transaction_and_amount:
+    args:
+      type: TEXT
+###############################################################################
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons
+  ###############################################################################
+  new_customer_services_menu:
+    description: show new customer services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "New Customer"
+      short: "New Customer"
+    samples:
+      - new customer
+    entities:
+      menu_options:
+        field_name: "New customer services menu"
+        output_prompt:
+          pointer: new_customer_services_menu_as_menu_list
+  ###############################################################################
+  existing_customer_services_menu:
+    description: show existing customer services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Existing Customer"
+      short: "Existing Customer"
+    samples:
+      - existing customer
+    entities:
+      menu_options:
+        field_name: "Existing customer services menu"
+        output_prompt:
+          pointer: existing_customer_services_menu_as_menu_list
+  ###############################################################################
+  get_account_balance:
+    description: show your account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "A/C Balance"
+      short: "A/C Balance"
+    samples:
+      - What is my account balance?
+      - How much money do I have in my account?
+      - Show my account balance
+      - retirement account balance
+      - A/C Balance
+      - Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your account balance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_retirement_accounts:
+        field_name: "List of retirement accounts"
+        output_prompt:
+          pointer: retirement_accounts_as_two_buttons
+        user_input:
+          pointer: retirement_account
+      account_balance:
+        field_name: "Account balance"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  get_retirement_account_contribution_history:
+    description: retirement account contribution history
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Contribution History"
+      short: "Contribution History"
+    samples:
+      - retirement account Contribution History
+      - Show my recent retirement account transactions
+      - A/C Contribution History
+      - Contribution History
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your recent contributions to the retirement account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_retirement_accounts:
+        field_name: "List of retirement accounts"
+        output_prompt:
+          pointer: retirement_accounts_as_two_buttons
+        user_input:
+          pointer: retirement_account
+      account_transactions_text:
+        field_name: "Account transactions"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the list of contributions below. We also have provided it as a document for your convenience.
+      account_transactions_image:
+        field_name: "Account contributions image"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://glico.smartsellhub.com/Pensions-Statement.png"
+            web_title: "Account contributions"
+            web_description: "Please click on the button to view it in full screen"
+      account_transactions_document:
+        field_name: "Account contributions document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://glico.smartsellhub.com/Pensions_Statement.pdf"
+            web_title: "Account contributions PDF"
+            web_description: "Please click on the link to view the document"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  email_account_statement:
+    description: email account statement
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Email A/C Statement"
+      short: "Email A/C  Statement"
+    samples:
+      - email my account statement
+      - mail my account statement
+      - send me my account statement
+      - Email Account Statement
+      - Email A/C Statement
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with emailing the retirement account statements."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_retirement_accounts:
+        field_name: "List of retirement accounts"
+        output_prompt:
+          pointer: retirement_accounts_as_two_buttons
+        user_input:
+          pointer: retirement_account
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      account_transactions_document_prelude:
+        field_name: "Account transactions confirmation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - We have mailed the retirement statement to your email address. You can also download it below.
+      account_transactions_document:
+        field_name: "Account contributions document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://myins.smartsellhub.com/Pensions_Statement.pdf"
+            web_title: "Account contributions PDF"
+            web_description: "Please click on the link to view the document"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  beneficiary_update:
+    description: beneficiary_update
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Beneficiary Update"
+      short: "Beneficiary Update"
+    samples:
+      - Beneficiary Update
+      - need to update beneficiary
+      - Nominee update
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with updating the beneficiary in your retirement account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_retirement_accounts:
+        field_name: "List of retirement accounts"
+        output_prompt:
+          pointer: retirement_accounts_as_two_buttons
+        user_input:
+          pointer: retirement_account
+      beneficiary_name:
+        field_name: "Beneficiary name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the name of the new beneficiary for your retirement account."
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please mention the beneficiary's Date of Birth. Specify in DD-MM-YYYY format.
+        user_input:
+          args:
+            type: TEXT
+      relationship_with_the_pensioner:
+        field_name: "Relationship with the pensioner"
+        output_prompt:
+          pointer: relationship_with_the_pensioner
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you. Your beneficiary update request *RABU20240401201* has been successfully filed on *01-Mar-2024*. It will be processed in 1-2 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  get_status_of_claim:
+    description: get status of a claim
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "View Claim Status"
+      short: "View Claim Status"
+    samples:
+      - i want to know the claim status
+      - claim status
+      - what is the status of my claim
+      - what happened to my claim
+      - View Claim Status
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the status of your claim."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_retirement_accounts:
+        field_name: "List of retirement accounts"
+        output_prompt:
+          pointer: retirement_accounts_as_two_buttons
+        user_input:
+          pointer: retirement_account
+      claim_number:
+        field_name: "Claim number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is your insurance claim number?
+              - Please provide your insurance claim number.
+        user_input:
+          args:
+            type: TEXT
+      claim_status:
+        field_name: "Claim status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_claim_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  employee_registration:
+    description: employee registration
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Employee Registration"
+      short: "Employee Registr."
+    samples:
+      - i want to register
+      - Employee Registration
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with registering as an employee."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please mention your Date of Birth. Specify in DD-MM-YYYY format.
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://enroll.glicopensions.com/#?prod_code=EMPREG&mno=233244712584&fmt_otp=E"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  retirement_calculator:
+    description: Retirement Calculator
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Retirement Calculator"
+      short: "Retirement Calc."
+    samples:
+      - Retirement Calculator
+      - I want to calculate for my retirement
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with the calculation for your retirement."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      additional_welcome_text:
+        field_name: "Additional welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We would like to get a few details to calculate the amount needed for your retirement."
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please mention your Date of Birth. Specify in DD-MM-YYYY format.
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      retirement_age:
+        field_name: "Retirement age"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please mention your desired retirement age.
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      annual_income:
+        field_name: "Annual income"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your current annual income (in GHS)."
+        user_input:
+          forget: False
+          args:
+            type: FLOAT
+      existing_retirement_savings:
+        field_name: "Existing retirement savings"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your existing retirement savings (in GHS)."
+        user_input:
+          forget: False
+          args:
+            type: FLOAT
+      annual_contribution:
+        field_name: "Annual contribution"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your annual contribution to retirement savings (in GHS)."
+        user_input:
+          forget: False
+          args:
+            type: FLOAT
+      rate_of_return:
+        field_name: "Rate of return"
+        validation_function: validate_amount
+        failure_validation_responses:
+          - The given value seems to be in an incorrect format.
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please provide your expected rate of return in retirement savings (between 1-100)."
+        user_input:
+          forget: False
+          args:
+            type: FLOAT
+      calculated_value:
+        field_name: "Calculated value"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_retirement_calc
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ########################################################################
