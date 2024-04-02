@@ -684,8 +684,8 @@ Task:
           args:
             type: TEXT
             content:
-              - What is your insurance claim number?
-              - Please provide your insurance claim number.
+              - What is your pension claim number?
+              - Please provide your pension claim number.
         user_input:
           args:
             type: TEXT
@@ -785,6 +785,7 @@ Task:
     samples:
       - Retirement Calculator
       - I want to calculate for my retirement
+      - How much money do I need to retire?
     entities:
       welcome_text:
         field_name: "Welcome message"
