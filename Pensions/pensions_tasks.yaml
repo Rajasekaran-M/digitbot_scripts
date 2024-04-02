@@ -118,8 +118,8 @@ OutputPrompts:
         long: ""
         short: ""
       body_prologue:
-        long: "What is your relationship with the insured patient?"
-        short: "What is your relationship with the insured patient?"
+        long: "What is your relationship with the pensioner?"
+        short: "What is your relationship with the pensioner?"
       footer_text:
         long: "Click Send to select it"
         short: "Click Send to select it"
@@ -137,6 +137,36 @@ OutputPrompts:
         - title: "Parents"
           description: null
         - title: "Other"
+          description: null
+
+  member_association:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose the member association."
+        short: "Please choose the member association.?"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Association"
+        short: "Association"
+      section_title:
+        long: "Association"
+        short: "Association"
+      menu_list_rows:
+        - title: "GLICO"
+          description: null
+        - title: "GESOPS"
+          description: null
+        - title: "GUTA"
+          description: null
+        - title: "TPFS"
+          description: null
+        - title: "CAPS"
           description: null
 
   exit_message_at_task_end:
@@ -724,6 +754,13 @@ Task:
             type: TEXT
             content:
               - Please mention your Date of Birth. Specify in DD-MM-YYYY format.
+        user_input:
+          args:
+            type: TEXT
+      list_of_member_associations:
+        field_name: "List of member associations"
+        output_prompt:
+          pointer: member_association
         user_input:
           args:
             type: TEXT
