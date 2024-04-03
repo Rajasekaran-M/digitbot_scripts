@@ -75,7 +75,7 @@ def get_retirement_calc(context: "UserMessageWithContext") -> TaskEntityFunction
     # print(f"{total_estimated_savings} -- {future_invested_value}")
 
     if total_estimated_savings < total_amount_needed:
-        message = f"Total amount needed for retirement: {total_amount_needed:,} GHS.\n\nYour estimated retirement savings: {total_estimated_savings:,} GHS.\n\nI would recommend considering increasing your contributions or adjusting your requirement goals to bridge this gap."
+        message = f"Total amount needed for retirement: {total_amount_needed:,} GHS.\n\nYour estimated retirement savings: {total_estimated_savings:,} GHS.\n\nWe would recommend considering increasing your contributions or adjusting your requirement goals to bridge this gap."
     elif total_estimated_savings > total_amount_needed:
         message = f"Total amount needed for retirement: {total_amount_needed:,} GHS.\n\nYour estimated retirement savings: {total_estimated_savings:,} GHS.\n\nYou are set."
     return TaskEntityFunctionResponse(success=True, text_message=message)
@@ -85,7 +85,7 @@ def get_and_display_account_balance(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     retirement_account_number = context.user_response
-    message = "For the retirement account **" + retirement_account_number + "**, available account balance is **213,211.72 GHS**."
+    message = "For the retirement account *" + retirement_account_number + "*, available account balance is *213,211.72 GHS*."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 
@@ -93,7 +93,7 @@ def get_and_display_claim_status(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     claim_number = context.user_response
-    message = "Your claim request **" + claim_number + "** has been successfully filed on *25-Mar-2024*. Status is *'Under Verification'*. Verifications usually take _4-5_ business days."
+    message = "Your claim request *" + claim_number + "* has been successfully filed on *25-Mar-2024*. Status is *'Under Verification'*. Verifications usually take _4-5_ business days."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 

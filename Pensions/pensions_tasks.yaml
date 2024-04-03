@@ -14,7 +14,7 @@ OutputPrompts:
     args:
       type: TEXT
       content:
-        - "I need to validate your identity. Please enter your **9 digits** phone number."
+        - "I need to validate your identity. Please enter your *9 digits* phone number."
         - "Please enter your phone number."
   OTP:
     args:
@@ -41,11 +41,11 @@ OutputPrompts:
     args:
       type: MENU_LIST
       header_text:
-        long: "Account Services Provided by MyBank Bot"
-        short: "Account Services Provided by MyBank Bot"
+        long: "New Customer Services Provided by Pensions Bot"
+        short: "New Customer Services Provided by Pensions Bot"
       body_prologue:
         long: "Please choose from one of the following options."
-        short: "To begin, tap Account Services Menu and choose from one of the following options"
+        short: "To begin, tap New Customer Menu and choose from one of the following options"
       footer_text:
         long: "Click Send to select it"
         short: "Click Send to select it"
@@ -66,11 +66,11 @@ OutputPrompts:
     args:
       type: MENU_LIST
       header_text:
-        long: "Account Services Provided by MyBank Bot"
-        short: "Account Services Provided by MyBank Bot"
+        long: "Existing Customer Services Provided by Pensions Bot"
+        short: "Existing Customer Services Provided by Pensions Bot"
       body_prologue:
         long: "Please choose from one of the following options."
-        short: "To begin, tap Account Services Menu and choose from one of the following options"
+        short: "To begin, tap Existing Customer Services Menu and choose from one of the following options"
       footer_text:
         long: "Click Send to select it"
         short: "Click Send to select it"
