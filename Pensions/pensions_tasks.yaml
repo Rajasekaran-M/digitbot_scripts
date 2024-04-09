@@ -45,7 +45,7 @@ OutputPrompts:
         short: "New Customer Services Provided by Pensions Bot"
       body_prologue:
         long: "Please choose from one of the following options."
-        short: "To begin, tap New Customer Menu and choose from one of the following options"
+        short: "To begin, tap New Customer Services Menu and choose from one of the following options"
       footer_text:
         long: "Click Send to select it"
         short: "Click Send to select it"
@@ -88,6 +88,8 @@ OutputPrompts:
         - title: "Beneficiary Update"
           description: null
         - title: "Email Account Statement"
+          description: null
+        - title: "Raise a Claim"
           description: null
         - title: "View Claim Status"
           description: null
@@ -906,6 +908,71 @@ Task:
           args:
             type: DYNAMIC_CONTENT
             data_function: get_retirement_calc
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  raise_a_claim:
+    description: Raise a claim
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Raise a Claim"
+      short: "Raise a Claim"
+    samples:
+      - i want to raise a claim
+      - Raise a Claim
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with raising a claim."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      list_of_retirement_accounts:
+        field_name: "List of retirement accounts"
+        output_prompt:
+          pointer: retirement_accounts_as_two_buttons
+        user_input:
+          pointer: retirement_account
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://enroll.glicopensions.com/#?prod_code=Claims&mno=233244712584&fmt_otp=E"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
