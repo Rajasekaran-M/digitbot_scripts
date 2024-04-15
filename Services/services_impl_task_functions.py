@@ -75,7 +75,7 @@ def get_and_display_booking_status(
     time_slot = context.dialog_context.entity_history['time_slot']
     customer_address = context.dialog_context.entity_history['customer_address']
 
-    message = f"We've scheduled your appointment as below:\n\nService Name: {service_name}\nAppointment Date: {date_of_appointment}\nTimeslot: {time_slot}\nLocation: {customer_address}."
+    message = f"We've scheduled your appointment as below:\n\nService Name: *{service_name}*\nAppointment Date: *{date_of_appointment}*\nTimeslot: *{time_slot}*\nLocation: {customer_address}."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 

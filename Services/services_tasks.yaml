@@ -400,6 +400,13 @@ Task:
           args:
             type: DYNAMIC_CONTENT
             data_function: get_and_display_booking_status
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your payment: https://srv.smartsellhub.com/payment"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
