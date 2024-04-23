@@ -59,6 +59,12 @@ def get_and_display_service_details(
         "Pedicure": 499,
         "Hair Color": 549,
         "Massage": 1499,
+        "Power Saver Service": 749,
+        "Anti-rust Deep Clean": 999,
+        "AC Service Lite": 589,
+        "Inverter Install.": 485,
+        "Inverter Servicing": 249,
+        "Inverter Repair": 210
     }
     service_name = context.user_response
     service_cost = services_and_cost[service_name]

@@ -97,6 +97,24 @@ OutputPrompts:
           description: null
         - title: "Massage"
           description: null
+  ac_services_list_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose a service."
+        short: "Please choose a service."
+      footer_text: null
+      button_captions:
+        - long: "Power Saver Service"
+          short: "Power Saver Service"
+        - long: "Anti-rust Deep Clean"
+          short: "Anti-rust Deep Clean"
+        - long: "AC Service Lite"
+          short: "AC Service Lite"
   timeslot_options:
     args:
       type: MENU_LIST
@@ -131,6 +149,97 @@ OutputPrompts:
         - title: "3 - 4 PM"
           description: null
 
+  inverter_services_list_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose a service."
+        short: "Please choose a service."
+      footer_text: null
+      button_captions:
+        - long: "Inverter Install."
+          short: "Inverter Install."
+        - long: "Inverter Servicing"
+          short: "Inverter Servicing"
+        - long: "Inverter Repair"
+          short: "Inverter Repair"
+  
+  ac_appliances_services_list_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "AC and Appliance Repair. Please choose the appropriate category."
+        short: "AC and Appliance Repair. Please choose the appropriate category."
+      footer_text: null
+      button_captions:
+        - long: "AC Repair & Service"
+          short: "AC Repair & Service"
+        - long: "Laptop Repair"
+          short: "Laptop Repair"
+        - long: "Washing Machine Repair"
+          short: "Washing Mach. Repair"
+  ac_repair_and_services_list_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "AC Repair and Service. Please choose a service."
+        short: "AC Repair and Service. Please choose a service."
+      footer_text: null
+      button_captions:
+        - long: "AC Service"
+          short: "AC Service"
+        - long: "Repair & Gas Refill"
+          short: "Repair & Gas Refill"
+        - long: "Install & Uninstall"
+          short: "Install & Uninstall"
+  electrician_and_plumber_services_list_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose the appropriate category."
+        short: "Please choose the appropriate category."
+      footer_text: null
+      button_captions:
+        - long: "Electrician"
+          short: "Electrician"
+        - long: "Plumbers"
+          short: "Plumbers"
+        - long: "Carpenters"
+          short: "Carpenters"
+  electrician_services_list_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose a service."
+        short: "Please choose a service."
+      footer_text: null
+      button_captions:
+        - long: "Inverter, Stabilizer"
+          short: "Inverter, Stabilizer"
+        - long: "Wiring"
+          short: "Wiring"
+        - long: "Light & Fan"
+          short: "Light & Fan"
   dates_as_three_buttons:
     args:
       type: BUTTONS
@@ -297,24 +406,328 @@ Task:
       - Book a Service
       - Services Booking
     entities:
+      list_of_services:
+        field_name: "List of services"
+        output_prompt:
+          pointer: services_list_as_menu_list
+  ###############################################################################
+  ac_and_appliance_repair:
+    description: AC and appliance repair
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "AC & Appliance Repair"
+      short: "AC & Appl. Repair"
+    samples:
+      - AC & Appliance Repair
+      - AC & Appliance Repair
+      - AC & Appl. Repair
+    entities:
+      list_of_ac_and_appliance_services:
+        field_name: "List of ac and appliance services"
+        output_prompt:
+          pointer: ac_appliances_services_list_as_buttons
+  ###############################################################################
+  ac_service_and_repair:
+    description: AC service and repair
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "AC Repair & Service"
+      short: "AC Repair & Service"
+    samples:
+      - AC Repair & Service
+    entities:
+      list_of_ac_repair_and_services:
+        field_name: "List of ac repair and services"
+        output_prompt:
+          pointer: ac_repair_and_services_list_as_buttons
+  ###############################################################################
+  electrician_and_plumber:
+    description: Electrician and plumber
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Electrician & Plumber"
+      short: "Electrici. & Plumber"
+    samples:
+      - Electrician & Plumber
+      - Electrici. & Plumber
+    entities:
+      list_of_electrician_and_plumber_services:
+        field_name: "List of electrician and plumber services"
+        output_prompt:
+          pointer: electrician_and_plumber_services_list_as_buttons
+  ###############################################################################
+  electrician_services:
+    description: Electrician services
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Electrician"
+      short: "Electrician"
+    samples:
+      - Electrician
+    entities:
+      list_of_ac_repair_and_services:
+        field_name: "List of ac repair and services"
+        output_prompt:
+          pointer: electrician_services_list_as_buttons
+  ###############################################################################
+  mens_salon_and_spa:
+    description: Men's salon and spa
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Men's Salon & Spa"
+      short: "Men's Salon & Spa"
+    samples:
+      - Men's Salon & Spa
+      - Men's Salon
+      - Men's spa
+    entities:
       welcome_text:
         field_name: "Welcome text"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Sure. I can help you with booking a service."
-      list_of_services:
-        field_name: "List of services"
-        output_prompt:
-          pointer: services_list_as_menu_list
-        user_input:
-          args:
-            type: TEXT
+              - "Sure. I can help you with booking a service in Men's Salon & Spa."
       service_name:
         field_name: "Service name"
         output_prompt:
           pointer: salon_services_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      service_details:
+        field_name: "Service details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_service_details
+      user_confirmation:
+        field_name: "User confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to continue booking?"
+              short: "Do you want to continue booking?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      customer_address:
+        field_name: "Customer Address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your payment: https://srv.smartsellhub.com/payment"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  ac_service:
+    description: AC Service
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "AC Service"
+      short: "AC Service"
+    samples:
+      - AC Service
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with booking a service for your AC."
+      service_name:
+        field_name: "Service name"
+        output_prompt:
+          pointer: ac_services_list_as_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      service_details:
+        field_name: "Service details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_service_details
+      user_confirmation:
+        field_name: "User confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to continue booking?"
+              short: "Do you want to continue booking?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      customer_address:
+        field_name: "Customer Address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your payment: https://srv.smartsellhub.com/payment"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  inverter_and_stabilizer:
+    description: Inverter and stabilizer
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Inverter, Stabilizer"
+      short: "Inverter, Stabilizer"
+    samples:
+      - Inverter, Stabilizer
+      - Inverter
+      - Stabilizer
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with booking a service for your Inverter and Stabilizer."
+      service_name:
+        field_name: "Service name"
+        output_prompt:
+          pointer: inverter_services_list_as_buttons
         user_input:
           forget: False
           args:
