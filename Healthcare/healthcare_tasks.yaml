@@ -1,0 +1,459 @@
+#GiG
+
+Bot:
+  bot_name: Chatbot for Healthcare
+  bot_description: Add any other details
+
+OutputPrompts:
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your *9 digits* phone number."
+        - "Please enter your phone number."
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number."
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://glico.smartsellhub.com/glicopensions-logo.png"
+      body_prologue:
+        long: "Welcome to My Hospital. Please choose below to proceed."
+        short: "Welcome to My Hospital. Please choose below to proceed."
+      footer_text: null
+      button_captions:
+        - long: "Book an Appointment"
+          short: "Book an Appointment"
+        - long: "Symptom Assessment"
+          short: "Symptom Assessment"
+        - long: "Book Health Checkup"
+          short: "Book Health Checkup"
+  departments_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a department"
+        short: "Select a department"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Departments List"
+        short: "Departments List"
+      section_title:
+        long: "Departments List"
+        short: "Departments List"
+      menu_list_rows:
+        - title: "ENT"
+          description: null
+        - title: "Dermatology"
+          description: null
+        - title: "Pediatrics"
+          description: null
+        - title: "Not sure"
+          description: null
+  timeslot_options:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a slot"
+        short: "Select a slot"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Slot"
+        short: "Slot"
+      section_title:
+        long: "Slot"
+        short: "Slot"
+      menu_list_rows:
+        - title: "10 - 11 AM"
+          description: null
+        - title: "11 AM - 12 PM"
+          description: null
+        - title: "12 - 1 PM"
+          description: null
+        - title: "12 - 1 PM"
+          description: null
+        - title: "1 - 2 PM"
+          description: null
+        - title: "2 - 3 PM"
+          description: null
+        - title: "3 - 4 PM"
+          description: null
+
+  dates_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "When do you want to book the appointment?"
+        short: "When do you want to book the appointment?"
+      footer_text: null
+      button_captions:
+        - long: "15-Apr-2024"
+          short: "15-Apr-2024"
+        - long: "16-Apr-2024"
+          short: "16-Apr-2024"
+        - long: "17-Apr-2024"
+          short: "17-Apr-2024"
+  
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+
+  date_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+  mother_maiden_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your mother's maiden name."
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *debit* card."
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *account number*."
+  nominee_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your nominee."
+  first_pet_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your first pet."
+  city_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the city that you were born in."
+  recent_transaction_and_amount:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select a recent transaction made by you on 15-Jul-2023."
+        short: "Please select a recent transaction made by you on 15-Jul-2023."
+      footer_text: null
+      button_captions:
+        - long: "50K MUR at KFC"
+          short: "50K MUR at KFC"
+        - long: "100K MUR at Meza"
+          short: "100K MUR at Meza"
+        - long: "750 MUR at Pizza Hut"
+          short: "750 MUR at Pizza Hut"
+
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+
+  date_of_birth:
+    args:
+      type: TEXT
+  mother_maiden_name:
+    args:
+      type: TEXT
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+  nominee_name:
+    args:
+      type: TEXT
+  first_pet_name:
+    args:
+      type: TEXT
+  city_of_birth:
+    args:
+      type: TEXT
+  recent_transaction_and_amount:
+    args:
+      type: TEXT
+###############################################################################
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons
+  ###############################################################################
+  book_an_appointment:
+    description: Book an Appointment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Book an Appointment"
+      short: "Book an Appointment"
+    samples:
+      - Book an Appointment
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with booking an appointment."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      patient_name:
+        field_name: "Patient name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please mention the patient's full name."
+        user_input:
+          args:
+            type: TEXT
+      patient_gender:
+        field_name: "Patient Gender"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please select the patient's gender."
+              short: "Please select the patient's gender."
+            footer_text: null
+            button_captions:
+              - long: "Male"
+                short: "Male"
+              - long: "Female"
+                short: "Female"
+              - long: "Others"
+                short: "Others"
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      list_of_departments:
+        field_name: "List of departments"
+        output_prompt:
+          pointer: departments_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      existing_patient:
+        field_name: "Existing patient"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you visiting for the first time, or is it a follow-up visit?"
+              short: "Are you visiting for the first time, or is it a follow-up visit?"
+            footer_text: null
+            button_captions:
+              - long: "First Time"
+                short: "First Time"
+              - long: "Follow-up Visit"
+                short: "Follow-up Visit"
+        user_input:
+          args:
+            type: TEXT
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ########################################################################
