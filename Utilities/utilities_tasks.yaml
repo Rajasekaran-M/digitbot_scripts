@@ -64,6 +64,53 @@ OutputPrompts:
           description: null
         - title: "Not sure"
           description: null
+  complaint_category_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Complaint Category"
+        short: "Complaint Category"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Complaint Category"
+        short: "Complaint Category"
+      section_title:
+        long: "Complaint Category"
+        short: "Complaint Category"
+      menu_list_rows:
+        - title: "Power Outage"
+          description: null
+        - title: "High Electricity Bill"
+          description: null
+        - title: "Meter Reading Issue"
+          description: null
+        - title: "Connection Request"
+          description: null
+        - title: "Disconnection Request"
+          description: null
+        - title: "Other"
+          description: null
+  complaints_as_two_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We found two complaints associated with your phone number. Please choose one to proceed further."
+        short: "We found two complaints associated with your phone number. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "CBGSR00754625"
+          short: "CBGSR00754625"
+        - long: "CBGSR00754848"
+          short: "CBGSR00754848"
   timeslot_options:
     args:
       type: MENU_LIST
@@ -324,6 +371,200 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  register_complaint:
+    description: Register Complaint
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Register Complaint"
+      short: "Register Complaint"
+    samples:
+      - Register Complaint
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure,I can help you register a complaint."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please mention the Customer name."
+        user_input:
+          args:
+            type: TEXT
+      customer_address:
+        field_name: "Customer Address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please mention the Customer Address."
+        user_input:
+          args:
+            type: TEXT
+      list_of_complaint_category:
+        field_name: "List of Complaint Category"
+        output_prompt:
+          pointer: complaint_category_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      complaint_summary:
+        field_name: "Complaint Summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your complaint details briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      complaint_details:
+        field_name: "Complaint Details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your complaint is successfully registered. The request number is CBGSR00754625.\nOur agents will attend to it shortly."
+      update_an_status:
+        field_name: "Update Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Would you like to receive updates on the status of the complaint?"
+              short: "Would you like to receive updates on the status of the complaint?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      update_summary:
+        field_name: "Update summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Noted! We'll keep you informed about the status of the complaint."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  complaint_status:
+    description: Complaint Status
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Complaint Status"
+      short: "Complaint Status"
+    samples:
+      - Complaint Status
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you track the status of your complaint."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      complaint_number:
+        field_name: "List of Complaints"
+        output_prompt:
+          pointer: complaints_as_two_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      complaint_status:
+        field_name: "Complaint Status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_complaint_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
 
   positive:
     description: polarity

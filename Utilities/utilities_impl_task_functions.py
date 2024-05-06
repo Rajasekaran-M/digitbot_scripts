@@ -82,6 +82,14 @@ def get_and_display_bill(
     message = f"Here is the summary of your utility bill for *{year_and_month}*:\nBilling Period: *{year_and_month}*.\nConsumer Number: {consumer_number}\nTotal Amount Due: 175 USD\nDue Date: 15-Mar-2024\nBreakdown of Charges: Electricity Bill"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
+def get_complaint_status(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    complaint_number = context.dialog_context.entity_history['complaint_number']
+    message = f"Your complaint number *{complaint_number}* is currently being investigated.\nWe aim to resolve the issue as soon as possible. Our team will get in touch with you as quickly as possible."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+
 
 def send_OTP(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
     return TaskEntityFunctionResponse(success=True, text_message="Sending OTP")
