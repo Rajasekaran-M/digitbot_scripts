@@ -64,6 +64,89 @@ OutputPrompts:
           description: null
         - title: "Not sure"
           description: null
+  city_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a city"
+        short: "Select a city"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Cities List"
+        short: "Cities List"
+      section_title:
+        long: "Cities List"
+        short: "Cities List"
+      menu_list_rows:
+        - title: "Chennai"
+          description: null
+        - title: "Bangalore"
+          description: null
+        - title: "Delhi"
+          description: null
+        - title: "Mumbai"
+          description: null
+        - title: "Kolkata"
+          description: null
+  desired_hospital_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Desired hospital"
+        short: "Desired hospital"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Hospital List"
+        short: "Hospital List"
+      section_title:
+        long: "Hospital List"
+        short: "Hospital List"
+      menu_list_rows:
+        - title: "My Hospital, Area 1"
+          description: null
+        - title: "My Hospital, Area 2"
+          description: null
+        - title: "My Hospital, Area 3"
+          description: null
+        - title: "My Hospital, Area 4"
+          description: null
+        - title: "My Hospital, Area 5"
+          description: null
+  packages_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a Packages"
+        short: "Select a Packages"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Packages List"
+        short: "Packages List"
+      section_title:
+        long: "Packages List"
+        short: "Packages List"
+      menu_list_rows:
+        - title: "Cancer Screening Package"
+          description: null
+        - title: "Comp. Heart Checkup"
+          description: null
+        - title: "Comp. Diabetic Checkup"
+          description: null
   timeslot_options:
     args:
       type: MENU_LIST
@@ -369,6 +452,289 @@ Task:
                 short: "First Time"
               - long: "Follow-up Visit"
                 short: "Follow-up Visit"
+        user_input:
+          args:
+            type: TEXT
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  symptom_assessment:
+    description: Symptom assessment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Symptom Assessment"
+      short: "Symptom Assessment"
+    samples:
+      - Symptom Assessment
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you in assisting you assess the symptoms."
+      symptoms_details:
+        field_name: "Symptom details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the symptoms experienced by you (if there are multiple symptoms add a comma between them)."
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      patient_gender:
+        field_name: "Patient Gender"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please select the patient's gender."
+              short: "Please select the patient's gender."
+            footer_text: null
+            button_captions:
+              - long: "Male"
+                short: "Male"
+              - long: "Female"
+                short: "Female"
+              - long: "Others"
+                short: "Others"
+        user_input:
+          args:
+            type: TEXT
+      symptoms_conditions:
+        field_name: "Symptoms Conditions"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Conditions that match your symptoms:\nFlu\nBacterial pneumonia\nAsthma(Teen and Adult)\nCommon Cold"
+      book_an_appointment:
+        field_name: "Book an Appointment"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Would you like to book an appointment?"
+              short: "Would you like to book an appointment?"
+            footer_text: null
+            button_captions:
+              - long: "Yes, book now"
+                short: "Yes, book now"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      patient_name:
+        field_name: "Patient name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please mention the patient's full name."
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  book_a_health_checkup:
+    description: Book a health checkup
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Book Health Checkup"
+      short: "Book Health Checkup"
+    samples:
+      - Book a health checkup
+      - Book Health Checkup
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with booking a health checkup."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      list_of_cities:
+        field_name: "List of cities"
+        output_prompt:
+          pointer: city_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      list_of_desired hospital:
+        field_name: "List of desired hospital"
+        output_prompt:
+          pointer: desired_hospital_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      list_of_packages:
+        field_name: "List of packages"
+        output_prompt:
+          pointer: packages_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      book_an_appointment:
+        field_name: "Book an Appointment"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Would you like to book an appointment?"
+              short: "Would you like to book an appointment?"
+            footer_text: null
+            button_captions:
+              - long: "Yes, book now"
+                short: "Yes, book now"
+              - long: "No"
+                short: "No"
         user_input:
           args:
             type: TEXT

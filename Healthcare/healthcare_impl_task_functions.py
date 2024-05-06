@@ -79,7 +79,7 @@ def get_and_display_booking_status(
     date_of_appointment = context.dialog_context.entity_history['date_of_appointment']
     time_slot = context.dialog_context.entity_history['time_slot']
 
-    message = f"We've scheduled your appointment as below:\n\nAppointment Date: *{date_of_appointment}*\nTimeslot: *{time_slot}*. The details have been sent to your mobile and email. Thanks for choosing My Hospital. We are looking forward to your appointment."
+    message = f"We've scheduled your appointment as below:\n\nAppointment Date: *{date_of_appointment}*\nTimeslot: *{time_slot}*.\n\nThe details have been sent to your mobile and email.\nThanks for choosing My Hospital. We are looking forward to your appointment."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 
