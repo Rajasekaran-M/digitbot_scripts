@@ -62,7 +62,46 @@ OutputPrompts:
           description: null
         - title: "Pediatrics"
           description: null
+        - title: "General Medicine"
+          description: null
+        - title: "Gynaecology"
+          description: null
+        - title: "Orthopaedics"
+          description: null
         - title: "Not sure"
+          description: null
+  doctors_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a doctor"
+        short: "Select a doctor"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Doctors List"
+        short: "Doctors List"
+      section_title:
+        long: "Doctors List"
+        short: "Doctors List"
+      menu_list_rows:
+        - title: "James Smith"
+          description: null
+        - title: "Kenneth Martinez"
+          description: null
+        - title: "Jeff Wright"
+          description: null
+        - title: "Dorothy Parker"
+          description: null
+        - title: "Betty Collins"
+          description: null
+        - title: "Barbara Young"
+          description: null
+        - title: "Any available doctor"
           description: null
   Other_services_list_as_menu_list:
     args:
@@ -93,8 +132,71 @@ OutputPrompts:
           description: null
         - title: "Bill Estimates"
           description: null
+        - title: "Health Claim"
+          description: null
+        - title: "Find a Doctor"
+          description: null
         - title: "Show Main Menu"
           description: null
+  list_of_insurance_policy_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7478.jpg
+      body_prologue:
+        long: You have two insurance policies. Choose one from the list.
+        short: You have two insurance policies. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "AY7623456"
+          short: "AY7623456"
+        - long: "JK2356456"
+          short: "JK2356456"
+  relationship_with_insured:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What is your relationship with the insured patient?"
+        short: "What is your relationship with the insured patient?"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Relationship"
+        short: "Relationship"
+      section_title:
+        long: "Relationship"
+        short: "Relationship"
+      menu_list_rows:
+        - title: "Self"
+          description: null
+        - title: "Spouse"
+          description: null
+        - title: "Child"
+          description: null
+        - title: "Parents"
+          description: null
+        - title: "Other"
+          description: null
+  boolean_confirm_data_entered:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Do you verify that all the data entered by you is correct?
+        short: Do you verify that all the data entered by you is correct?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
   city_list_as_menu_list:
     args:
       type: MENU_LIST
@@ -149,6 +251,24 @@ OutputPrompts:
           description: null
         - title: "Emergency Services"
           description: null
+  gender:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select your gender."
+        short: "Please select your gender."
+      footer_text: null
+      button_captions:
+        - long: "Male"
+          short: "Male"
+        - long: "Female"
+          short: "Female"
+        - long: "Don't want to share"
+          short: "Don't want to share"
   department_list_as_menu_list:
     args:
       type: MENU_LIST
@@ -1354,6 +1474,250 @@ Task:
             type: TEXT
             content:
               - "If you would like to know more on the estimate or need a break-up, login to the portal using your registered mobile number."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  medical_insurance_claim:
+    description: make a claim for hospital bills
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Health Claim"
+      short: "Health Claim"
+    samples:
+      - file a medical insurance claim
+      - make a claim for hospital bills
+      - i want to file a medical insurance claim
+      - i want to report a hospitalization
+      - i want to claim my hospital bills
+      - file a medical claim for an accident
+      - hospital bills
+      - i got sick
+      - i want to reimburse my hospital expenses
+      - Medical Ins. Claim
+      - Health Claim
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with filing a health insurance claim."
+      name_of_customer_involved_in_the_accident:
+        field_name: "Patient name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please provide the name of the patient.
+              - We need your details to file the claim. To start with can I get the name of the patient?
+        user_input:
+          args:
+            type: TEXT
+      gender:
+        field_name: "Gender"
+        output_prompt:
+          pointer: gender
+        user_input:
+          args:
+            type: TEXT
+      relationship_with_insured:
+        field_name: "Relationship with insured"
+        output_prompt:
+          pointer: relationship_with_insured
+        user_input:
+          args:
+            type: TEXT
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      type_of_claim:
+        field_name: "Type of claim"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: text
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose the type of claim."
+              short: "Please choose the type of claim."
+            footer_text: null
+            button_captions:
+              - long: "Cashless Hospitaliz."
+                short: "Cashless Hospitaliz."
+              - long: "Reimbursement"
+                short: "Reimbursement"
+        user_input:
+          args:
+            type: TEXT
+      boolean_confirm_data_entered:
+        field_name: "Confirm data entry"
+        output_prompt:
+          pointer: boolean_confirm_data_entered
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your claim has been submitted successfully with the reference number HICL09678123. We will contact you shortly upon verification with the hospital."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  find_a_doctor:
+    description: Find a Doctor 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Find a Doctor"
+      short: "Find a Doctor"
+    samples:
+      - Find a Doctor 
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with finding a doctor."
+      list_of_desired hospital:
+        field_name: "List of desired hospital"
+        output_prompt:
+          pointer: desired_hospital_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      list_of_departments:
+        field_name: "List of departments"
+        output_prompt:
+          pointer: departments_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      list_of_doctors:
+        field_name: "List of doctor"
+        output_prompt:
+          pointer: doctors_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      book_an_appointment:
+        field_name: "Book an Appointment"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Would you like to book an appointment?"
+              short: "Would you like to book an appointment?"
+            footer_text: null
+            button_captions:
+              - long: "Yes, book now"
+                short: "Yes, book now"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      existing_patient:
+        field_name: "Existing patient"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Are you visiting for the first time, or is it a follow-up visit?"
+              short: "Are you visiting for the first time, or is it a follow-up visit?"
+            footer_text: null
+            button_captions:
+              - long: "First Time"
+                short: "First Time"
+              - long: "Follow-up Visit"
+                short: "Follow-up Visit"
+        user_input:
+          args:
+            type: TEXT
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
