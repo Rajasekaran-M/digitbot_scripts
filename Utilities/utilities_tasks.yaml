@@ -37,6 +37,40 @@ OutputPrompts:
           short: "Outage"
         - long: "Other Services"
           short: "Other Services"
+  start_stop_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Start Service"
+          short: "Start Service"
+        - long: "Stop Service"
+          short: "Stop Service"
+        - long: "Move Service"
+          short: "Move Service"
+  ways_to_save_energy_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We offer a variety of resources to help you use energy more efficiently at your home or business. Please choose one to proceed."
+        short: "We offer a variety of resources to help you use energy more efficiently at your home or business. Please choose one to proceed."
+      footer_text: null
+      button_captions:
+        - long: "Residential Energy Saving Tips"
+          short: "Residential Energy"
+        - long: "Business Energy Saving Tips"
+          short: "Business Energy"
   billing_payments_menu:
     args:
       type: MENU_LIST
@@ -129,6 +163,55 @@ OutputPrompts:
           description: null
         - title: "Other"
           description: null
+  residential_type_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Residential type"
+        short: "Residential type"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Residential type"
+        short: "Residential type"
+      section_title:
+        long: "Residential type"
+        short: "Residential type"
+      menu_list_rows:
+        - title: "Individual House/Villa"
+          description: null
+        - title: "Mobile Home"
+          description: null
+        - title: "Apartments"
+          description: null
+        - title: "Farmhouse"
+          description: null
+        - title: "Duplex"
+          description: null
+        - title: "Other"
+          description: null
+  service_stop_reasons_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose the reason for stopping the service."
+        short: "Please choose the reason for stopping the service."
+      footer_text: null
+      button_captions:
+        - long: "Very High Tariff"
+          short: "Very High Tariff"
+        - long: "Billing Challenges"
+          short: "Billing Challenges"
+        - long: "Switching Renewable"
+          short: "Switching Renewable"
   complaints_as_two_buttons:
     args:
       type: BUTTONS
@@ -408,6 +491,35 @@ Task:
         field_name: "Other Services menu"
         output_prompt:
           pointer: other_services_menu
+  ###############################################################################
+  start_stop_move_services_menu:
+    description: show start stop move services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Start, Stop, Move Services"
+      short: "Start, Stop Services"
+    samples:
+      - Start, Stop, Move Services
+      - Start, Stop Services
+    entities:
+      menu_options:
+        field_name: "start stop move services menu"
+        output_prompt:
+          pointer: start_stop_menu_as_buttons
+  ###############################################################################
+  ways_to_save_enegry_menu:
+    description: show Ways to Save Energy menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Ways to Save Energy"
+      short: "Ways to Save Energy"
+    samples:
+      - Ways to Save Energy
+    entities:
+      menu_options:
+        field_name: "Ways to Save Energy menu"
+        output_prompt:
+          pointer: ways_to_save_energy_menu_as_buttons
   ###############################################################################
   bill_inquiry:
     description: Bill inquiry
@@ -1008,6 +1120,360 @@ Task:
             type: TEXT
             content:
               - "Thank you! Your request has been submitted successfully.\n\nYour refund request number: CR1908556.\n\nYour request will be processed in next 4-7 days and you will be updated with the details."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  start_service:
+    description: Start Service
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Start Service"
+      short: "Start Service"
+    samples:
+      - Start Service
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you in starting a service."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      consumer_name:
+        field_name: "Consumer Name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the consumer name."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      ssn_number:
+        field_name: "SSN Number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Kindly enter your SSN number or Driver's license number."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      address:
+        field_name: "Address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please state your address."
+        user_input:
+          args:
+            type: TEXT
+      list_of_residential_type:
+        field_name: "List Of Residential Type"
+        output_prompt:
+          pointer: residential_type_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      chosen_plan:
+        field_name: "Chosen Plan"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Choose one of the available plans to submit."
+              short: "Choose one of the available plans to submit."
+            footer_text: null
+            button_captions:
+              - long: "Energy Saver plan"
+                short: "Energy Saver plan"
+              - long: "Max use plan"
+                short: "Max use plan"
+        user_input:
+          args:
+            type: TEXT
+      plan_details:
+        field_name: "Plan Details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Plan Type: *Energy Saver*\n\nCost:\n\n1 to 100 kWh: 15 cents/unit\n\nAbove 100 kWh: 30 cents/unit"
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Great! Your request (NC079461352) has been taken up.\n\nOur service personnel will be reaching you for verification shortly."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  stop_service:
+    description: Stop Service
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Stop Service"
+      short: "Stop Service"
+    samples:
+      - Stop Service
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you in stopping a service."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_details:
+        field_name: "Account Details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
+      service_stop_reason:
+        field_name: "Service stop reason"
+        output_prompt:
+          pointer: service_stop_reasons_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! Here is your service request number: SR2938238. You will be receiving a response from one of our associates shortly."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  move_service:
+    description: Move Service
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Move Service"
+      short: "Move Service"
+    samples:
+      - Move Service
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you in moving a service."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_details:
+        field_name: "Account Details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
+      new_address:
+        field_name: "New Address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please give us your new address."
+        user_input:
+          args:
+            type: TEXT
+      date_of_stopping_service:
+        field_name: "Date of service stopping"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the date (MM-DD-YYYY) to stop your service at your current address."
+        user_input:
+          args:
+            type: TEXT
+      date_of_starting_service:
+        field_name: "Date of service starting"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the date (MM-DD-YYYY) to start your service at your new address."
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! Here is your service request number: SR2938684. You will be receiving a response from one of our associates shortly."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  residential_energy_savings_tips:
+    description: Residential Energy Saving Tips
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Residential Energy Saving Tips"
+      short: "Residential Energy"
+    samples:
+      - Residential Energy Saving Tips
+      - Residential Energy
+    entities:
+      winter_months:
+        field_name: "Winter Months"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*During the Winter Months*:\n\nTo cut heating expenses, adjust your thermostat to 68F during the day and 60F at night, saving 3 percent for each degree below 70F.\nHeat pump users should maintain a constant setting, unless using programmable electronic heat pump thermostats with adaptive recovery. Seek advice from your heating or air conditioning specialist regarding the thermostat type.\nWinterize windows by applying weather stripping and caulk, and use window kits for insulation to retain warm air.\nRegularly change filters to ensure a well-maintained heating system that saves money and improves home comfort.\nConfirm your fireplace is airtight to prevent heat loss.\nCheck ductwork for air leaks, and seal joints with silver metal duct tape to cut up to 10 percent on heating expenses."
+      summer_months:
+        field_name: "Summer Months"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*During the Summer Months*:\n\nRoutinely inspect and clean your air conditioner's air filter for enhanced efficiency and energy conservation.\nSet your thermostat to 78°F for a comfortable and energy-saving indoor environment.\nArrange for a professional inspection of your air conditioning system to detect leaks or malfunctions.\nKeep windows and exterior doors closed when the air conditioner is running.\nAvoid placing heat sources near the thermostat to prevent unnecessary operation of the air conditioner.\nEnsure ducts and fans are unobstructed to maintain proper airflow and home comfort."
+      year_round:
+        field_name: "Year Round"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*Year-Round*:\n\nLower the water heater temperature from 140°F to 130°F to reduce energy expenses.\nUtilize a microwave for cooking, which consumes half the energy of a conventional oven.\nWash clothes in cold water to save around $50 annually.\nAdd a dry towel in the dryer with each load to decrease drying time and save energy.\nTransition to compact fluorescent bulbs for energy efficiency and longer lifespan.\nRegularly check crawl space insulation to maintain its effectiveness.\nVacuum refrigerator coils every three months to enhance efficiency and save energy."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  business_energy_savings_tips:
+    description: Business Energy Saving Tips
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Business Energy Saving Tips"
+      short: "Business Energy"
+    samples:
+      - Business Energy Saving Tips
+      - Business Energy
+    entities:
+      lighting:
+        field_name: "Lighting"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*Lighting*:\n\nRemember to turn off lights when they are not needed.\nSwap incandescent bulbs with energy-efficient compact fluorescent lights.\nConsider installing 'occupant sensors' for automatic light control."
+      hvac_systems:
+        field_name: "Hvac systems"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*Heating and Cooling (HVAC) Systems*:\n\n\nEnsure that HVAC units are well-maintained by cleaning coils and changing filters regularly.\nAdjust the thermostat when the area is empty or opt for a programmable thermostat.\nKeep radiators, air vents, and system equipment unobstructed for proper airflow."
+      equipment:
+        field_name: "Equipment"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*Equipment*:\n\nPower off equipment when not in use, including computers.\nPerform regular maintenance on equipment year-round."
+      building:
+        field_name: "Building"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "*Building*:\n\nBlock direct sunlight in the summer.\nAllow sunlight in during winter.\nSeal windows for drafts, and caulk where necessary.\nKeep external doors shut."
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
