@@ -20,7 +20,7 @@ OutputPrompts:
     args:
       type: TEXT
       content:
-        - "Please enter the four digit OTP sent to your phone number."
+        - "Please enter the four digit OTP sent to your phone number (Demo OTP: 1234)."
   main_menu_as_buttons:
     args:
       type: BUTTONS
@@ -31,39 +31,73 @@ OutputPrompts:
         short: "Welcome to My Utilities. Please choose below to proceed."
       footer_text: null
       button_captions:
-        - long: "Bill Inquiry"
-          short: "Bill Inquiry"
-        - long: "Register Complaint"
-          short: "Register Complaint"
-        - long: "Complaint Status"
-          short: "Complaint Status"
-  departments_list_as_menu_list:
+        - long: "Billing & Payments"
+          short: "Billing & Payments"
+        - long: "Outage"
+          short: "Outage"
+        - long: "Other Services"
+          short: "Other Services"
+  billing_payments_menu:
     args:
       type: MENU_LIST
       header_text:
         long: ""
         short: ""
       body_prologue:
-        long: "Select a department"
-        short: "Select a department"
+        long: "Choose a service"
+        short: "Choose a service"
       footer_text:
         long: "Click Send to select it"
         short: "Click Send to select it"
       option_button_title:
-        long: "Departments List"
-        short: "Departments List"
+        long: "Services List"
+        short: "Services List"
       section_title:
-        long: "Departments List"
-        short: "Departments List"
+        long: "Services List"
+        short: "Services List"
       menu_list_rows:
-        - title: "ENT"
+        - title: "Pay Your Bill"
           description: null
-        - title: "Dermatology"
+        - title: "Bill Inquiry"
           description: null
-        - title: "Pediatrics"
+        - title: "Account Balance"
           description: null
-        - title: "Not sure"
+        - title: "Refund Request"
           description: null
+        - title: "Question About Your Bill"
+          description: null
+  outage_menu:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Report an Outage"
+          short: "Report an Outage"
+        - long: "Check Outage Status"
+          short: "Check Outage Status"
+  other_services_menu:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Start, Stop, Move Services"
+          short: "Start, Stop Services"
+        - long: "Ways to Save Energy"
+          short: "Ways to Save Energy"
   complaint_category_list_as_menu_list:
     args:
       type: MENU_LIST
@@ -111,6 +145,38 @@ OutputPrompts:
           short: "CBGSR00754625"
         - long: "CBGSR00754848"
           short: "CBGSR00754848"
+  bill_details:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Current Outstanding: $250"
+          short: "Cur. Outstand.: $250"
+        - long: "Last Bill: $150"
+          short: "Last Bill: $150"
+  refund_reasons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "To initiate a new request please choose a reason."
+        short: "To initiate a new request please choose a reason."
+      footer_text: null
+      button_captions:
+        - long: "Double Charges"
+          short: "Double Charges"
+        - long: "Charged for Discontinued Service"
+          short: "Charged for Discont."
   timeslot_options:
     args:
       type: MENU_LIST
@@ -301,6 +367,48 @@ Task:
         output_prompt:
           pointer: main_menu_as_buttons
   ###############################################################################
+  billing_payments_menu:
+    description: show Billing and Payments menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Billing & Payments"
+      short: "Billing & Payments"
+    samples:
+      - Billing & Payments
+    entities:
+      menu_options:
+        field_name: "Billing and Payments menu"
+        output_prompt:
+          pointer: billing_payments_menu
+  ###############################################################################
+  outage_menu:
+    description: show Outage menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Outage"
+      short: "Outage"
+    samples:
+      - Outage
+    entities:
+      menu_options:
+        field_name: "Outage menu"
+        output_prompt:
+          pointer: outage_menu
+  ###############################################################################
+  other_services_menu:
+    description: show Other Services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Other Services"
+      short: "Other Services"
+    samples:
+      - Other Services
+    entities:
+      menu_options:
+        field_name: "Other Services menu"
+        output_prompt:
+          pointer: other_services_menu
+  ###############################################################################
   bill_inquiry:
     description: Bill inquiry
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -419,30 +527,108 @@ Task:
           forget: False
           args:
             type: TEXT
-      customer_name:
-        field_name: "Customer name"
-        output_prompt:
-          args:
-            type: TEXT
-            content:
-              - "Please mention the Customer name."
-        user_input:
-          args:
-            type: TEXT
-      customer_address:
-        field_name: "Customer Address"
-        output_prompt:
-          args:
-            type: TEXT
-            content:
-              - "Please mention the Customer Address."
-        user_input:
-          args:
-            type: TEXT
       list_of_complaint_category:
         field_name: "List of Complaint Category"
         output_prompt:
           pointer: complaint_category_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      complaint_summary:
+        field_name: "Complaint Summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your complaint details briefly (not more than 500 words)."
+        user_input:
+          args:
+            type: TEXT
+      complaint_details:
+        field_name: "Complaint Details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your complaint is successfully registered. The request number is CBGSR00754625.\nOur agents will attend to it shortly."
+      update_an_status:
+        field_name: "Update Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Would you like to receive updates on the status of the complaint?"
+              short: "Would you like to receive updates on the status of the complaint?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      update_summary:
+        field_name: "Update summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Noted! We'll keep you informed about the status of the complaint."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  report_outage:
+    description: Report Outage
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Report Outage"
+      short: "Report Outage"
+    samples:
+      - Report Outage
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you report an outage."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
         user_input:
           forget: False
           args:
@@ -559,6 +745,209 @@ Task:
           args:
             type: DYNAMIC_CONTENT
             data_function: get_complaint_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  account_balance:
+    description: Account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account Balance"
+      short: "Account Balance"
+    samples:
+      - Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you to get the balance in your account."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your Account Balance: $1500\nOutstanding Bill Amount: $453"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  pay_your_bill:
+    description: Pay your bill
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Pay Your Bill"
+      short: "Pay Your Bill"
+    samples:
+      - Pay Your Bill
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you to pay your bill."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          args:
+            type: TEXT
+      chosen_bill:
+        field_name: "Chosen Bill"
+        output_prompt:
+          pointer: bill_details
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please click on the below link to proceed with the payment: https://botwit.ai/utilities_payment"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  refund_request:
+    description: Refund request
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Refund Request"
+      short: "Refund Request"
+    samples:
+      - Refund Request
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you in raising a refund request."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          args:
+            type: TEXT
+      refund_reason:
+        field_name: "Refund reason"
+        output_prompt:
+          pointer: refund_reasons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      bill_number:
+        field_name: "Bill number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Kindly enter your receipt or bill number."
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! Your request has been submitted successfully.\n\nYour refund request number: CR1908556.\n\nYour request will be processed in next 4-7 days and you will be updated with the details."
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
