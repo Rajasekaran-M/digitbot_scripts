@@ -49,30 +49,6 @@ def validate_amount(context: "UserMessageWithContext") -> TaskEntityFunctionResp
     return TaskEntityFunctionResponse(success=ret_val is not None)
 
 
-def get_and_display_service_details(
-    context: "UserMessageWithContext",
-) -> TaskEntityFunctionResponse:
-    services_and_cost: dict[str, str] = {
-        "Haircut & Beard Styling": 259,
-        "Detan": 599,
-        "Facial & Cleanup": 799,
-        "Pedicure": 499,
-        "Hair Color": 549,
-        "Massage": 1499,
-        "Power Saver Service": 749,
-        "Anti-rust Deep Clean": 999,
-        "AC Service Lite": 589,
-        "Inverter Install.": 485,
-        "Inverter Servicing": 249,
-        "Inverter Repair": 210
-    }
-    service_name = context.user_response
-    service_cost = services_and_cost[service_name]
-
-    message = f"{service_name} costs Rs {service_cost}."
-    return TaskEntityFunctionResponse(success=True, text_message=message)
-
-
 def get_and_display_booking_status(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
@@ -80,6 +56,59 @@ def get_and_display_booking_status(
     time_slot = context.dialog_context.entity_history['time_slot']
 
     message = f"We've scheduled your appointment as below:\n\nAppointment Date: *{date_of_appointment}*\nTimeslot: *{time_slot}*.\n\nThe details have been sent to your mobile and email.\nThanks for choosing My Hospital. We are looking forward to your appointment."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+
+def get_and_display_report_summary(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    report_name = context.dialog_context.entity_history['report_name']
+    
+    message = f"Your {report_name} report is ready.\n\nPlease find the same attached here. Thanks for choosing My Hospital."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+def get_the_estimated_bill_value(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    service_name = context.dialog_context.entity_history['service_name']
+    department_name = context.dialog_context.entity_history['department_name']
+
+    services_and_cost: dict[str, str] = {
+        "ENT": {
+            "Consulting": "$150-$200",
+            "Surgery": "$1000-$2000",
+            "Emergency Services": "$750-$1500"
+        },
+        "General Medicine": {
+            "Consulting": "$100-$150",
+            "Surgery": "$1500-$2500",
+            "Emergency Services": "$1000-$1700"
+        },
+        "Dermatology": {
+            "Consulting": "$200-$250",
+            "Surgery": "$3000-$4000",
+            "Emergency Services": "$500-$1000"
+        },
+        "Gynaecology": {
+            "Consulting": "$250-$300",
+            "Surgery": "$1500-$2500",
+            "Emergency Services": "$2000-$2500"
+        },
+        "Orthopaedics": {
+            "Consulting": "$400-$500",
+            "Surgery": "$2500-$3500",
+            "Emergency Services": "$1500-$1750"
+        },
+        "Pediatrics": {
+            "Consulting": "$50-$100",
+            "Surgery": "$3500-$4500",
+            "Emergency Services": "$1250-$1750"
+        }
+    }
+
+    bill_value = services_and_cost[department_name][service_name]
+    
+    message = f"The tentative bill value:\n\nService: {service_name}\nDepartment: {department_name}\nBill Value: would be within the range of {bill_value}."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 

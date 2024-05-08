@@ -20,7 +20,7 @@ OutputPrompts:
     args:
       type: TEXT
       content:
-        - "Please enter the four digit OTP sent to your phone number."
+        - "Please enter the four digit OTP sent to your phone number (Demo OTP: 1234)."
   main_menu_as_buttons:
     args:
       type: BUTTONS
@@ -33,10 +33,10 @@ OutputPrompts:
       button_captions:
         - long: "Book an Appointment"
           short: "Book an Appointment"
-        - long: "Symptom Assessment"
-          short: "Symptom Assessment"
-        - long: "Book Health Checkup"
-          short: "Book Health Checkup"
+        - long: "Symptom Checker"
+          short: "Symptom Checker"
+        - long: "Other Services"
+          short: "Other Services"
   departments_list_as_menu_list:
     args:
       type: MENU_LIST
@@ -63,6 +63,37 @@ OutputPrompts:
         - title: "Pediatrics"
           description: null
         - title: "Not sure"
+          description: null
+  Other_services_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a department"
+        short: "Select a department"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Other Services List"
+        short: "Other Services List"
+      section_title:
+        long: "Other Services List"
+        short: "Other Services List"
+      menu_list_rows:
+        - title: "Book Health Checkup"
+          description: null
+        - title: "Lab Report Update"
+          description: null
+        - title: "Patient Registration"
+          description: null
+        - title: "Make Payment"
+          description: null
+        - title: "Bill Estimates"
+          description: null
+        - title: "Show Main Menu"
           description: null
   city_list_as_menu_list:
     args:
@@ -92,6 +123,62 @@ OutputPrompts:
         - title: "Mumbai"
           description: null
         - title: "Kolkata"
+          description: null
+  services_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Choose the service"
+        short: "Choose the service"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Services List"
+        short: "Services List"
+      section_title:
+        long: "Services List"
+        short: "Services List"
+      menu_list_rows:
+        - title: "Consulting"
+          description: null
+        - title: "Surgery"
+          description: null
+        - title: "Emergency Services"
+          description: null
+  department_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Select a department"
+        short: "Select a department"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "department List"
+        short: "department List"
+      section_title:
+        long: "department List"
+        short: "department List"
+      menu_list_rows:
+        - title: "ENT"
+          description: null
+        - title: "General Medicine"
+          description: null
+        - title: "Dermatology"
+          description: null
+        - title: "Gynaecology"
+          description: null
+        - title: "Pediatrics"
+          description: null
+        - title: "Orthopaedics"
           description: null
   desired_hospital_list_as_menu_list:
     args:
@@ -147,6 +234,22 @@ OutputPrompts:
           description: null
         - title: "Comp. Diabetic Checkup"
           description: null
+  report_as_two_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We found two reports associated with your phone number. Please choose the report to download."
+        short: "We found two reports associated with your phone number. Please choose the report to download."
+      footer_text: null
+      button_captions:
+        - long: "Urine Culture"
+          short: "Urine Culture"
+        - long: "Haemoglobin Test"
+          short: "Haemoglobin Test"
   timeslot_options:
     args:
       type: MENU_LIST
@@ -482,14 +585,14 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-  symptom_assessment:
-    description: Symptom assessment
+  symptom_checker:
+    description: Symptom Checker
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
     task_suggestion:
-      long: "Symptom Assessment"
-      short: "Symptom Assessment"
+      long: "Symptom Checker"
+      short: "Symptom Checker"
     samples:
-      - Symptom Assessment
+      - Symptom Checker
     entities:
       welcome_text:
         field_name: "Welcome text"
@@ -765,6 +868,498 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  other_services_menu:
+    description: show other services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Other Services"
+      short: "Other Services"
+    samples:
+      - Other Services
+    entities:
+      menu_options:
+        field_name: "Other services menu"
+        output_prompt:
+          pointer: Other_services_list_as_menu_list
+  ###############################################################################
+  prescription_refill:
+    description: Prescription Refill
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Prescription Refill"
+      short: "Prescription Refill"
+    samples:
+      - Prescription Refill
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with your prescription refill."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      patient_name:
+        field_name: "Patient name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please mention the patient's full name."
+        user_input:
+          args:
+            type: TEXT
+      patient_gender:
+        field_name: "Patient Gender"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please select the patient's gender."
+              short: "Please select the patient's gender."
+            footer_text: null
+            button_captions:
+              - long: "Male"
+                short: "Male"
+              - long: "Female"
+                short: "Female"
+              - long: "Others"
+                short: "Others"
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      list_of_cities:
+        field_name: "List of cities"
+        output_prompt:
+          pointer: city_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      doctors_prescription:
+        field_name: "Doctors Prescription"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please attach your doctor’s prescription."
+        user_input:
+          args:
+            type: TEXT
+      date_of_appointment:
+        field_name: "Date of appointment"
+        output_prompt:
+          pointer: dates_as_three_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      time_slot:
+        field_name: "Time slot"
+        output_prompt:
+          pointer: timeslot_options
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      booking_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_booking_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ##############################################################################
+  lab_report_update:
+    description: Lab Report Update
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Lab Report Update"
+      short: "Lab Report Update"
+    samples:
+      - Lab Report Update
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with your lab report."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      report_name:
+        field_name: "List of Reports"
+        output_prompt:
+          pointer: report_as_two_buttons
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      report_summary:
+        field_name: "Report Summary"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_report_summary
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  patient_registration:
+    description: Patient Registration
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Patient Registration"
+      short: "Patient Registration"
+    samples:
+      - Patient Registration
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with Patient Registration."
+      patient_name:
+        field_name: "Patient name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please mention the patient's full name."
+        user_input:
+          args:
+            type: TEXT
+      patient_gender:
+        field_name: "Patient Gender"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please select the patient's gender."
+              short: "Please select the patient's gender."
+            footer_text: null
+            button_captions:
+              - long: "Male"
+                short: "Male"
+              - long: "Female"
+                short: "Female"
+              - long: "Others"
+                short: "Others"
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      response_registration:
+        field_name: "Response Registration"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You've been successfully registered. Welcome onboard! Your UID is: 2164567.\nPlease use your UID & phone number to login to the portal, and access bills, medical records, manage appointments and all e-services."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  make_payment:
+    description: Make Payment
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Make Payment"
+      short: "Make Payment"
+    samples:
+      - Make Payment
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with the payment of your bill."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      bill_name:
+        field_name: "Bill Name"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Have you received your hospital bill?"
+              short: "Have you received your hospital bill?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      bill_number:
+        field_name: "Bill Number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your bill no."
+        user_input:
+          args:
+            type: TEXT
+      bill_summary:
+        field_name: "Bill Summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your bill value is $1200.Please use the link to make the payment: https://bitwit.ai/payment"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  bill_estimates:
+    description: Bill Estimates
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Bill Estimates"
+      short: "Bill Estimates"
+    samples:
+      - Bill Estimates
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with the estimation."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      service_name:
+        field_name: "List of services"
+        output_prompt:
+          pointer: services_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      department_name:
+        field_name: "List of departments"
+        output_prompt:
+          pointer: department_list_as_menu_list
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      service_details:
+        field_name: "Service details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_the_estimated_bill_value
+      disclaimer:
+        field_name: "Disclaimer"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Disclaimer: This information is a hospital and/or Physician estimate and not a final bill. Your final bill may vary from the estimate for many reasons. Reasons include: your medical condition, diagnosis and treatment, unknown circumstances, complications and recommended treatment ordered by your doctor. All Professional fees are not included in the estimate. Professional fees include fees from doctors, radiologists, anesthesiologists and pathologists. Insurance benefit information, if included, is based on information provided by your insurance company as of the date of this estimate. The insurance benefits and eligibility in this estimate are subject to change and is not a guarantee of payment from your insurance company."
+      further_activity:
+        field_name: "Further activity"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "If you would like to know more on the estimate or need a break-up, login to the portal using your registered mobile number."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
 
   positive:
     description: polarity
