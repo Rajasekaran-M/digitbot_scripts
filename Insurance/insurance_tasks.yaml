@@ -1,0 +1,2867 @@
+#GiG
+
+Bot:
+  bot_name: chatbot for Digid
+  bot_description: Add any other details
+
+OutputPrompts:
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1aKfT9U8uPZoBSz0vW-W4oKAfbfjmJWn8"
+      # header_image: "https://pbu.smartsellhub.com/Sunu-Assurances-1.jpeg"
+      body_prologue:
+        long: "You have reached My Insurance Customer Services.\n\nPlease choose from one of the following options."
+        short: "You have reached My Insurance Customer Services.\n\nPlease choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Get Quote"
+          short: "Get Quote"
+        - long: "File a Claim"
+          short: "File a Claim"
+        - long: "View Policy Details"
+          short: "View Policy Details"
+
+  main_menu_new_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1aKfT9U8uPZoBSz0vW-W4oKAfbfjmJWn8"
+      # header_image: "https://pbu.smartsellhub.com/Sunu-Assurances-1.jpeg"
+      # header_image: "https://myins.smartsellhub.com/PioneerIns.jpg"
+      #header_image: "https://myins.smartsellhub.com/apa.png"
+      body_prologue:
+        long: "You have reached My Insurance Customer Services.\n\nPlease choose from one of the following options."
+        short: "You have reached My Insurance Customer Services.\n\nPlease choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "New Customer"
+          short: "New Customer"
+        - long: "Existing Customer"
+          short: "Existing Customer"
+        - long: "I have a question"
+          short: "I have a question"
+
+  new_insurance_options_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://drive.google.com/uc?export=download&id=1aKfT9U8uPZoBSz0vW-W4oKAfbfjmJWn8"
+      # header_image: "https://pbu.smartsellhub.com/Sunu-Assurances-1.jpeg"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Get Quote"
+          short: "Get Quote"
+        - long: "Buy a Policy"
+          short: "Buy a Policy"
+
+  existing_insurance_options_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Policy Services"
+          short: "Policy Services"
+        - long: "File a Claim"
+          short: "File a Claim"
+
+  main_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Services Provided by Insurance Bot"
+        short: "Services Provided by Insurance Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap the below menu and choose an option"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Insurance Services"
+        short: "Insurance Services"
+      section_title:
+        long: "Insurance Services"
+        short: "Insurance Services"
+      menu_list_rows:
+        - title: "Get Quote"
+          description: null
+        - title: "File a Claim"
+          description: null
+        - title: "View Policy Details"
+          description: null
+        - title: "Email Policy Docs"
+          description: null
+
+  insurance_quote_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Choose an insurance category to get the quote"
+        short: "Choose an insurance category to get the quote"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap the below menu and choose an option"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click on the green arrow to send your choice"
+      option_button_title:
+        long: "Get Quote"
+        short: "Get Quote"
+      section_title:
+        long: "Get Quote"
+        short: "Get Quote"
+      menu_list_rows:
+        - title: "Schedule a Call"
+          description: null
+        - title: "Health Insurance"
+          description: null
+        - title: "Corporate Insurance"
+          description: null
+        - title: "Motor Insurance"
+          description: null
+        - title: "Term Insurance"
+          description: null
+        - title: "Building Insurance"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+
+  buy_a_policy_menu_list:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Motor Car Insurance"
+          short: "Motor Car Insurance"
+        - long: "Term Insurance"
+          short: "Term Insurance"
+
+  insurance_claim_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Choose an insurance category to file the claim"
+        short: "Choose an insurance category to file the claim"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap the below menu and choose an option"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click on the green arrow to send your choice"
+      option_button_title:
+        long: "Claim Services Menu"
+        short: "Claim Services Menu"
+      section_title:
+        long: "Claim Services"
+        short: "Claim Services"
+      menu_list_rows:
+        - title: "Motor Claim"
+          description: null
+        - title: "Health Claim"
+          description: null
+        - title: "Travel Insurance"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+
+  policy_info_services_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Policy Services Provided by Insurance Bot"
+        short: "Policy Services Provided by Insurance Bot"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Policy Services Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Policy Services Menu"
+        short: "Policy Services Menu"
+      section_title:
+        long: "Policy Services"
+        short: "Policy Services"
+      menu_list_rows:
+        - title: "View Claim Status"
+          description: null
+        - title: "Policy Information"
+          description: null
+        - title: "Renew Policy"
+          description: null
+        - title: "Show all policies"
+          description: null
+        - title: "Update Policy Info"
+          description: null
+        - title: "Proof of Insurance"
+          description: null
+        - title: "Print Insurance Card"
+          description: null
+        - title: "Show Main Menu"
+          description: null
+
+  #Merged with policy information menu list
+  #  email_docs_services_menu_as_menu_list:
+  #    args:
+  #      type: MENU_LIST
+  #      header_text:
+  #        long: "Email Services Provided by Insurance Bot"
+  #        short: "Email Services Provided by Insurance Bot"
+  #      body_prologue:
+  #        long: "Please choose from one of the following options."
+  #        short: "To begin, tap Email Services Menu and choose from one of the following options"
+  #      footer_text:
+  #        long: "Click Send to select it"
+  #        short: "Click Send to select it"
+  #      option_button_title:
+  #        long: "Email Services Menu"
+  #        short: "Email Services Menu"
+  #      section_title:
+  #        long: "Email Services"
+  #        short: "Email Services"
+  #      menu_list_rows:
+  #        - title: "Proof of Insurance"
+  #          description: null
+  #        - title: "Print Insurance Card"
+  #          description: null
+  #        - title: "Show Main Menu"
+  #          description: null
+
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your **10 digit** phone number."
+        - "Please enter your phone number."
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the OTP."
+        - "Please enter the four digit OTP sent to your phone number."
+  gender:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select your gender."
+        short: "Please select your gender."
+      footer_text: null
+      button_captions:
+        - long: "Male"
+          short: "Male"
+        - long: "Female"
+          short: "Female"
+        - long: "Don't want to share"
+          short: "Don't want to share"
+  health_quantification:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "How do you characterize your health?"
+        short: "How do you characterize your health?"
+      footer_text: null
+      button_captions:
+        - long: "Good"
+          short: "Good"
+        - long: "Average"
+          short: "Average"
+        - long: "Below Average"
+          short: "Below Average"
+  nicotine_cannabis_use:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Do you smoke?"
+        short: "Do you smoke?"
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+  type_of_company:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select the best value that represents the type of your company."
+        short: "Please select the best value that represents the type of your company."
+      footer_text: null
+      button_captions:
+        - long: "Sole Proprietorship"
+          short: "Sole Proprietorship"
+        - long: "Partnership"
+          short: "Partnership"
+        - long: "Limited Liability Companies (LLC)"
+          short: "LLC"
+  number_of_branches:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "How many branches does your company have?"
+        short: "How many branches does your company have?"
+      footer_text: null
+      button_captions:
+        - long: "0 - 10"
+          short: "0 - 10"
+        - long: "11 - 50"
+          short: "11 - 50"
+        - long: "Greater than 50"
+          short: "Greater than 50"
+  number_of_employees:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "How many employees does your company have?"
+        short: "How many employees does your company have?"
+      footer_text: null
+      button_captions:
+        - long: "0 - 10"
+          short: "0 - 10"
+        - long: "11 - 100"
+          short: "11 - 100"
+        - long: "Greater than 100"
+          short: "Greater than 100"
+
+  prior_tickets:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Have you gotten a ticket or been a part of an accident in the last three years?
+        short: Have you gotten a ticket or been a part of an accident in the last three years?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+
+  prior_dui:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Have you been arrested for driving under influence in the last three years?
+        short: Have you been arrested for driving under influence in the last three years?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+
+  offer_uber_lyft:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Do you work as a driver in any ridesharing services such as Uber or Lyft?
+        short: Do you work as a driver in any ridesharing services such as Uber or Lyft?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+
+  auto_insurance_coverage_type:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: What type of auto insurance are you looking for?
+        short: What type of auto insurance are you looking for?
+      footer_text: null
+      button_captions:
+        - long: "Comprehensive"
+          short: "Comprehensive"
+        - long: "Third Party Fire"
+          short: "Third Party Fire"
+        - long: "Third Party Only"
+          short: "Third Party Only"
+  building_num_floors:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: How many floors does the building have?
+        short: Please provide the number of floors in the building.
+      footer_text: null
+      button_captions:
+        - long: "1 - 10"
+          short: "1 - 10"
+        - long: "10 - 25"
+          short: "10 - 25"
+        - long: "More than 25"
+          short: "More than 25"
+
+  boolean_any_claims:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Have you made any insurance claims in the last 3 years?
+        short: Have you made any insurance claims in the last 3 years?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+
+  boolean_have_injuries:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Did you suffer any injuries?
+        short: Did you suffer any injuries?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+  relationship_with_insured:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What is your relationship with the insured patient?"
+        short: "What is your relationship with the insured patient?"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Relationship"
+        short: "Relationship"
+      section_title:
+        long: "Relationship"
+        short: "Relationship"
+      menu_list_rows:
+        - title: "Self"
+          description: null
+        - title: "Spouse"
+          description: null
+        - title: "Child"
+          description: null
+        - title: "Parents"
+          description: null
+        - title: "Other"
+          description: null
+  boolean_confirm_data_entered:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Do you verify that all the data entered by you is correct?
+        short: Do you verify that all the data entered by you is correct?
+      footer_text: null
+      button_captions:
+        - long: "Yes"
+          short: "Yes"
+        - long: "No"
+          short: "No"
+  travel_insurance_claim_cause:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Let us know what went wrong in your trip so we can help you file a claim."
+        short: "Let us know what went wrong in your trip so we can help you file a claim."
+      footer_text:
+        long: ""
+        short: ""
+      option_button_title:
+        long: "Cause for Ins. Claim"
+        short: "Cause for Ins. Claim"
+      section_title:
+        long: "Cause for Ins. Claim"
+        short: "Cause for Ins. Claim"
+      menu_list_rows:
+        - title: "Cancellation"
+          description: null
+        - title: "Delay"
+          description: null
+        - title: "Baggage issues"
+          description: null
+        - title: "Medical issues"
+          description: null
+        - title: "Accidents"
+          description: null
+        - title: "Other"
+          description: null
+  trip_cancellation_reason:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Can you provide more details about the trip incident?"
+        short: "Can you provide more details about the trip incident?"
+      footer_text:
+        long: ""
+        short: ""
+      option_button_title:
+        long: "Trip Cncln Rsn"
+        short: "Trip Cncln Rsn"
+      section_title:
+        long: "Trip Cncln Rsn"
+        short: "Trip Cncln Rsn"
+      menu_list_rows:
+        - title: "Weather"
+          description: null
+        - title: "Airline problems"
+          description: null
+        - title: "Baggage issues"
+          description: null
+        - title: "Illness"
+          description: null
+        - title: "Death"
+          description: null
+        - title: "Other"
+          description: null
+  type_of_expenses_claimed:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What type of expenses are you claiming?"
+        short: "What type of expenses are you claiming?"
+      footer_text:
+        long: ""
+        short: ""
+      option_button_title:
+        long: "Expense Claims"
+        short: "Expense Claims"
+      section_title:
+        long: "Expense Claims"
+        short: "Expense Claims"
+      menu_list_rows:
+        - title: "Prepaid costs"
+          description: null
+        - title: "Transportation costs"
+          description: null
+        - title: "Other expenses"
+          description: null
+  list_of_insurance_policy_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7478.jpg
+      body_prologue:
+        long: You have two insurance policies. Choose one from the list.
+        short: You have two insurance policies. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "AY7623456"
+          short: "AY7623456"
+        - long: "JK2356456"
+          short: "JK2356456"
+
+  list_of_insurance_policy_as_buttons_with_all_option:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: We found the following insurance policies associated with the phone number. Please select one of them.
+        short: We found the following insurance policies associated with the phone number. Please select one of them.
+      footer_text: null
+      button_captions:
+        - long: "XXXX XX 1234"
+          short: "XXXX XX 1234"
+        - long: "XXXX XX 5678"
+          short: "XXXX XX 5678"
+        - long: "All of them"
+          short: "All of them"
+
+  list_of_stoves_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: We have two household stoves. Choose one from the list.
+        short: We have two household stoves. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "Jikokoa"
+          short: "Jikokoa"
+        - long: "Jikokoa Xtra"
+          short: "Jikokoa Xtra"
+
+  list_of_countries_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: Where would you like to distribute BURN cookstoves?
+        short: Where would you like to distribute BURN cookstoves?
+      footer_text: null
+      button_captions:
+        - long: "Kenya"
+          short: "Kenya"
+        - long: "Nigeria"
+          short: "Nigeria"
+        - long: "Other Markets"
+          short: "Other Markets"
+
+  credit_card_list:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select the credit card to use for payment."
+        short: "Please select the credit card to use for payment."
+      footer_text: null
+      button_captions:
+        - long: "XXXX XXXX 1234"
+          short: "XXXX XXXX 1234"
+        - long: "XXXX XXXX 5678"
+          short: "XXXX XXXX 5678"
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n Type 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+
+  faq_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "FAQs for MyInsurance"
+        short: FAQs for MyInsurance"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "FAQs for MyInsurance"
+        short: "FAQs for MyInsurance"
+      section_title:
+        long: "FAQs for MyInsurance"
+        short: "FAQs for MyInsurance"
+      menu_list_rows:
+        - title: "Help Channels"
+          description: null
+        - title: "Center Services"
+          description: null
+
+UserInputs:
+  phone_number:
+    retrieve: True
+    confirm_retrieved: True
+    args:
+      type: PHONE_NUMBER
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct."
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+###############################################################################
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+      - menu
+    entities:
+      #welcome_image:
+      #  field_name: "Welcome image"
+      #  output_prompt:
+      #    args:
+      #      type: IMAGE
+      #      url: "https://drive.google.com/uc?export=download&id=1aKfT9U8uPZoBSz0vW-W4oKAfbfjmJWn8"
+      #menu_options:
+      #  field_name: "Main menu"
+      #  output_prompt:
+      #    pointer: main_menu_as_menu_list
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_new_as_buttons
+
+  main_menu_for_kyc:
+    description: show kyc main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show KYC Main Menu"
+      short: "Show KYC Main Menu"
+    samples:
+      - show kyc main menu
+      - hola
+      - kyc
+    entities:
+      update_kyc_as_buttons:
+        field_name: "Update kyc"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Dear Ramesh,\n\nYour KYC update for your life insurance policy is pending. To keep your policy active, please update your KYC."
+              short: "Dear Ramesh,\n\nYour KYC update for your life insurance policy is pending. To keep your policy active, please update your KYC."
+            footer_text: null
+            button_captions:
+              - long: "Update Now"
+                short: "Update Now"
+              - long: "Later"
+                short: "Later"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have sent an OTP via SMS to the WhatsApp number you are currently chatting with us."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please click on this link to complete your KYC update: https://mybank.digid.ai/#?prod_code=TINSRKYC&mno=254709907876&fmt_otp=E"
+
+  main_menu_for_stoves:
+    description: show stove menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Stove Main Menu"
+      short: "Show Stove Main Menu"
+    samples:
+      - show stove main menu
+      - i want to buy a stove
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with buying a stove from us. "
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you at the WhatsApp number that you are currently chatting with us."
+      # OTP:
+      #   field_name: "OTP"
+      #   output_prompt:
+      #     pointer: OTP
+      #   user_input:
+      #     pointer: OTP
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_stoves_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      no_of_stoves:
+        field_name: "No of stoves"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "How many stoves would you like to buy?"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your order has been submitted successfully with the order id BS09678123. We will contact you shortly with updates."
+      quote_document_prelude:
+        field_name: "PO confirmation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the PO for the order below.
+      quote_document:
+        field_name: "PO document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mybank.smartsellhub.com/Insurance_Quote.pdf"
+            web_title: "Quote Document PDF"
+            web_description: "Please click on the link to view the document"
+
+  main_menu_for_distributor:
+    description: show distributor
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Distributor"
+      short: "Show Distributor"
+    samples:
+      - show distributor main menu
+      - show distributor
+      - become a distributor
+      - distributor registration
+      - apply as a distributor
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with registering as a distributor with us. "
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have sent an OTP via SMS to the WhatsApp number you are currently chatting with us."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_countries_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thanks you for providing the details. \n\nPlease click on this link to complete your distributor registration: https://mybank.digid.ai/#?prod_code=DISREG&mno=254709907876&fmt_otp=E"
+
+  new_insurance_menu:
+    description: show new insurance menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "New Customer"
+      short: "New Customer"
+    samples:
+      - new customer
+    entities:
+      menu_options:
+        field_name: "Insurance Quotes menu"
+        output_prompt:
+          pointer: new_insurance_options_as_buttons
+  
+  existing_insurance_menu:
+    description: show existing insurance menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Existing Customer"
+      short: "Existing Customer"
+    samples:
+      - existing customer
+    entities:
+      menu_options:
+        field_name: "Insurance Quotes menu"
+        output_prompt:
+          pointer: existing_insurance_options_as_buttons
+
+  ###############################################################################
+  insurance_quote_services_menu:
+    description: show insurance quotes menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Get Quote"
+      short: "Get Quote"
+    samples:
+      - get insurance quotes
+      - get quote
+      - calculate premium
+    entities:
+      menu_options:
+        field_name: "Insurance Quotes menu"
+        output_prompt:
+          pointer: insurance_quote_services_menu_as_menu_list
+  ###############################################################################
+
+  buy_a_policy_menu:
+    description: show insurance quotes menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Buy a Policy"
+      short: "Buy a Policy"
+    samples:
+      - buy a policy
+      - buy policy
+    entities:
+      menu_options:
+        field_name: "Insurance Quotes menu"
+        output_prompt:
+          pointer: buy_a_policy_menu_list
+
+  insurance_claim_services_menu:
+    description: show insurance claim services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "File a Claim"
+      short: "File a Claim"
+    samples:
+      - file insurance claim
+      - file a claim
+    entities:
+      menu_options:
+        field_name: "Insurance Claims menu"
+        output_prompt:
+          pointer: insurance_claim_services_menu_as_menu_list
+  ###############################################################################
+  policy_info_services_menu:
+    description: show loan account services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "View Policy Details"
+      short: "View Policy Details"
+    samples:
+      - policy details
+      - view policy details
+      - policy services
+    entities:
+      menu_options:
+        field_name: "Policy information menu"
+        output_prompt:
+          pointer: policy_info_services_menu_as_menu_list
+  ###############################################################################
+  # This task has been merged with policy information
+  #  email_docs_services_menu:
+  #    description: show loan account services menu
+  #    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+  #    task_suggestion:
+  #      long: "Email Policy Docs"
+  #      short: "Email Policy Docs"
+  #    samples:
+  #      - email policy docs
+  #    entities:
+  #      menu_options:
+  #        field_name: "Email documents menu"
+  #        output_prompt:
+  #          pointer: email_docs_services_menu_as_menu_list
+
+  ########################################################################
+  setup_customer_callback:
+    description: schedule a call back
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Schedule a Call"
+      short: "Schedule a Call"
+    samples:
+      - give me a call back
+      - can you tell me about your services?
+      - please schedule an appointment
+      - can you give me a call?
+      - schedule a call back
+      - Customer Callback
+      - Schedule a Call
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with scheduling a callback. "
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you at the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      best_time_to_contact:
+        field_name: "Best time to connect"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: text
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please select the best slot to reach you."
+              short: "Please select the best slot to reach you."
+            footer_text: null
+            button_captions:
+              - long: "8am - 11am"
+                short: "8am - 11am"
+              - long: "1pm - 5pm"
+                short: "1pm - 5pm"
+              - long: "5pm - 8pm"
+                short: "5pm - 8pm"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have collected the necessary details. Our representative will contact you at the designated time."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  get_health_insurance_quote:
+    description: get quote for health insurance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Health Insurance"
+      short: "Health Insurance"
+    samples:
+      - get quote for health insurance
+      - health insurance quote
+      - price of health insurance
+      - what is the cost of health insurance?
+      - i want to have medical insurance
+      - get quote for health insurance
+      - Health Ins. Quote
+      - Health Insurance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting a quote for health insurance."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+              - "Let me take your contact details. What is your full name?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is your date of birth? Specify in DD-MM-YYYY format.
+              - Can I get your date of birth? Specify in DD-MM-YYYY format.
+              - Please mention your Date of Birth. Specify in DD-MM-YYYY format.
+        user_input:
+          args:
+            type: TEXT
+      gender:
+        field_name: "Gender"
+        output_prompt:
+          pointer: gender
+        user_input:
+          args:
+            type: TEXT
+      nicotine_cannabis_use:
+        field_name: "Use of Nicotine and Cannabis"
+        output_prompt:
+          pointer: nicotine_cannabis_use
+        user_input:
+          args:
+            type: TEXT
+      height:
+        field_name: "Height"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What is your height (in cm)?"
+              - "How tall are you? (in cm)"
+        user_input:
+          args:
+            type: TEXT
+      weight:
+        field_name: "Weight"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What is your weight? (in kg)?"
+              - "Please mention your weight in kg"
+        user_input:
+          args:
+            type: TEXT
+      quote_document_prelude:
+        field_name: "Quote document confirmation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the quote for the health insurance below.
+      quote_document:
+        field_name: "Quote document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mybank.smartsellhub.com/Insurance_Quote.pdf"
+            web_title: "Quote Document PDF"
+            web_description: "Please click on the link to view the document"
+#      exit_message:
+#        field_name: "Exit message"
+#        output_prompt:
+#          args:
+#            type: TEXT
+#            content:
+#              - "Hope it was helpful."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  ########################################################################
+
+  apply_motor_car_insurance:
+    description: apply for a motor car insurance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Motor Car Insurance"
+      short: "Motor Car Insurance"
+    samples:
+      - i want to apply for a motor car insurance
+      - Motor Car Insurance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a motor car insurance."
+      motor_car_offer_as_buttons:
+        field_name: "Loan offer"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "We have an exciting offer for you!"
+              short: "We have an exciting offer for you!"
+            footer_text: null
+            button_captions:
+              - long: "Get a callback"
+                short: "Get a callback"
+              - long: "Apply Now"
+                short: "Apply Now"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you at the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      loan_buyer_types_as_buttons:
+        field_name: "Buyer type"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Let us know if you are a"
+              short: "Let us know if you are a"
+            footer_text: null
+            button_captions:
+              - long: "Customer"
+                short: "Customer"
+              - long: "Agent"
+                short: "Agent"
+              - long: "Broker"
+                short: "Broker"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=BINS&mno=919094373135&fmt_otp=E"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  get_company_enterprise_insurance_quote:
+    description: get quote for company or enterprise insurance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Corporate Insurance"
+      short: "Corporate Insurance"
+    samples:
+      - get quote for company insurance
+      - i want to insure my company
+      - price of enterprise insurance
+      - what is the cost of company insurance
+      - i want to have company insurance
+      - i want to have enterprise insurance
+      - Company Ins. Quote
+      - Corporate Insurance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting a quote for enterprise insurance."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+              - "Let me take your contact details. What is your full name?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      company_name:
+        field_name: "Company name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the name of your company?
+              - Please provide the name of your organization.
+        user_input:
+          args:
+            type: TEXT
+      type_of_company:
+        field_name: "Type of company"
+        output_prompt:
+          pointer: type_of_company
+        user_input:
+          args:
+            type: TEXT
+      company_industry:
+        field_name: "Industry of company"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Which industry does your company belongs to?
+              - Insurance often varies based on the industry. What industry does your company operates in?
+        user_input:
+          args:
+            type: TEXT
+      mailing_address:
+        field_name: "Mailing address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the mailing address of your company?
+              - Can you provide the postal address of your company?
+        user_input:
+          args:
+            type: TEXT
+      number_of_branches:
+        field_name: "Number of branches"
+        output_prompt:
+          pointer: number_of_branches
+        user_input:
+          args:
+            type: TEXT
+      number_of_employees:
+        field_name: "Number of employees"
+        output_prompt:
+          pointer: number_of_employees
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have collected the necessary details. We will contact you in the next 1-3 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  ########################################################################
+  get_auto_insurance_quote:
+    description: get quote for motor insurance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Motor Insurance"
+      short: "Motor Insurance"
+    samples:
+      - get quote for auto insurance
+      - i want to insure my bike
+      - i want to insure my car
+      - price of vehicle insurance
+      - what is the cost of auto insurance?
+      - i want to have car insurance
+      - i want to have vehicle insurance
+      - Auto Ins. Quote
+      - Motor Insurance
+    entities:
+      welcome_image:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://img.freepik.com/free-vector/people-with-icons-related-car-insurance_53876-66069.jpg"
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting a quote for motor insurance."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+              - "Let me take your contact details. What is your full name?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      # driver_license_number:
+      #   field_name: "Driver license number"
+      #   output_prompt:
+      #     args:
+      #       type: TEXT
+      #       content:
+      #         - What is your driving license number?
+      #         - Please provide your driving license number.
+      #   user_input:
+      #     args:
+      #       type: TEXT
+      vehicle_make:
+        field_name: "Make of vehicle"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the make of your vehicle? (Examples include Honda, Hyundai, Tesla among others.)
+              - Please provide the make of your vehicle such as Honda, Hyundai, Tesla or some thing else.
+        user_input:
+          args:
+            type: TEXT
+      vehicle_model:
+        field_name: "Model of vehicle"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the model of your vehicle? (for example Civic)
+              - Please provide the model of your vehicle
+        user_input:
+          args:
+            type: TEXT
+      vehicle_manufacturing_year:
+        field_name: "Vehicle manufacturing year"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - When was your vehicle manufactured?
+        user_input:
+          args:
+            type: TEXT
+      # prior_tickets:
+      #   field_name: "Prior tickets"
+      #   output_prompt:
+      #     pointer: prior_tickets
+      #   user_input:
+      #     args:
+      #       type: TEXT
+      # prior_dui:
+      #   field_name: "Prior DUI"
+      #   output_prompt:
+      #     pointer: prior_dui
+      #   user_input:
+      #     args:
+      #       type: TEXT
+      # offer_uber_lyft:
+      #   field_name: "Uber/Lyft"
+      #   output_prompt:
+      #     pointer: offer_uber_lyft
+      #   user_input:
+      #     args:
+      #       type: TEXT
+      # vin_number:
+      #   field_name: "VIN number"
+      #   output_prompt:
+      #     args:
+      #       type: TEXT
+      #       content:
+      #         - If you have it, can you provide the VIN number of your vehicle?
+      #   user_input:
+      #     args:
+      #       type: TEXT
+      auto_insurance_coverage_type:
+        field_name: "Auto insurance coverage type"
+        output_prompt:
+          pointer: auto_insurance_coverage_type
+        user_input:
+          args:
+            type: TEXT
+      quote_document_prelude:
+        field_name: "Quote document confirmation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the quote for the motor insurance below.
+      quote_document:
+        field_name: "Quote document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mybank.smartsellhub.com/Motor_Insurance_Quote.pdf"
+            web_title: "Quote Document PDF"
+            web_description: "Please click on the link to view the document"
+      # exit_message:
+      #   field_name: "Exit message"
+      #   output_prompt:
+      #     args:
+      #       type: TEXT
+      #       content:
+      #         - "We have collected the necessary details. We will contact you in the next 1-3 business days."
+      # exit_message_at_task_end:
+      #   field_name: "Exit message at end"
+      #   output_prompt:
+      #     pointer: exit_message_at_task_end
+      buy_now_after_quote:
+        field_name: "Buy now"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://mybank.smartsellhub.com/Motor-Insurance-Summary.png"
+            body_prologue:
+              long: "You can also readily buy this policy! Click 'Buy Now'."
+              short: "You can also readily buy this policy! Click 'Buy Now'."
+            footer_text: null
+            button_captions:
+              - long: "Buy Now"
+                short: "Buy Now"
+        user_input:
+          args:
+            type: TEXT
+      welcome_text_1:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a motor car insurance."
+      phone_number_1:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you at the WhatsApp number that you are currently chatting with us."
+      loan_buyer_types_as_buttons:
+        field_name: "Buyer type"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Let us know if you are a"
+              short: "Let us know if you are a"
+            footer_text: null
+            button_captions:
+              - long: "Customer"
+                short: "Customer"
+              - long: "Agent"
+                short: "Agent"
+              - long: "Broker"
+                short: "Broker"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=BINS&mno=919094373135&fmt_otp=E"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+########################################################################
+  get_term_insurance_quote:
+    description: get quote for term insurance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Term Insurance"
+      short: "Term Insurance"
+    samples:
+      - get quote for term insurance
+      - price of term insurance
+      - what is the cost of term insurance?
+      - i want to have term insurance
+      - Term Insurance Quote
+      - Term Insurance
+    entities:
+      welcome_image:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://img.freepik.com/free-vector/father-shaking-hands-with-insurance-agent_74855-4412.jpg"
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting a quote for term insurance."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+              - "Let me take your contact details. What is your full name?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      date_of_birth:
+        field_name: "Date of birth"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is your date of birth? Specify in DD-MM-YYYY format.
+              - Can I get your date of birth? Specify in DD-MM-YYYY format.
+              - Please mention your Date of Birth. Specify in DD-MM-YYYY format.
+        user_input:
+          args:
+            type: TEXT
+      gender:
+        field_name: "Gender"
+        output_prompt:
+          pointer: gender
+        user_input:
+          args:
+            type: TEXT
+      nicotine_cannabis_use:
+        field_name: "Use of Nicotine and Cannabis"
+        output_prompt:
+          pointer: nicotine_cannabis_use
+        user_input:
+          args:
+            type: TEXT
+      quote_document_prelude:
+        field_name: "Quote document confirmation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the quote for the term insurance below.
+      quote_document:
+        field_name: "Quote document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mybank.smartsellhub.com/Term_Insurance_Quote.pdf"
+            web_title: "Quote Document PDF"
+            web_description: "Please click on the link to view the document"
+      buy_now_after_quote:
+        field_name: "Buy now"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: image
+            header_image: "https://mybank.smartsellhub.com/Term-Insurance-Summary.png"
+            body_prologue:
+              long: "You can also readily buy this policy! Click 'Buy Now'."
+              short: "You can also readily buy this policy! Click 'Buy Now'."
+            footer_text: null
+            button_captions:
+              - long: "Buy Now"
+                short: "Buy Now"
+        user_input:
+          args:
+            type: TEXT
+      welcome_text_1:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with applying for a term insurance."
+      phone_number_1:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you at the WhatsApp number that you are currently chatting with us."
+      loan_buyer_types_as_buttons:
+        field_name: "Buyer type"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Let us know if you are a"
+              short: "Let us know if you are a"
+            footer_text: null
+            button_captions:
+              - long: "Customer"
+                short: "Customer"
+              - long: "Agent"
+                short: "Agent"
+              - long: "Broker"
+                short: "Broker"
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://mybank.digid.ai/#?prod_code=TINS&crncy_code=UGX"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  ########################################################################
+  get_commercial_building_insurance_quote:
+    description: get quote for commercial building insurance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Building Insurance"
+      short: "Building Insurance"
+    samples:
+      - get quote for commercial building insurance
+      - i want to insure my building
+      - price of commercial building insurance
+      - what is the cost of commercial building insurance?
+      - i want to have commercial building insurance
+      - i want to have building insurance
+      - Building Ins. Quote
+      - Building Insurance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting a quote for building insurance."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+              - "Let me take your contact details. What is your full name?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      building_location:
+        field_name: "Building location"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the address of the building to be insured?
+              - Where is the building located?
+        user_input:
+          args:
+            type: TEXT
+      building_construction_year:
+        field_name: "Building construction year"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - When was the building was constructed?
+              - Please provide the year of the building's construction.
+        user_input:
+          args:
+            type: TEXT
+      building_num_floors:
+        field_name: "Number of floors in building"
+        output_prompt:
+          pointer: building_num_floors
+        user_input:
+          args:
+            type: TEXT
+      building_total_sqft:
+        field_name: "Total Sq ft of building"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the total square feet of the building?
+        user_input:
+          args:
+            type: TEXT
+      boolean_any_claims:
+        field_name: "Prior claims"
+        output_prompt:
+          pointer: prior_tickets
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have collected the necessary details. We will contact you in the next 1-3 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  ########################################################################
+  file_auto_insurance_claim:
+    description: file a claim for an auto accident
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Motor Claim"
+      short: "Motor Claim"
+    samples:
+      - i want to file an auto insurance claim
+      - file a claim for an auto accident
+      - file an auto insurance claim
+      - i want to report an accident
+      - i was involved in an accident
+      - file a claim for an accident
+      - i crashed my car
+      - i crashed my bike
+      - Auto Ins. Claim
+      - Auto Insurance Claim
+      - Motor Claim
+      - Motor Insurance Claim
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with filing a claim for an auto accident."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      # OTP:
+      #   field_name: "OTP"
+      #   output_prompt:
+      #     pointer: OTP
+      #   user_input:
+      #     pointer: OTP
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your claim application: https://mybank.digid.ai/#?prod_code=FAC&mno=254709909871&fmt_otp=E"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+
+  ########################################################################
+
+  file_medical_insurance_claim:
+    description: make a claim for hospital bills
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Health Claim"
+      short: "Health Claim"
+    samples:
+      - file a medical insurance claim
+      - make a claim for hospital bills
+      - i want to file a medical insurance claim
+      - i want to report a hospitalization
+      - i want to claim my hospital bills
+      - file a medical claim for an accident
+      - hospital bills
+      - i got sick
+      - i want to reimburse my hospital expenses
+      - Medical Ins. Claim
+      - Health Claim
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with filing a health insurance claim."
+      name_of_customer_involved_in_the_accident:
+        field_name: "Patient name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please provide the name of the patient.
+              - We need your details to file the claim. To start with can I get the name of the patient?
+        user_input:
+          args:
+            type: TEXT
+      gender:
+        field_name: "Gender"
+        output_prompt:
+          pointer: gender
+        user_input:
+          args:
+            type: TEXT
+      relationship_with_insured:
+        field_name: "Relationship with insured"
+        output_prompt:
+          pointer: relationship_with_insured
+        user_input:
+          args:
+            type: TEXT
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      type_of_claim:
+        field_name: "Type of claim"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: text
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose the type of claim."
+              short: "Please choose the type of claim."
+            footer_text: null
+            button_captions:
+              - long: "Cashless Hospitaliz."
+                short: "Cashless Hospitaliz."
+              - long: "Reimbursement"
+                short: "Reimbursement"
+        user_input:
+          args:
+            type: TEXT
+      boolean_confirm_data_entered:
+        field_name: "Confirm data entry"
+        output_prompt:
+          pointer: boolean_confirm_data_entered
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your claim has been submitted successfully with the reference number HICL09678123. We will contact you shortly upon verification with the hospital."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+
+  file_travel_insurance_claim:
+    description: file a travel insurance claim
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Travel Insurance"
+      short: "Travel Insurance"
+    samples:
+      - i want to file a travel insurance claim
+      - file a travel insurance claim
+      - i want to claim my travel insurance
+      - travel insurance
+      - claim for my journey
+      - Travel Ins. Claim
+      - Travel Insurance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with filing a travel insurance claim."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+              - "Let me take your contact details. What is your full name?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We will contact you from the WhatsApp number that you are currently chatting with us."
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      travel_insurance_claim_cause:
+        field_name: "Cause of travel insurance claim"
+        output_prompt:
+          pointer: travel_insurance_claim_cause
+        user_input:
+          args:
+            type: TEXT
+      trip_incident_date:
+        field_name: "Trip incident date"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Can you please tell us when this trip incident occurred
+        user_input:
+          args:
+            type: TEXT
+      trip_cancellation_reason:
+        field_name: "Trip cancellation reason"
+        output_prompt:
+          pointer: trip_cancellation_reason
+        user_input:
+          args:
+            type: TEXT
+      type_of_expenses_claimed:
+        field_name: "Type of expenses claimed"
+        output_prompt:
+          pointer: type_of_expenses_claimed
+        user_input:
+          args:
+            type: TEXT
+      claim_amount:
+        field_name: "Claim amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is the amount that you are claiming?
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We have collected the necessary details. We will contact you in the next 1-3 business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  get_details_about_insurance_policy:
+    description: get details about an insurance policy
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Policy Information"
+      short: "Policy Information"
+    samples:
+      - i want details about my insurance policy
+      - i want to know more about my insurance policy
+      - insurance policy information
+      - Policy Information
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the details for an insurance policy."
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      policy_info_text:
+        field_name: "Policy info as text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the information about your policy. We also have provided it as a document for your convenience.
+      policy_info_image:
+        field_name: "Policy info as image"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://drive.google.com/uc?export=download&id=1ayV5DZFJ6m9idIZ28Ka3KXluxKOvDeIV"
+            web_title: "Insurance Policy Information"
+            web_description: "Please click on the button to view it in full screen"
+
+      policy_info_document:
+        field_name: "Policy info as document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://drive.google.com/uc?export=download&id=1dARPtbJ0et7YS7wP4o0NC0z8ei7Sdao6"
+            web_title: "Policy Information PDF"
+            web_description: "Please click on the link to view it"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  renew_existing_insurance_policy:
+    description: renew an insurance policy
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Renew Policy"
+      short: "Renew Policy"
+    samples:
+      - i want to renew my insurance policy
+      - renew my insurance policy
+      - i want to pay for my insurance policy
+      - pay my insurance policy
+      - renew existing insurance policy
+      - Renew Policy
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with renewing your insurance policy."
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      credit_card_list:
+        field_name: "List of credit cards"
+        output_prompt:
+          pointer: credit_card_list
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      thank_you_message:
+        field_name: "Thank you message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you very much for choosing to renew your policy with policy number XXXX XXXX 1234!\n Please make the payment here at this link : https://insure.com/payhere/xxxx_xxxx_1234"
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You will receive your policy documents once the payment is realized. Thank you !"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  get_status_of_insurance_claim:
+    description: get status of an insurance claim
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "View Claim Status"
+      short: "View Claim Status"
+    samples:
+      - i want to know the claim status
+      - claim status
+      - status of insurance claim
+      - what is the status of my claim
+      - what happened to my claim
+      - Ins. Claim Status
+      - View Claim Status
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the status of your insurance claim."
+      insurance_claim_number:
+        field_name: "Insurance claim number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - What is your insurance claim number?
+              - Please provide your insurance claim number.
+        user_input:
+          args:
+            type: TEXT
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your claim request *1234* has been successfully filed on *20-Aug-2023*. Status is *'Under Investigation'*. Investigations usually take _10-15_ business days."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  get_all_policies_for_customer:
+    description: get all insurance policies for a customer
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show all policies"
+      short: "Show all policies"
+    samples:
+      - show me all my insurance policies
+      - get all my insurance policies
+      - get all insurance policies for a customer
+      - what are all my insurance policies
+      - am I insured?
+      - show details about my insurance policies
+      - Show all policies
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving the details of all your insurance policies."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      email_address:
+        field_name: "Email address"
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      policy_info_text:
+        field_name: "Policy info as text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the details about all your insurance policies.
+      all_policy_info_document:
+        field_name: "Document with all insurance policy information"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://drive.google.com/uc?export=download&id=1ZeGdsayf9V0ihuyf5LU20658A_ZXVIEI"
+            web_title: "PDF for All Insurance Policies"
+            web_description: "Please click on the link to view it"
+
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - We have also mailed the document to your email id.
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  update_contact_information_of_a_policy:
+    description: update contact information of a policy
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Update Policy Info"
+      short: "Update Policy Info"
+    samples:
+      - I want to change my contact number
+      - change the phone number of my insurance
+      - update my policy contact details
+      - update contact information
+      - change my phone number
+      - update contact information of a policy
+      - Update Policy Info
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with updating the contact information for your insurance policies."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      insurance_policies_to_update:
+        field_name: "Insurance policies to update"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons_with_all_option
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - We have updated the contact number for the selected insurance policies.
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  print_id_card_for_insurance_policy:
+    description: mail id card to customer
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Print Insurance Card"
+      short: "Print Insurance Card"
+    samples:
+      - I want to print my insurance ID card
+      - print insurance ID card
+      - mail id card to me
+      - mail id card to customer
+      - i lost my insurance id card
+      - can I get a hard copy of my insurance id card
+      - i want insurance id card mailed to my home
+      - Print Insurance Card
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting the insurance policy cards mailed to your home."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      insurance_policies_to_update:
+        field_name: "Insurance policies to update"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons_with_all_option
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - You will recieve the id cards of selected insurance policies in your home address in 5-7 business days.
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  get_insurance_certificate:
+    description: get insurance certificate
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Proof of Insurance"
+      short: "Proof of Insurance"
+    samples:
+      - I want to download my insurance certificate
+      - Email me my insurance certificate
+      - I want to show i am insured
+      - proof of insurance certificate
+      - Proof of Insurance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with getting your proof of insurance certificate."
+      OTP:
+        field_name: "OTP"
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+      policy_number:
+        field_name: "Policy number"
+        output_prompt:
+          pointer: list_of_insurance_policy_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      email_address:
+        field_name: "Email address"
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      policy_info_text:
+        field_name: "Policy info as text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find certificate of insurance.
+      insurance_certificate_image:
+        field_name: "Insurance certificate as image"
+        output_prompt:
+          args:
+            type: IMAGE
+            url: "https://drive.google.com/uc?export=download&id=1ZxPup3MEN2hLH49t39oCo9OwRktbv8V6"
+            web_title: "Insurance Certificate"
+            web_description: "Please click on the button to view it in full screen"
+
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - We have also emailed the details.
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ########################################################################
+  faq_main_menu:
+    description: show FAQs menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs"
+      short: "FAQs"
+    samples:
+      - FAQ
+      - FAQs
+      - I have a question
+    entities:
+      menu_options:
+        field_name: "FAQ menu"
+        output_prompt:
+          pointer: faq_menu_as_menu_list
+
+FAQ:
+  faq_channels:
+    samples:
+      - What channels can be used to easily get help from the bank without visiting a branch?
+      - "Help Channels"
+    answers:
+      - |
+
+        1. Toll-free (0800 217 200), non-toll free (0417 517 711)
+        2. WhatsApp (0707 993 930)
+        3. USSD code - *263*1#
+        4. Email - customerservice@myinsurance.com
+        5. Facebook
+        6. LinkedIn
+        7. Chatbot (website - www.myinsurance.com) 
+        8. Twitter
+        9. QR Code
+  faq_services_contact_center:
+    samples:
+      - What services can be received through the contact center?
+      - "Center Services"
+    answers:
+      - |
+
+        1. Balance requests (loan requests and account requests) 
+        2. Pin reset for mobile banking and online banking only. 
+        3. ATM card blocking 
+        4. IMEI reset. 
+        5. Receiving requests, feedback, enquiries, and complaints
+  faq_what_is_mobile_app:
+    samples:
+      - What is MyInsurance Mobile App?
+    answers:
+      - MyInsurance Mobile App is an application that allows customers to perform both financial and non-financial transactions using a smartphone device or a tablet.
+  faq_what_does_mobile_app_do:
+    samples:
+      - What does the Mobile App do?
+    answers:
+      - It allows you to apply for insurance policies, make insurance claims, view your policy information, renew policy, etc. via your smartphone.
+  faq_is_mobile_safe_and_secure:
+    samples:
+      - Is MyInsurance Mobile App Safe and Secure?
+    answers:
+      - Yes, Mobile App uses the same 128-bit encryption and security technology that is used for Internet Banking. It uses multifactor authentication schemes such as Password, Fingerprint, PIN, Pattern, and Security questions. Additionally, no sensitive data is stored in the app.
+  faq_fee_for_mobile_app:
+    samples:
+      - Is there a fee for Mobile App?
+    answers:
+      - No, MyInsurance BANK PLC does not charge a fee for its Mobile App. However, regular charges apply for services such as mailing insurance cards.
+  faq_mobile_app_features:
+    samples:
+      - What features does the Mobile App have?
+    answers:
+      - |
+        The mobile app has the following features.
+        1. Schedule callback 
+        2. Apply for health, company, travel and other insurances 
+        3. Make claims and check their status 
+        4. View policy information 
+        5. Renew policies
+  faq_whatsapp_phone_number:
+    samples:
+      - What is the official number for WhatsApp  services?
+    answers:
+      - The phone number for MyInsurance's WhatsApp services is 123 456 7890.
+  faq_services_in_whatsapp_services:
+    samples:
+      - What all services can I avail on WhatsApp?
+    answers:
+      - |
+        The WhatsApp insurance services of MyInsurance include
+        1. Schedule callback 
+        2. Apply for health, company, travel and other insurances 
+        3. Make claims and check their status 
+        4. View policy information 
+        5. Renew policies
+  faq_update_address:
+    samples:
+      - How to update address ?
+    answers:
+      - You can update your address by visiting the nearest branch, filling up a form and providing identity documents.
+  faq_update_mobile_number:
+    samples:
+      - How can I update my new mobile number?
+    answers:
+      - You can update your mobile number by visiting the nearest branch, filling up a form and providing identity documents.
+  faq_more_questions:
+    samples:
+      - I have some other questions.
+    answers:
+      - You can get more details by visiting www.tocode.ai
