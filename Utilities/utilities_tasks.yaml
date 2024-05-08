@@ -683,6 +683,66 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
+  check_outage_status:
+    description: Check Outage Status
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Check Outage Status"
+      short: "Check Outage Status"
+    samples:
+      - Check Outage Status
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you in checking the status of the outage."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      complaint_details:
+        field_name: "Complaint Details"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "We regret to inform you that there is currently an outage affecting your area due to a damaged power line caused by severe weather. Our team is working diligently to restore service as soon as possible.\n\nEstimated time for restoration is within the next 4 hours."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
   complaint_status:
     description: Complaint Status
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
