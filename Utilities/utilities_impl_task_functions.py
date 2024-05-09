@@ -90,6 +90,16 @@ def get_complaint_status(
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 
+def get_energy_plan_details(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    chosen_plan = context.dialog_context.entity_history['chosen_plan']
+    if chosen_plan == "Energy Saver Plan":
+        message = f"Plan Type: *{chosen_plan}*\n\nCost:\n\n1 to 100 kWh: 15 cents/unit\n\nAbove 100 kWh: 30 cents/unit"
+    elif chosen_plan == "Max Use Plan":
+        message = f"Plan Type: *{chosen_plan}*\n\nCost:\n\n1 to 100 kWh: 30 cents/unit\n\nAbove 100 kWh: 60 cents/unit"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
 
 def send_OTP(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
     return TaskEntityFunctionResponse(success=True, text_message="Sending OTP")

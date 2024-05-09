@@ -1225,20 +1225,20 @@ Task:
               short: "Choose one of the available plans to submit."
             footer_text: null
             button_captions:
-              - long: "Energy Saver plan"
-                short: "Energy Saver plan"
-              - long: "Max use plan"
-                short: "Max use plan"
+              - long: "Energy Saver Plan"
+                short: "Energy Saver Plan"
+              - long: "Max Use Plan"
+                short: "Max Use Plan"
         user_input:
+          forget: False
           args:
             type: TEXT
       plan_details:
         field_name: "Plan Details"
         output_prompt:
           args:
-            type: TEXT
-            content:
-              - "Plan Type: *Energy Saver*\n\nCost:\n\n1 to 100 kWh: 15 cents/unit\n\nAbove 100 kWh: 30 cents/unit"
+            type: DYNAMIC_CONTENT
+            data_function: get_energy_plan_details
       exit_message:
         field_name: "Exit message"
         output_prompt:
