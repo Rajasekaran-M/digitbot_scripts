@@ -100,6 +100,16 @@ def get_energy_plan_details(
         message = f"Plan Type: *{chosen_plan}*\n\nCost:\n\n1 to 100 kWh: 30 cents/unit\n\nAbove 100 kWh: 60 cents/unit"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
+def get_faqs_answers(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    faqs_type = context.dialog_context.entity_history['faqs_type']
+    if faqs_type == "Higher Bill Amount":
+        message = f"FAQs: *{faqs_type}*\n\nYour energy usage summary for the last 5 months.\n\nJan: 160 kWh\nFeb: 190 kWh\nMarch: 120 KWh\nApril: 510 KWh\nMay: 850\n\nYour usage exceeded 100 units last month, which is the reason for the noticeable increase in your bill."
+    elif faqs_type == "Need Details of Bill":
+        message = f"FAQs: *{faqs_type}*\n\nDetails of your Electric Charges:\n\nMeter Number: 00A1234789\nCurrent Reading: 090359\nPrevious Reading: 090306\nDifference: 53\nMultiplier: 1\nTotal Use: 53"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
 
 def send_OTP(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
     return TaskEntityFunctionResponse(success=True, text_message="Sending OTP")

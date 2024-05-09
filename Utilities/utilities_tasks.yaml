@@ -98,7 +98,7 @@ OutputPrompts:
           description: null
         - title: "Refund Request"
           description: null
-        - title: "Question About Your Bill"
+        - title: "FAQs About Your Bill"
           description: null
   outage_menu:
     args:
@@ -1474,6 +1474,87 @@ Task:
             type: TEXT
             content:
               - "*Building*:\n\nBlock direct sunlight in the summer.\nAllow sunlight in during winter.\nSeal windows for drafts, and caulk where necessary.\nKeep external doors shut."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  faqs_about_your_bill:
+    description: FAQs About Your Bill
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "FAQs About Your Bill"
+      short: "FAQs About Your Bill"
+    samples:
+      - FAQs About Your Bill
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help with billing FAQs."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      consumer_number:
+        field_name: "Consumer number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your 7 digits consumer number."
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      faqs_type:
+        field_name: "FAQs Type"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Please choose from one of the following options."
+              short: "Please choose from one of the following options."
+            footer_text: null
+            button_captions:
+              - long: "Higher Bill Amount"
+                short: "Higher Bill Amount"
+              - long: "Need Details of Bill"
+                short: "Need Details of Bill"
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      faqs_details:
+        field_name: "FAQs Details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_faqs_answers
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
