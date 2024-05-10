@@ -100,6 +100,8 @@ OutputPrompts:
           description: null
         - title: "Questions on My Bill"
           description: null
+        - title: "Show Main Menu"
+          description: null
   outage_menu:
     args:
       type: BUTTONS
@@ -558,17 +560,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       year_and_month:
         field_name: "Year and month"
         output_prompt:
@@ -628,17 +626,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       list_of_complaint_category:
         field_name: "List of Complaint Category"
         output_prompt:
@@ -734,17 +728,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       complaint_summary:
         field_name: "Complaint Summary"
         output_prompt:
@@ -832,17 +822,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       complaint_details:
         field_name: "Complaint Details"
         output_prompt:
@@ -892,17 +878,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       complaint_number:
         field_name: "List of Complaints"
         output_prompt:
@@ -959,16 +941,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       exit_message:
         field_name: "Exit message"
         output_prompt:
@@ -1018,16 +997,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       chosen_bill:
         field_name: "Chosen Bill"
         output_prompt:
@@ -1085,16 +1061,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       refund_reason:
         field_name: "Refund reason"
         output_prompt:
@@ -1171,17 +1144,13 @@ Task:
           pointer: email_address
         user_input:
           pointer: email_address
-      consumer_name:
-        field_name: "Consumer Name"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter the consumer name."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       ssn_number:
         field_name: "SSN Number"
         output_prompt:
@@ -1516,17 +1485,13 @@ Task:
           - The OTP you entered is incorrect. Please try again.
         failure_process_responses:
           - We were unable to authenticate you.
-      consumer_number:
-        field_name: "Consumer number"
+      account_details:
+        field_name: "Account Details"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your 7 digits consumer number."
-        user_input:
-          forget: False
-          args:
-            type: TEXT
+              - "Here is your account details:\n\nAccount Type: *Energy Saver*\n\nAccount Number: 29832923"
       faqs_type:
         field_name: "FAQs Type"
         output_prompt:

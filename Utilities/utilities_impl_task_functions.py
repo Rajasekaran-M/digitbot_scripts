@@ -77,9 +77,8 @@ def get_and_display_bill(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     year_and_month = context.dialog_context.entity_history['year_and_month']
-    consumer_number = context.dialog_context.entity_history['consumer_number']
 
-    message = f"Here is the summary of your utility bill for *{year_and_month}*:\nBilling Period: *{year_and_month}*.\nConsumer Number: {consumer_number}\nTotal Amount Due: $175\nDue Date: 15-Mar-2024"
+    message = f"Here is the summary of your utility bill for *{year_and_month}*:\nBilling Period: *{year_and_month}*.\nAccount Number: 29832923\nTotal Amount Due: $175\nDue Date: 15-Mar-2024"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_complaint_status(
