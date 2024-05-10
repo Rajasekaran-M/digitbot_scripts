@@ -98,7 +98,7 @@ OutputPrompts:
           description: null
         - title: "Refund Request"
           description: null
-        - title: "FAQs About Your Bill"
+        - title: "Questions on My Bill"
           description: null
   outage_menu:
     args:
@@ -1480,13 +1480,13 @@ Task:
           pointer: exit_message_at_task_end
   ###############################################################################
   faqs_about_your_bill:
-    description: FAQs About Your Bill
+    description: Questions on My Bill
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
     task_suggestion:
-      long: "FAQs About Your Bill"
-      short: "FAQs About Your Bill"
+      long: "Questions on My Bill"
+      short: "Questions on My Bill"
     samples:
-      - FAQs About Your Bill
+      - Questions on My Bill
     entities:
       welcome_text:
         field_name: "Welcome text"
@@ -1494,7 +1494,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Sure, I can help with billing FAQs."
+              - "Sure, I can help with your questions on billing."
       phone_number:
         field_name: "Phone number"
         output_prompt:
@@ -1543,8 +1543,8 @@ Task:
             button_captions:
               - long: "Higher Bill Amount"
                 short: "Higher Bill Amount"
-              - long: "Need Details of Bill"
-                short: "Need Details of Bill"
+              - long: "Last Bill Details"
+                short: "Last Bill Details"
         user_input:
           forget: False
           args:
