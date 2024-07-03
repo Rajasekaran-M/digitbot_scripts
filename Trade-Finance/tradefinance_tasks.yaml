@@ -33,8 +33,8 @@ OutputPrompts:
           short: "New Customer"
         - long: "Exisitng Customer"
           short: "Existing Customer"
-        - long: "Other Services"
-          short: "Other Services"
+        - long: "Contact support"
+          short: "Contact support"
   new_customer_menu_as_buttons:
     args:
       type: BUTTONS
@@ -47,24 +47,74 @@ OutputPrompts:
         short: "Please choose from one of the following options."
       footer_text: null
       button_captions:
-        - long: "Open Trade Finance Account"
-          short: "Open Trade Fin. Ac."
-  existing_customer_menu_as_buttons:
+        - long: "Learn About Our Services"
+          short: "Learn Our Services"
+        - long: "Apply for Trade Finance Account"
+          short: "Apply Trade Account."      
+  existing_customer_list_as_menu_list:
     args:
-      type: BUTTONS
-      header_type: "text"
+      type: MENU_LIST
       header_text:
         long: ""
         short: ""
       body_prologue:
         long: "Please choose from one of the following options."
         short: "Please choose from one of the following options."
-      footer_text: null
-      button_captions:
-        - long: "Shipment Tracking"
-          short: "Shipment Tracking"
-        - long: "Payment Tracking"
-          short: "Payment Tracking"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Trading finance List"
+        short: "Trade finance List"
+      section_title:
+        long: "Trading finance List"
+        short: "Trade finance List"
+      menu_list_rows:
+        - title: "Account Management"
+          description: null
+        - title: "Check Application Status"
+          description: null
+        - title: "Import Financing"
+          description: null
+        - title: "Export Financing"
+          description: null
+        - title: "Supply Chain Financing"
+          description: null
+        - title: "Working Capital Loans"
+          description: null
+        - title: "Invoice Factoring"
+          description: null
+        - title: "Back to Main Menu"
+          description: null
+  learn_about_our_services_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Services List"
+        short: "Services List"
+      section_title:
+        long: "Services List"
+        short: "Services List"
+      menu_list_rows:
+        - title: "Import Financing"
+          description: null
+        - title: "Export Financing"
+          description: null
+        - title: "Supply Chain Financing"
+          description: null
+        - title: "Working Capital Loans"
+          description: null
+        - title: "Back to Main Menu"
+          description: null
   list_of_shipment_number_as_buttons:
     args:
       type: BUTTONS
@@ -81,6 +131,24 @@ OutputPrompts:
           short: "SN7623456"
         - long: "SN2356456"
           short: "SN2356456"
+  account_management_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "View Account Balance"
+          short: "View Account Balance"
+        - long: "Update Account Information"
+          short: "Update Account Info"
+        - long: "Recent Transactions"
+          short: "Recent Transactions"
   list_of_invoice_numbers_as_buttons:
     args:
       type: BUTTONS
@@ -351,7 +419,92 @@ Task:
       menu_options:
         field_name: "Existing Customer menu"
         output_prompt:
-          pointer: existing_customer_menu_as_buttons
+          pointer: existing_customer_list_as_menu_list
+  ###############################################################################
+  learn_about_our_services_menu:
+    description: Learn about our services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Learn About Our Services"
+      short: "Learn Our Services"
+    samples:
+      - Learn About Our Services
+      - Learn Our Services
+    entities:
+      menu_options:
+        field_name: "Services menu"
+        output_prompt:
+          pointer: learn_about_our_services_list_as_menu_list
+  ###############################################################################
+  import_financing:
+    description: import financing
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Import Financing"
+      short: "Import Financing"
+    samples:
+      - Import Financing
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our import financing services help you pay for goods and services purchased from international suppliers."
+  ###############################################################################
+  export_financing:
+    description: export financing
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Export Financing"
+      short: "Export Financing"
+    samples:
+      - Export Financing
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our export financing solutions provide you with the funds needed to fulfil international orders."
+  ###############################################################################
+  supply_chain_financing:
+    description: supply chain financing
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Supply Chain Financing"
+      short: "Supply Chain Finance"
+    samples:
+      - Supply Chain Financing
+      - Supply Chain Finance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our supply chain financing solutions optimize your cash flow and improve supplier relationships."
+  ###############################################################################
+  working_capital_loans:
+    description: Working Capital Loans
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Working Capital Loans"
+      short: "Working Capital Loan"
+    samples:
+      - Working Capital Loans
+      - Working Capital Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our working capital loans provide the funds you need to manage day-to-day operations."
   ###############################################################################
   open_trade_finance_account:
     description: Open trade finance account
@@ -446,10 +599,63 @@ Task:
         user_input:
           args:
             type: TEXT
-      type_of_tfin_account:
-        field_name: "Type of Trade Finance Account"
+      exit_message:
+        field_name: "Exit message"
         output_prompt:
-          pointer: types_of_tfin_accounts
+          args:
+            type: TEXT
+            content:
+              - "You application number is 345678.\n\nClick the below link to upload necessary documents for completing you application: https://trade.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ##############################################################################
+  check_application_status_account:
+    description: check application status
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Check Application Status"
+      short: "Check App Status"
+    samples:
+      - Check Application Status
+      - Check App Status
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I'm here to help you check your application status."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      application_id:
+        field_name: "Application ID"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your Application ID."
         user_input:
           args:
             type: TEXT
@@ -459,7 +665,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Click on this link to complete your application: https://mauritius.digid.ai/#?prod_code=MORLOA"
+              - "Thank you! Your application is currently 'In Review'.\n\nThis should be completed in next 48 hours.\n\nYou shall be updated via Whatsapp and SMS."
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -570,6 +776,263 @@ Task:
           args:
             type: DYNAMIC_CONTENT
             data_function: get_and_display_payment_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  view_account_balance:
+    description: view account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "View Account Balance"
+      short: "View Account Balance"
+    samples:
+      - View Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you update your account information."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_balance:
+        field_name: "Account Balance"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your current account balance is $481.12."
+      exit_message_at_task_end:
+          field_name: "Exit message at end"
+          output_prompt:
+            pointer: exit_message_at_task_end
+  ###############################################################################
+  update_account_information:
+    description: view account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Update Account Information"
+      short: "Update Account Info"
+    samples:
+      - Update Account Information
+      - Update Account Info
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you update your account information."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_update:
+          field_name: "account update"
+          output_prompt:
+            args:
+              type: TEXT
+              content:
+                - "Please enter the information you would like to update."
+          user_input:
+            args:
+              type: TEXT
+      exit_message_success:
+          field_name: "Exit message Success"
+          next_entity: exit_message_at_task_end
+          output_prompt:
+            args:
+              type: TEXT
+              content:
+                - "Thank you! Your information has been updated."
+      exit_message_at_task_end:
+          field_name: "Exit message at end"
+          output_prompt:
+            pointer: exit_message_at_task_end
+  ###############################################################################
+  recent_transactions:
+    description: recent transactions
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Recent Transactions"
+      short: "Recent Transactions"
+    samples:
+      - Recent Transactions
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you get your transactions."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      transactions_list:
+        field_name: "Transactions list"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. Here are your most recent transactions:\n\nTransaction Number: A23451E45\nTransaction Remarks: Purchase Order\n\nTransaction Number: A44343343\nTransaction Remarks: Purchase Order for Google."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  invoice_factoring:
+    description: Invoice Factoring 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Invoice Factoring"
+      short: "Invoice Factoring"
+    samples:
+      - Invoice Factoring 
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you raise a new Invoice Factoring request."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      update_an_invoice:
+        field_name: "Update Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Whom are you raising this invoice to? Is the entity already registered here?"
+              short: "Whom are you raising this invoice to? Is the entity already registered here?"
+            footer_text: null
+            button_captions:
+              - long: "Registered Entity"
+                short: "Registered Entity"
+              - long: "Register New Entity"
+                short: "Register New Entity"
+        user_input:
+          args:
+            type: TEXT
+      update_an_status:
+        field_name: "Update Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Select your customer."
+              short: "Select your customer."
+            footer_text: null
+            button_captions:
+              - long: "IN7614456"
+                short: "IN7614456"
+              - long: "JK2323456"
+                short: "JK2323456"
+        user_input:
+          args:
+            type: TEXT
+      invoice_details:
+        field_name: "What is the value of the Invoice"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Advance Amit: $8,000 (80%)\n\nPeriod: 90 days from the issue of advance\n\nFactoring Fee: 2%\n\nInterest Rate: 4%"
+      update_summary:
+        field_name: "Update summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! Kindly submit the copy of the invoice here: https://trade.digid.ai/submit_invoice\n\nYour reference number is DFG234TYU."
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
