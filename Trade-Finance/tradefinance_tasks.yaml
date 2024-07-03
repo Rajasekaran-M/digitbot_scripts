@@ -1,0 +1,635 @@
+Bot:
+  bot_name: Chatbot for Trade Finance
+  bot_description: Add any other details
+
+OutputPrompts:
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your *9 digits* phone number."
+        - "Please enter your phone number."
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number (Demo OTP: 1234)."
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://glico.smartsellhub.com/glicopensions-logo.png"
+      body_prologue:
+        long: "Welcome to My Trade Finance Corporation. Please choose below to proceed."
+        short: "Welcome to My Trade Finance Corporation. Please choose below to proceed."
+      footer_text: null
+      button_captions:
+        - long: "New Customer"
+          short: "New Customer"
+        - long: "Exisitng Customer"
+          short: "Existing Customer"
+        - long: "Other Services"
+          short: "Other Services"
+  new_customer_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Open Trade Finance Account"
+          short: "Open Trade Fin. Ac."
+  existing_customer_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Shipment Tracking"
+          short: "Shipment Tracking"
+        - long: "Payment Tracking"
+          short: "Payment Tracking"
+  list_of_shipment_number_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: You have two shipments. Choose one from the list.
+        short: You have two shipments. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "SN7623456"
+          short: "SN7623456"
+        - long: "SN2356456"
+          short: "SN2356456"
+  list_of_invoice_numbers_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: You have two invoices. Choose one from the list.
+        short: You have two invoices. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "IN7614456"
+          short: "IN7614456"
+        - long: "JK2323456"
+          short: "JK2323456"
+  
+  trade_activities:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "To better assist you, can you tell me about your typical trade activities?"
+        short: "To better assist you, can you tell me about your typical trade activities?"
+      footer_text: null
+      button_captions:
+        - long: "Import"
+          short: "Import"
+        - long: "Export"
+          short: "Export"
+        - long: "Both"
+          short: "Both"
+  avg_value_of_transactions:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What is the average value of your transactions per month?"
+        short: "What is the average value of your transactions per month?"
+      footer_text: null
+      button_captions:
+        - long: "Less than $100K"
+          short: "Less than $100K"
+        - long: "$100K to $500K"
+          short: "$100K to $500K"
+        - long: "$500K to $2M"
+          short: "$500K to $2M"
+  types_of_tfin_accounts:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Based on your trade activities, I recommend considering any one of the following."
+        short: "Based on your trade activities, I recommend considering any one of the following."
+      footer_text: null
+      button_captions:
+        - long: "Export Letter of Credit"
+          short: "Exp Letter of Credit"
+        - long: "Export Factoring"
+          short: "Export Factoring"
+  gender:
+    args:
+      type: BUTTONS
+      header_type: text
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select your gender."
+        short: "Please select your gender."
+      footer_text: null
+      button_captions:
+        - long: "Male"
+          short: "Male"
+        - long: "Female"
+          short: "Female"
+        - long: "Don't want to share"
+          short: "Don't want to share"
+  
+  dates_as_three_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "When do you want to book the appointment?"
+        short: "When do you want to book the appointment?"
+      footer_text: null
+      button_captions:
+        - long: "15-Apr-2024"
+          short: "15-Apr-2024"
+        - long: "16-Apr-2024"
+          short: "16-Apr-2024"
+        - long: "17-Apr-2024"
+          short: "17-Apr-2024"
+  
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+
+  date_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+  mother_maiden_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your mother's maiden name."
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *debit* card."
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the last *four* digits of your *account number*."
+  nominee_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your nominee."
+  first_pet_name:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the name of your first pet."
+  city_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the city that you were born in."
+  recent_transaction_and_amount:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please select a recent transaction made by you on 15-Jul-2023."
+        short: "Please select a recent transaction made by you on 15-Jul-2023."
+      footer_text: null
+      button_captions:
+        - long: "50K MUR at KFC"
+          short: "50K MUR at KFC"
+        - long: "100K MUR at Meza"
+          short: "100K MUR at Meza"
+        - long: "750 MUR at Pizza Hut"
+          short: "750 MUR at Pizza Hut"
+
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+
+  date_of_birth:
+    args:
+      type: TEXT
+  mother_maiden_name:
+    args:
+      type: TEXT
+  last_4_digits_of_debit_card:
+    args:
+      type: TEXT
+  last_4_digits_of_account_number:
+    args:
+      type: TEXT
+  nominee_name:
+    args:
+      type: TEXT
+  first_pet_name:
+    args:
+      type: TEXT
+  city_of_birth:
+    args:
+      type: TEXT
+  recent_transaction_and_amount:
+    args:
+      type: TEXT
+###############################################################################
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons
+  ###############################################################################
+  new_customer_menu:
+    description: show new customer menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "New Customer"
+      short: "New Customer"
+    samples:
+      - new customer
+    entities:
+      menu_options:
+        field_name: "New Customer menu"
+        output_prompt:
+          pointer: new_customer_menu_as_buttons
+  ###############################################################################
+  existing_customer_menu:
+    description: show existing customer menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Existing Customer"
+      short: "Existing Customer"
+    samples:
+      - existing customer
+    entities:
+      menu_options:
+        field_name: "Existing Customer menu"
+        output_prompt:
+          pointer: existing_customer_menu_as_buttons
+  ###############################################################################
+  open_trade_finance_account:
+    description: Open trade finance account
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Open Trade Finance Account"
+      short: "Open Trade Fin. Ac."
+    samples:
+      - i want to apply for a Trade Finance Account
+      - Open Trade Finance Account
+      - Trade Finance Account
+      - Open Trade Fin. Ac.
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I'm here to help you set up your trade finance account."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      business_name:
+        field_name: "Business name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "May I know the name of your business?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      business_regn_number:
+        field_name: "Business registration number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! I'll need some information about your business. Please provide your business registration number."
+        user_input:
+          args:
+            type: TEXT
+      trade_activities:
+        field_name: "Trade activities"
+        output_prompt:
+          pointer: trade_activities
+        user_input:
+          args:
+            type: TEXT
+      avg_value_of_transactions:
+        field_name: "Average value of transactions"
+        output_prompt:
+          pointer: avg_value_of_transactions
+        user_input:
+          args:
+            type: TEXT
+      type_of_tfin_account:
+        field_name: "Type of Trade Finance Account"
+        output_prompt:
+          pointer: types_of_tfin_accounts
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Click on this link to complete your application: https://mauritius.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  shipment_tracking:
+    description: Shipment Tracking
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Shipment Tracking"
+      short: "Shipment Tracking"
+    samples:
+      - Shipment Tracking
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with tracking your shipment."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      shipment_number:
+        field_name: "Shipment number"
+        output_prompt:
+          pointer: list_of_shipment_number_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      shipment_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_shipment_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  payment_tracking:
+    description: Payment Tracking
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Payment Tracking"
+      short: "Payment Tracking"
+    samples:
+      - Payment Tracking
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with tracking your payment."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      invoice_number:
+        field_name: "Invoice number"
+        output_prompt:
+          pointer: list_of_invoice_numbers_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      payment_status:
+        field_name: "Payment status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_payment_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ########################################################################
