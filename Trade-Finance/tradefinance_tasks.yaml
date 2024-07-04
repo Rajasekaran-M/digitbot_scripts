@@ -49,8 +49,8 @@ OutputPrompts:
       button_captions:
         - long: "Learn About Our Services"
           short: "Learn Our Services"
-        - long: "Apply for Trade Finance Account"
-          short: "Apply Trade Account."      
+        - long: "Open Trade Finance Account"
+          short: "Open Trade Fin. Ac."      
   existing_customer_list_as_menu_list:
     args:
       type: MENU_LIST
@@ -131,6 +131,33 @@ OutputPrompts:
           short: "SN7623456"
         - long: "SN2356456"
           short: "SN2356456"
+  account_management_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Services List"
+        short: "Services List"
+      section_title:
+        long: "Services List"
+        short: "Services List"
+      menu_list_rows:
+        - title: "View Account Balance"
+          description: null
+        - title: "Update Account Info"
+          description: null
+        - title: "Recent Transactions"
+          description: null
+        - title: "Back to Main Menu"
+          description: null
   account_management_menu_as_buttons:
     args:
       type: BUTTONS
@@ -436,6 +463,20 @@ Task:
         output_prompt:
           pointer: learn_about_our_services_list_as_menu_list
   ###############################################################################
+  account_management_list:
+    description: Account management menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account Management"
+      short: "Account Management"
+    samples:
+      - Account Management
+    entities:
+      menu_options:
+        field_name: "Services menu"
+        output_prompt:
+          pointer: account_management_list_as_menu_list
+  ###############################################################################
   import_financing:
     description: import financing
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
@@ -452,6 +493,10 @@ Task:
             type: TEXT
             content:
               - "Our import financing services help you pay for goods and services purchased from international suppliers."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
   ###############################################################################
   export_financing:
     description: export financing
@@ -469,6 +514,10 @@ Task:
             type: TEXT
             content:
               - "Our export financing solutions provide you with the funds needed to fulfil international orders."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end      
   ###############################################################################
   supply_chain_financing:
     description: supply chain financing
@@ -487,6 +536,10 @@ Task:
             type: TEXT
             content:
               - "Our supply chain financing solutions optimize your cash flow and improve supplier relationships."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
   ###############################################################################
   working_capital_loans:
     description: Working Capital Loans
@@ -505,6 +558,10 @@ Task:
             type: TEXT
             content:
               - "Our working capital loans provide the funds you need to manage day-to-day operations."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
   ###############################################################################
   open_trade_finance_account:
     description: Open trade finance account
