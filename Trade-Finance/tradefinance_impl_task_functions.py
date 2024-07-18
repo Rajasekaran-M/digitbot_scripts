@@ -66,6 +66,15 @@ def get_and_display_payment_status(
     message = f"The payment for invoice {invoice_number} has been processed and is expected to be credited to your account within 2 business days."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
+def get_and_display_eligibility_details(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    value_of_invoice = float(context.user_response)
+    advance_amount = value_of_invoice * (80 / 100)
+
+    message = f"Advance Amount: ${advance_amount:,} (80%)\n\nPeriod: 90 days from the issue of advance\n\nFactoring Fee: 2%\n\nInterest Rate: 4%"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
 
 def get_and_display_report_summary(
     context: "UserMessageWithContext",

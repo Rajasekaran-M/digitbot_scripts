@@ -23,7 +23,7 @@ OutputPrompts:
     args:
       type: BUTTONS
       header_type: image
-      header_image: "https://glico.smartsellhub.com/glicopensions-logo.png"
+      header_image: "https://myins.smartsellhub.com/itfc.jpg"
       body_prologue:
         long: "Welcome to My Trade Finance Corporation. Please choose below to proceed."
         short: "Welcome to My Trade Finance Corporation. Please choose below to proceed."
@@ -74,14 +74,14 @@ OutputPrompts:
           description: null
         - title: "Check Application Status"
           description: null
-        - title: "Import Financing"
-          description: null
-        - title: "Export Financing"
-          description: null
-        - title: "Supply Chain Financing"
-          description: null
-        - title: "Working Capital Loans"
-          description: null
+        # - title: "Import Financing"
+        #   description: null
+        # - title: "Export Financing"
+        #   description: null
+        # - title: "Supply Chain Financing"
+        #   description: null
+        # - title: "Working Capital Loans"
+        #   description: null
         - title: "Invoice Factoring"
           description: null
         - title: "Back to Main Menu"
@@ -1076,13 +1076,43 @@ Task:
         user_input:
           args:
             type: TEXT
-      invoice_details:
-        field_name: "What is the value of the Invoice"
+      value_of_invoice:
+        field_name: "Value of Invoice"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Advance Amit: $8,000 (80%)\n\nPeriod: 90 days from the issue of advance\n\nFactoring Fee: 2%\n\nInterest Rate: 4%"
+              - "What is the value of the invoice? (Ex: $10,000)"
+        user_input:
+          args:
+            type: TEXT
+      eligibility_details:
+        field_name: "Eligibility Details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_eligibility_details
+      user_confirmation:
+        field_name: "User confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to go ahead?"
+              short: "Do you want to go ahead?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
       update_summary:
         field_name: "Update summary"
         output_prompt:
