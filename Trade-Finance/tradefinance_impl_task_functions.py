@@ -75,6 +75,24 @@ def get_and_display_eligibility_details(
     message = f"Advance Amount: ${advance_amount:,} (80%)\n\nPeriod: 90 days from the issue of advance\n\nFactoring Fee: 2%\n\nInterest Rate: 4%"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
+def get_and_display_transaction_details(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    pending_transaction = context.user_response
+    transaction_amount = 12500
+
+    message = f"Details:\n\nValue Date: 2024-07-10\nSender Ref. No.: {pending_transaction}\nAmount: ${transaction_amount:,}"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+def get_confirmation(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
+    credit_account = context.dialog_context.entity_history['credit_account']
+    from_account = context.dialog_context.entity_history['from_account']
+    purpose_category = context.dialog_context.entity_history['purpose_category']
+    transaction_amount = 12500
+    
+    message = f"Credit Account: {credit_account}\nAmount: ${transaction_amount:,}\nPurpose Category: {purpose_category}\nDeduct Charges From: {from_account}"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
 
 def get_and_display_report_summary(
     context: "UserMessageWithContext",

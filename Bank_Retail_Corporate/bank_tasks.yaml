@@ -25,14 +25,26 @@ OutputPrompts:
     args:
       type: BUTTONS
       header_type: image
-      #header_image: "https://drive.google.com/uc?export=download&id=1ORIy4gs3Z5VEW3QTgrN6qNx-exZsKYjM"
-      # header_image: "https://cbg.smartsellhub.com/CBG-Logo.jpg"
-      # header_image: "https://cbg.smartsellhub.com/MAUBank.png"
-      # header_image: "https://myins.smartsellhub.com/my-bank.jpeg"
       header_image: "https://myins.smartsellhub.com/MAU-Bank.png"
       body_prologue:
-        long: "Please choose the desired service category"
-        short: "Please choose the desired service category"
+        long: "Please choose the customer category."
+        short: "Please choose the customer category."
+      footer_text: null
+      button_captions:
+        - long: "Retail Customer"
+          short: "Retail Customer"
+        - long: "Corporate Customer"
+          short: "Corporate Customer"
+  retail_customer_menu:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose the desired service category."
+        short: "Please choose the desired service category."
       footer_text: null
       button_captions:
         - long: "Bank Account Services"
@@ -41,6 +53,24 @@ OutputPrompts:
           short: "Loan Eligibility"
         - long: "Other Services"
           short: "Other Services"
+  corporate_customer_menu:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose the desired service category."
+        short: "Please choose the desired service category."
+      footer_text: null
+      button_captions:
+        - long: "New Customer"
+          short: "New Customer"
+        - long: "Exisitng Customer"
+          short: "Existing Customer"
+        - long: "Contact Support"
+          short: "Contact Support"
   bank_account_services_menu_as_menu_list:
     args:
       type: MENU_LIST
@@ -628,6 +658,221 @@ OutputPrompts:
           short: "1017234262"
         - long: "1018264842"
           short: "1018264842"
+  
+  # Corporate Customer - Start
+  new_customer_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text: null
+      button_captions:
+        - long: "Learn About Our Services"
+          short: "Learn Our Services"
+        - long: "Open Trade Finance Account"
+          short: "Open Trade Fin. Ac."      
+  existing_customer_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Trading Finance List"
+        short: "Trade Finance List"
+      section_title:
+        long: "Trading Finance List"
+        short: "Trade Finance List"
+      menu_list_rows:
+        # - title: "Account Management"
+        #   description: null
+        - title: "Check Application Status"
+          description: null
+        # - title: "Import Financing"
+        #   description: null
+        # - title: "Export Financing"
+        #   description: null
+        # - title: "Supply Chain Financing"
+        #   description: null
+        # - title: "Working Capital Loans"
+        #   description: null
+        - title: "Invoice Factoring"
+          description: null
+        - title: "Inward Remittance"
+          description: null
+        - title: "Back to Main Menu"
+          description: null
+  learn_about_our_services_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Services List"
+        short: "Services List"
+      section_title:
+        long: "Services List"
+        short: "Services List"
+      menu_list_rows:
+        - title: "Import Financing"
+          description: null
+        - title: "Export Financing"
+          description: null
+        - title: "Supply Chain Financing"
+          description: null
+        - title: "Working Capital Loans"
+          description: null
+        - title: "Back to Main Menu"
+          description: null
+  list_of_shipment_number_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: You have two shipments. Choose one from the list.
+        short: You have two shipments. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "SN7623456"
+          short: "SN7623456"
+        - long: "SN2356456"
+          short: "SN2356456"
+  account_management_list_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "Please choose from one of the following options."
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Services List"
+        short: "Services List"
+      section_title:
+        long: "Services List"
+        short: "Services List"
+      menu_list_rows:
+        - title: "View Account Balance"
+          description: null
+        - title: "Update Account Info"
+          description: null
+        - title: "Recent Transactions"
+          description: null
+        - title: "Back to Main Menu"
+          description: null
+  account_management_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "View Account Balance"
+          short: "View Account Balance"
+        - long: "Update Account Information"
+          short: "Update Account Info"
+        - long: "Recent Transactions"
+          short: "Recent Transactions"
+  list_of_invoice_numbers_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: You have two invoices. Choose one from the list.
+        short: You have two invoices. Choose one from the list.
+      footer_text: null
+      button_captions:
+        - long: "IN7614456"
+          short: "IN7614456"
+        - long: "JK2323456"
+          short: "JK2323456"
+  
+  trade_activities:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "To better assist you, can you tell me about your typical trade activities?"
+        short: "To better assist you, can you tell me about your typical trade activities?"
+      footer_text: null
+      button_captions:
+        - long: "Import"
+          short: "Import"
+        - long: "Export"
+          short: "Export"
+        - long: "Both"
+          short: "Both"
+  avg_value_of_transactions:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "What is the average value of your transactions per month?"
+        short: "What is the average value of your transactions per month?"
+      footer_text: null
+      button_captions:
+        - long: "Less than $100K"
+          short: "Less than $100K"
+        - long: "$100K to $500K"
+          short: "$100K to $500K"
+        - long: "$500K to $2M"
+          short: "$500K to $2M"
+  types_of_tfin_accounts:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Based on your trade activities, I recommend considering any one of the following."
+        short: "Based on your trade activities, I recommend considering any one of the following."
+      footer_text: null
+      button_captions:
+        - long: "Export Letter of Credit"
+          short: "Exp Letter of Credit"
+        - long: "Export Factoring"
+          short: "Export Factoring"
+  # Corporate Customer - End
 
 UserInputs:
   phone_number:
@@ -717,6 +962,34 @@ Task:
         field_name: "Main menu"
         output_prompt:
           pointer: main_menu_as_buttons
+  ###############################################################################
+  retail_customer_menu:
+    description: show retail customer main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Retail Customer Menu"
+      short: "Retail Customer Menu"
+    samples:
+      - Retail Customer
+    entities:
+      menu_options:
+        field_name: "Retail customer menu"
+        output_prompt:
+          pointer: retail_customer_menu
+  ###############################################################################
+  corporate_customer_menu:
+    description: show corporate customer main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Corporate Customer"
+      short: "Corporate Customer"
+    samples:
+      - Corporate Customer
+    entities:
+      menu_options:
+        field_name: "Corporate customer menu"
+        output_prompt:
+          pointer: corporate_customer_menu
   ###############################################################################
   main_menu_for_kyc:
     description: show kyc main menu
@@ -1236,7 +1509,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your total earnings (in KES)."
+              - "Please provide your total earnings (in MUR)."
         user_input:
           forget: False
           args:
@@ -1250,7 +1523,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your basic salary (in KES)."
+              - "Please provide your basic salary (in MUR)."
         user_input:
           forget: False
           args:
@@ -1264,7 +1537,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your leave travel allowance (in KES)."
+              - "Please provide your leave travel allowance (in MUR)."
         user_input:
           forget: False
           args:
@@ -1278,7 +1551,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your total deductions (in KES)."
+              - "Please provide your total deductions (in MUR)."
         user_input:
           forget: False
           args:
@@ -1292,7 +1565,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "Please provide your deposit amount (in KES)."
+              - "Please provide your deposit amount (in MUR)."
         user_input:
           forget: False
           args:
@@ -1328,7 +1601,7 @@ Task:
           args:
             type: TEXT
             content:
-              - "How much loan amount is remaining (in KES)?"
+              - "How much loan amount is remaining (in MUR)?"
         user_input:
           forget: False
           args:
@@ -3645,6 +3918,900 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ########################################################################
+  # Corporate Customers - Start
+  new_customer_menu:
+    description: show new customer menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "New Customer"
+      short: "New Customer"
+    samples:
+      - new customer
+    entities:
+      menu_options:
+        field_name: "New Customer menu"
+        output_prompt:
+          pointer: new_customer_menu_as_buttons
+  ###############################################################################
+  existing_customer_menu:
+    description: show existing customer menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Existing Customer"
+      short: "Existing Customer"
+    samples:
+      - existing customer
+    entities:
+      menu_options:
+        field_name: "Existing Customer menu"
+        output_prompt:
+          pointer: existing_customer_list_as_menu_list
+  ###############################################################################
+  learn_about_our_services_menu:
+    description: Learn about our services menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Learn About Our Services"
+      short: "Learn Our Services"
+    samples:
+      - Learn About Our Services
+      - Learn Our Services
+    entities:
+      menu_options:
+        field_name: "Services menu"
+        output_prompt:
+          pointer: learn_about_our_services_list_as_menu_list
+  ###############################################################################
+  account_management_list:
+    description: Account management menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account Management"
+      short: "Account Management"
+    samples:
+      - Account Management
+    entities:
+      menu_options:
+        field_name: "Services menu"
+        output_prompt:
+          pointer: account_management_list_as_menu_list
+  ###############################################################################
+  import_financing:
+    description: import financing
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Import Financing"
+      short: "Import Financing"
+    samples:
+      - Import Financing
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our import financing services help you pay for goods and services purchased from international suppliers."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  export_financing:
+    description: export financing
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Export Financing"
+      short: "Export Financing"
+    samples:
+      - Export Financing
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our export financing solutions provide you with the funds needed to fulfil international orders."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end      
+  ###############################################################################
+  supply_chain_financing:
+    description: supply chain financing
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Supply Chain Financing"
+      short: "Supply Chain Finance"
+    samples:
+      - Supply Chain Financing
+      - Supply Chain Finance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our supply chain financing solutions optimize your cash flow and improve supplier relationships."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  working_capital_loans:
+    description: Working Capital Loans
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Working Capital Loans"
+      short: "Working Capital Loan"
+    samples:
+      - Working Capital Loans
+      - Working Capital Loan
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our working capital loans provide the funds you need to manage day-to-day operations."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  open_trade_finance_account:
+    description: Open trade finance account
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Open Trade Finance Account"
+      short: "Open Trade Fin. Ac."
+    samples:
+      - i want to apply for a Trade Finance Account
+      - Open Trade Finance Account
+      - Trade Finance Account
+      - Open Trade Fin. Ac.
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I'm here to help you set up your trade finance account."
+      customer_name:
+        field_name: "Customer name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your name."
+        user_input:
+          args:
+            type: TEXT
+      business_name:
+        field_name: "Business name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "May I know the name of your business?"
+        user_input:
+          args:
+            type: TEXT
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      business_regn_number:
+        field_name: "Business registration number"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! I'll need some information about your business. Please provide your business registration number."
+        user_input:
+          args:
+            type: TEXT
+      trade_activities:
+        field_name: "Trade activities"
+        output_prompt:
+          pointer: trade_activities
+        user_input:
+          args:
+            type: TEXT
+      avg_value_of_transactions:
+        field_name: "Average value of transactions"
+        output_prompt:
+          pointer: avg_value_of_transactions
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "You application number is 345678.\n\nClick the below link to upload necessary documents for completing you application: https://trade.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ##############################################################################
+  check_application_status_account:
+    description: check application status
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Check Application Status"
+      short: "Check App Status"
+    samples:
+      - Check Application Status
+      - Check App Status
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I'm here to help you check your application status."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      application_id:
+        field_name: "Application ID"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your Application ID."
+        user_input:
+          args:
+            type: TEXT
+      exit_message:
+        field_name: "Exit message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! Your application is currently 'In Review'.\n\nThis should be completed in next 48 hours.\n\nYou shall be updated via Whatsapp and SMS."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ########################################################################
+  shipment_tracking:
+    description: Shipment Tracking
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Shipment Tracking"
+      short: "Shipment Tracking"
+    samples:
+      - Shipment Tracking
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with tracking your shipment."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      shipment_number:
+        field_name: "Shipment number"
+        output_prompt:
+          pointer: list_of_shipment_number_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      shipment_status:
+        field_name: "Booking status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_shipment_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  payment_tracking:
+    description: Payment Tracking
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Payment Tracking"
+      short: "Payment Tracking"
+    samples:
+      - Payment Tracking
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you with tracking your payment."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      invoice_number:
+        field_name: "Invoice number"
+        output_prompt:
+          pointer: list_of_invoice_numbers_as_buttons
+        user_input:
+          args:
+            type: TEXT
+      payment_status:
+        field_name: "Payment status"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_payment_status
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  view_account_balance:
+    description: view account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "View Account Balance"
+      short: "View Account Balance"
+    samples:
+      - View Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you update your account information."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_balance:
+        field_name: "Account Balance"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Your current account balance is $481.12."
+      exit_message_at_task_end:
+          field_name: "Exit message at end"
+          output_prompt:
+            pointer: exit_message_at_task_end
+  ###############################################################################
+  update_account_information:
+    description: view account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Update Account Information"
+      short: "Update Account Info"
+    samples:
+      - Update Account Information
+      - Update Account Info
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you update your account information."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      account_update:
+          field_name: "account update"
+          output_prompt:
+            args:
+              type: TEXT
+              content:
+                - "Please enter the information you would like to update."
+          user_input:
+            args:
+              type: TEXT
+      exit_message_success:
+          field_name: "Exit message Success"
+          next_entity: exit_message_at_task_end
+          output_prompt:
+            args:
+              type: TEXT
+              content:
+                - "Thank you! Your information has been updated."
+      exit_message_at_task_end:
+          field_name: "Exit message at end"
+          output_prompt:
+            pointer: exit_message_at_task_end
+  ###############################################################################
+  recent_transactions:
+    description: recent transactions
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Recent Transactions"
+      short: "Recent Transactions"
+    samples:
+      - Recent Transactions
+    entities:
+      welcome_text:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you get your transactions."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      transactions_list:
+        field_name: "Transactions list"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. Here are your most recent transactions:\n\nTransaction Number: A23451E45\nTransaction Remarks: Purchase Order\n\nTransaction Number: A44343343\nTransaction Remarks: Purchase Order for Google."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  invoice_factoring:
+    description: Invoice Factoring 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Invoice Factoring"
+      short: "Invoice Factoring"
+    samples:
+      - Invoice Factoring
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you raise a new Invoice Factoring request."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      update_an_invoice:
+        field_name: "Update Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Whom are you raising this invoice to? Is the entity already registered here?"
+              short: "Whom are you raising this invoice to? Is the entity already registered here?"
+            footer_text: null
+            button_captions:
+              - long: "Registered Entity"
+                short: "Registered Entity"
+              - long: "Register New Entity"
+                short: "Register New Entity"
+        user_input:
+          args:
+            type: TEXT
+      update_an_status:
+        field_name: "Update Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Select your customer."
+              short: "Select your customer."
+            footer_text: null
+            button_captions:
+              - long: "IN7614456"
+                short: "IN7614456"
+              - long: "JK2323456"
+                short: "JK2323456"
+        user_input:
+          args:
+            type: TEXT
+      value_of_invoice:
+        field_name: "Value of Invoice"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "What is the value of the invoice? (Ex: $10,000)"
+        user_input:
+          args:
+            type: TEXT
+      eligibility_details:
+        field_name: "Eligibility Details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_eligibility_details
+      user_confirmation:
+        field_name: "User confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to go ahead?"
+              short: "Do you want to go ahead?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      update_summary:
+        field_name: "Update summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you! Kindly submit the copy of the invoice here: https://trade.digid.ai/submit_invoice\n\nYour reference number is DFG234TYU."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  inward_remittance:
+    description: Inward Remittance 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Inward Remittance"
+      short: "Inward Remittance"
+    samples:
+      - Inward Remittance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you settle an inward remittance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      pending_transaction:
+        field_name: "Pending Transaction"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Choose a transaction that is pending for settlement."
+              short: "Choose a transaction that is pending for settlement."
+            footer_text: null
+            button_captions:
+              - long: "XXXXXXXX12"
+                short: "XXXXXXXX12"
+              - long: "XXXXXXXX34"
+                short: "XXXXXXXX34"
+              - long: "XXXXXXXX56"
+                short: "XXXXXXXX56"
+        user_input:
+          args:
+            type: TEXT
+      transaction_details:
+        field_name: "Transaction Details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_transaction_details
+      from_account:
+        field_name: "From Account"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Deduct Charges From"
+              short: "Deduct Charges From"
+            body_prologue:
+              long: "Deduct Charges From:"
+              short: "Deduct Charges From"
+            footer_text:
+              long: ""
+              short: ""
+            option_button_title:
+              long: "Deduct Charges From"
+              short: "Deduct Charges From"
+            section_title:
+              long: "Deduct Charges From"
+              short: "Deduct Charges From"
+            menu_list_rows:
+              - title: "XXXXXX1234"
+                description: "Available Balance: MUR 10,000"
+              - title: "XXXXXX5678"
+                description: "Available Balance: MUR 8,000"
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      credit_account:
+        field_name: "Credit Account"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Select the credit account."
+              short: "Select the credit account."
+            footer_text: null
+            button_captions:
+              - long: "XXXXXXXX9876"
+                short: "XXXXXXXX9876"
+              - long: "XXXXXXXX8765"
+                short: "XXXXXXXX8765"
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      purpose_category:
+        field_name: "Purpose Category"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Purpose Category"
+              short: "Purpose Category"
+            body_prologue:
+              long: "Select Purpose Category."
+              short: "Select Purpose Category."
+            footer_text:
+              long: ""
+              short: ""
+            option_button_title:
+              long: "Purpose Category"
+              short: "Purpose Category"
+            section_title:
+              long: "Purpose Category"
+              short: "Purpose Category"
+            menu_list_rows:
+              - title: "Construction Services"
+                description: ""
+              - title: "Exports of Goods"
+                description: ""
+              - title: "External Assistance"
+                description: ""
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      final_confirmation:
+        field_name: "Final confirmation"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_remittance_confirmation
+      user_confirmation:
+        field_name: "User confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to go ahead?"
+              short: "Do you want to go ahead?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      update_summary:
+        field_name: "Update summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Success! Your details have been submitted.\nTransaction number: MAUB87876676."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  # Corporate Customers - End
+  ###############################################################################
 
   positive:
     description: polarity

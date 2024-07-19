@@ -33,8 +33,8 @@ OutputPrompts:
           short: "New Customer"
         - long: "Exisitng Customer"
           short: "Existing Customer"
-        - long: "Contact support"
-          short: "Contact support"
+        - long: "Contact Support"
+          short: "Contact Support"
   new_customer_menu_as_buttons:
     args:
       type: BUTTONS
@@ -64,14 +64,14 @@ OutputPrompts:
         long: "Click Send to select it"
         short: "Click Send to select it"
       option_button_title:
-        long: "Trading finance List"
-        short: "Trade finance List"
+        long: "Trading Finance List"
+        short: "Trade Finance List"
       section_title:
-        long: "Trading finance List"
-        short: "Trade finance List"
+        long: "Trading Finance List"
+        short: "Trade Finance List"
       menu_list_rows:
-        - title: "Account Management"
-          description: null
+        # - title: "Account Management"
+        #   description: null
         - title: "Check Application Status"
           description: null
         # - title: "Import Financing"
@@ -83,6 +83,8 @@ OutputPrompts:
         # - title: "Working Capital Loans"
         #   description: null
         - title: "Invoice Factoring"
+          description: null
+        - title: "Inward Remittance"
           description: null
         - title: "Back to Main Menu"
           description: null
@@ -1004,7 +1006,7 @@ Task:
       long: "Invoice Factoring"
       short: "Invoice Factoring"
     samples:
-      - Invoice Factoring 
+      - Invoice Factoring
     entities:
       welcome_text:
         field_name: "Welcome text"
@@ -1120,6 +1122,193 @@ Task:
             type: TEXT
             content:
               - "Thank you! Kindly submit the copy of the invoice here: https://trade.digid.ai/submit_invoice\n\nYour reference number is DFG234TYU."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  inward_remittance:
+    description: Inward Remittance 
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Inward Remittance"
+      short: "Inward Remittance"
+    samples:
+      - Inward Remittance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure, I can help you settle an inward remittance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      pending_transaction:
+        field_name: "Pending Transaction"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Choose a transaction that is pending for settlement."
+              short: "Choose a transaction that is pending for settlement."
+            footer_text: null
+            button_captions:
+              - long: "XXXXXXXX12"
+                short: "XXXXXXXX12"
+              - long: "XXXXXXXX34"
+                short: "XXXXXXXX34"
+              - long: "XXXXXXXX56"
+                short: "XXXXXXXX56"
+        user_input:
+          args:
+            type: TEXT
+      transaction_details:
+        field_name: "Transaction Details"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_transaction_details
+      from_account:
+        field_name: "From Account"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Deduct Charges From"
+              short: "Deduct Charges From"
+            body_prologue:
+              long: "Deduct Charges From:"
+              short: "Deduct Charges From:"
+            footer_text:
+              long: ""
+              short: ""
+            option_button_title:
+              long: "Deduct Charges From"
+              short: "Deduct Charges From"
+            section_title:
+              long: "Deduct Charges From"
+              short: "Deduct Charges From"
+            menu_list_rows:
+              - title: "XXXXXX1234"
+                description: "Available Balance: MUR 10,000"
+              - title: "XXXXXX5678"
+                description: "Available Balance: MUR 8,000"
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      credit_account:
+        field_name: "Credit Account"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Select the credit account."
+              short: "Select the credit account."
+            footer_text: null
+            button_captions:
+              - long: "XXXXXXXX9876"
+                short: "XXXXXXXX9876"
+              - long: "XXXXXXXX8765"
+                short: "XXXXXXXX8765"
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      purpose_category:
+        field_name: "Purpose Category"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Purpose Category"
+              short: "Purpose Category"
+            body_prologue:
+              long: "Select Purpose Category."
+              short: "Select Purpose Category."
+            footer_text:
+              long: ""
+              short: ""
+            option_button_title:
+              long: "Purpose Category"
+              short: "Purpose Category"
+            section_title:
+              long: "Purpose Category"
+              short: "Purpose Category"
+            menu_list_rows:
+              - title: "Construction Services"
+                description: ""
+              - title: "Exports of Goods"
+                description: ""
+              - title: "External Assistance"
+                description: ""
+        user_input:
+          forget: False
+          args:
+            type: TEXT
+      final_confirmation:
+        field_name: "Final confirmation"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_confirmation
+      user_confirmation:
+        field_name: "User confirmation"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Do you want to go ahead?"
+              short: "Do you want to go ahead?"
+            footer_text: null
+            button_captions:
+              - long: "Yes"
+                short: "Yes"
+              - long: "No"
+                short: "No"
+        user_input:
+          args:
+            type: TEXT
+      update_summary:
+        field_name: "Update summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Success! Your details have been submitted.\nTransaction number: MAUB87876676."
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:

@@ -77,7 +77,7 @@ def get_loan_eligibility(context: "UserMessageWithContext") -> TaskEntityFunctio
         message += "Sorry. The loan eligibility criteria has not been met. Please contact our branch for more details.\n\n"
     
     if message == "":
-        message += f"Available Installment Amount: {available_installment_amount:,} KES.\n\nAvailable Loan Amount: {available_loan_amount:,} KES."
+        message += f"Available Installment Amount: {available_installment_amount:,} MUR.\n\nAvailable Loan Amount: {available_loan_amount:,} MUR."
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 def get_confirmation(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
@@ -107,14 +107,14 @@ def show_final_confirmation(context: "UserMessageWithContext") -> TaskEntityFunc
 def get_and_display_account_balance(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
-    message = "For account *XXXXXXX1234* Available Balance is 18,467.28 GHS\nUnclear Balance is 0.00 GHS"
+    message = "For account *XXXXXXX1234* Available Balance is 18,467.28 MUR\nUnclear Balance is 0.00 MUR"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 
 def get_and_display_wallet_balance(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
-    message = "Available Balance in your wallet is 1,987.72 GHS"
+    message = "Available Balance in your wallet is 1,987.72 MUR"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 
@@ -122,11 +122,11 @@ def get_and_display_bank_account_transactions(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     message = """Your recent 5 transactions for savings account '{account_number}' are:
-    1. Debit of 50 GHS at Starbucks on 25-Mar-2023
-    2. Debit of 100 GHS at Hilton on 20-Mar-2023
-    3. Cash withdrawal of 1000 GHS at GCB Bank ATM in Accra on 18-Mar-2023
-    4. Debit of 1000 GHS for Rent on 05-Mar-2023
-    5. Salary credit of 10000 GHS from Google on 01-Mar-2023.
+    1. Debit of 50 MUR at Starbucks on 25-Mar-2023
+    2. Debit of 100 MUR at Hilton on 20-Mar-2023
+    3. Cash withdrawal of 1000 MUR at GCB Bank ATM in Accra on 18-Mar-2023
+    4. Debit of 1000 MUR for Rent on 05-Mar-2023
+    5. Salary credit of 10000 MUR from Google on 01-Mar-2023.
     """
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
@@ -190,7 +190,7 @@ def validate_secret_questions(context: "UserMessageWithContext") -> TaskEntityFu
         "nominee_name": "john",
         "first_pet_name": "krypto",
         "city_of_birth": "accra",
-        "recent_transaction_and_amount": "75K GHS at Pizza Hut".lower(),
+        "recent_transaction_and_amount": "75K MUR at Pizza Hut".lower(),
     }
 
     answer = context.user_response
@@ -254,3 +254,51 @@ def choose_next_security_question(context: "UserMessageWithContext") -> TaskEnti
 
 
 ######PBU POC randomized authentication related functions
+
+
+def get_and_display_shipment_status(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    shipment_number = context.user_response
+
+    message = f"Your shipment {shipment_number} is currently at the port of Singapore, scheduled to depart tomorrow. Expected arrival in New York is on July 10th."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+
+def get_and_display_payment_status(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    invoice_number = context.user_response
+
+    message = f"The payment for invoice {invoice_number} has been processed and is expected to be credited to your account within 2 business days."
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+
+def get_and_display_eligibility_details(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    value_of_invoice = float(context.user_response)
+    advance_amount = value_of_invoice * (80 / 100)
+
+    message = f"Advance Amount: ${advance_amount:,} (80%)\n\nPeriod: 90 days from the issue of advance\n\nFactoring Fee: 2%\n\nInterest Rate: 4%"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+
+def get_and_display_transaction_details(
+    context: "UserMessageWithContext",
+) -> TaskEntityFunctionResponse:
+    pending_transaction = context.user_response
+    transaction_amount = 12500
+
+    message = f"Details:\n\nValue Date: 2024-07-10\nSender Ref. No.: {pending_transaction}\nAmount: ${transaction_amount:,}"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
+
+
+def get_remittance_confirmation(context: "UserMessageWithContext") -> TaskEntityFunctionResponse:
+    credit_account = context.dialog_context.entity_history['credit_account']
+    from_account = context.dialog_context.entity_history['from_account']
+    purpose_category = context.dialog_context.entity_history['purpose_category']
+    transaction_amount = 12500
+    
+    message = f"Credit Account: {credit_account}\nAmount: ${transaction_amount:,}\nPurpose Category: {purpose_category}\nDeduct Charges From: {from_account}"
+    return TaskEntityFunctionResponse(success=True, text_message=message)
