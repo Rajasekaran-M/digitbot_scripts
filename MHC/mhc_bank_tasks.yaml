@@ -1,0 +1,816 @@
+#GiG
+
+Bot:
+  bot_name: chatbot for Digid
+  bot_description: Add any other details
+
+OutputPrompts:
+  email_address:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your email address."
+  phone_number:
+    args:
+      type: TEXT
+      content:
+        - "I need to validate your identity. Please enter your **10 digit** phone number."
+        - "Please enter your phone number."
+  OTP:
+    args:
+      type: TEXT
+      content:
+        - "Please enter the four digit OTP sent to your phone number (Demo OTP: 1234)."
+  main_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: image
+      header_image: "https://mhc.smartsellhub.com/MHC_logo.png"
+      body_prologue:
+        long: "Please choose the desired service category"
+        short: "Please choose the desired service category"
+      footer_text: null
+      button_captions:
+        - long: "New Customer"
+          short: "New Customer"
+        - long: "Existing Customer"
+          short: "Existing Customer"
+  new_customer_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Loan"
+          short: "Loan"
+        - long: "Savings"
+          short: "Savings"
+  loan_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Loan Menu"
+        short: "Loan Menu"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Loan Menu and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Loan Menu" 
+        short: "Loan Menu"
+      section_title:
+        long: "Loan Menu"
+        short: "Loan Menu"
+      menu_list_rows:
+        - title: "Home Loan"
+          description: null
+        - title: "Flexi Loan"
+          description: null
+        - title: "Agent Loan"
+          description: null
+        - title: "Loan for Promoters"
+          description: null
+  savings_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Smart PEL"
+          short: "Smart PEL"
+        - long: "Junior PEL Saver"
+          short: "Junior PEL Saver"
+  existing_customer_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Loan Accounts"
+          short: "Loan Accounts"
+        - long: "Savings Accounts"
+          short: "Savings Accounts"
+  loan_accounts_menu_as_menu_list:
+    args:
+      type: MENU_LIST
+      header_text:
+        long: "Loan Accounts"
+        short: "Loan Accounts"
+      body_prologue:
+        long: "Please choose from one of the following options."
+        short: "To begin, tap Loan Accounts and choose from one of the following options"
+      footer_text:
+        long: "Click Send to select it"
+        short: "Click Send to select it"
+      option_button_title:
+        long: "Loan Accounts"
+        short: "Loan Accounts"
+      section_title:
+        long: "Loan Accounts"
+        short: "Loan Accounts"
+      menu_list_rows:
+        - title: "Account Dashboard"
+          description: null
+        - title: "Disbursal Summary"
+          description: null
+        - title: "Interest Statement"
+          description: null
+  savings_accounts_menu_as_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "Please choose one to proceed further."
+        short: "Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "Account Balance"
+          short: "Account Balance"
+        - long: "Transaction History"
+          short: "Transaction History"
+  
+  bank_account_as_two_buttons:
+    args:
+      type: BUTTONS
+      header_type: "text"
+      header_text:
+        long: ""
+        short: ""
+      body_prologue:
+        long: "We found two accounts associated with your phone number. Please choose one to proceed further."
+        short: "We found two accounts associated with your phone number. Please choose one to proceed further."
+      footer_text: null
+      button_captions:
+        - long: "XXXXXXX1234"
+          short: "XXXXXXX1234"
+        - long: "XXXXXXX5678"
+          short: "XXXXXXXX5678"
+
+  exit_message_at_task_end:
+    args:
+      type: TEXT
+      content:
+        - "Hope this was helpful?\n\nType 'Hi' or 'Menu' to avail other services. Alternatively, type your request."
+
+  date_of_birth:
+    args:
+      type: TEXT
+      content:
+        - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+  
+UserInputs:
+  phone_number:
+    confirm: False
+    confirmation_text:
+      - "Please confirm that the entered phone number '${cur_entity_value}' is correct"
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: PHONE_NUMBER
+
+  OTP:
+    confirm: True
+    confirmation_text:
+      - "Please confirm that the entered OTP value '${cur_entity_value}' is correct"
+    retrieve: False
+    confirm_retrieved: False
+    forget: True
+    args:
+      type: INTEGER
+
+  bank_account:
+    args:
+      type: TEXT
+
+  email_address:
+    confirm: False
+    retrieve: True
+    confirm_retrieved: True
+    forget: False
+    args:
+      type: EMAIL
+
+  date_of_birth:
+    args:
+      type: TEXT
+Task:
+  main_menu:
+    description: show main menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Show Main Menu"
+      short: "Show Main Menu"
+    samples:
+      - hi
+      - hello
+      - how are you
+      - good morning
+      - good afternoon
+      - good evening
+      - greetings
+      - show main menu
+      - what can you do?
+    entities:
+      menu_options:
+        field_name: "Main menu"
+        output_prompt:
+          pointer: main_menu_as_buttons
+  ###############################################################################
+  new_customer_menu:
+    description: show new customer menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "New Customer"
+      short: "New Customer"
+    samples:
+      - New Customer
+    entities:
+      menu_options:
+        field_name: "New Customer menu"
+        output_prompt:
+          pointer: new_customer_menu_as_buttons
+  ###############################################################################
+  existing_customer_menu:
+    description: show Existing Customer menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Existing Customer"
+      short: "Existing Customer"
+    samples:
+      - Existing Customer
+    entities:
+      menu_options:
+        field_name: "Existing Customer menu"
+        output_prompt:
+          pointer: existing_customer_menu_as_buttons
+  ###############################################################################
+  loan_menu:
+    description: show loan menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan"
+      short: "Loan"
+    samples:
+      - loan
+      - Loan
+    entities:
+      menu_options:
+        field_name: "Loan menu"
+        output_prompt:
+          pointer: loan_menu_as_menu_list
+  ###############################################################################
+  savings_menu:
+    description: show savings menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Savings"
+      short: "Savings"
+    samples:
+      - Savings
+    entities:
+      menu_options:
+        field_name: "Savings menu"
+        output_prompt:
+          pointer: savings_menu_as_buttons
+  ###############################################################################
+  loan_accounts_menu:
+    description: show loan accounts menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Loan Accounts"
+      short: "Loan Accounts"
+    samples:
+      - loan Accounts
+      - Loan Accounts
+    entities:
+      menu_options:
+        field_name: "Loan Accounts menu"
+        output_prompt:
+          pointer: loan_accounts_menu_as_menu_list
+  ###############################################################################
+  savings_accounts_menu:
+    description: show savings accounts menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Savings Accounts"
+      short: "Savings Accounts"
+    samples:
+      - Savings Accounts
+    entities:
+      menu_options:
+        field_name: "Savings Accounts menu"
+        output_prompt:
+          pointer: savings_accounts_menu_as_buttons 
+  ###############################################################################
+  # 1.
+  home_loan:
+    description: show home loan menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Home Loan"
+      short: "Home Loan"
+    samples:
+      - Home Loan
+      - show home loan menu
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Great. I can help you with applying for a home loan."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      type_of_home_loan:
+        field_name: "Type Of Home Loan"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Type Of Home Loan"
+              short: "Type Of Home Loan"
+            footer_text: null
+            button_captions:
+              - long: "Normal Loan"
+                short: "Normal Loan"
+              - long: "Top Up Loan"
+                short: "Top Up Loan"
+        user_input:
+          args:
+            type: TEXT
+      loan_amount:
+        field_name: "Loan amount"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the loan amount you are seeking (in MUR)?"
+        user_input:
+          args:
+            type: TEXT
+      purpose_of_home_loan:
+        field_name: "Purpose Of Home Loan"
+        output_prompt:
+          args:
+            type: MENU_LIST
+            header_text:
+              long: "Purpose Of Home Loan"
+              short: "Purpose Of Home Loan"
+            body_prologue:
+              long: "Please choose from one of the following options."
+              short: "Please choose from one of the following options."
+            footer_text:
+              long: "Click Send to select it"
+              short: "Click Send to select it"
+            option_button_title:
+              long: "Purpose Of Home Loan"
+              short: "Purpose Of Home Loan"
+            section_title:
+              long: "Purpose Of Home Loan"
+              short: "Purpose Of Home Loan"
+            menu_list_rows:
+              - title: "Purchase of land"
+                description: null
+              - title: "Land Purchase & Constr."
+                description: null
+              - title: "Purchase of Apartment"
+                description: null
+              - title: "Construction / Extension"
+                description: null
+              - title: "Renovation"
+                description: null
+              - title: "Debts Refinacing"
+                description: null
+              - title: "Improvements / Extension"
+                description: null
+              - title: "Mixed Construction"
+                description: null
+        user_input:
+          args:
+            type: TEXT
+      term_of_loan_in_years:
+        field_name: "Term Of Loan In Years"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter the term of loan (in years)."
+        user_input:
+          args:
+            type: TEXT
+      customer_name:
+        field_name: "Customer Name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your full name."
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          pointer: date_of_birth
+      employment status:
+        field_name: "Employment Status"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Employment Status"
+              short: "Employment Status"
+            footer_text: null
+            button_captions:
+              - long: "Salaried"
+                short: "Salaried"
+              - long: "On probation/Trainee"
+                short: "On probation/Trainee"
+              - long: "Self Employed"
+                short: "Self Employed"
+        user_input:
+          args:
+            type: TEXT
+      present_occupation:
+        field_name: "Present Occupation"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your present occupation."
+        user_input:
+          args:
+            type: TEXT
+      basic_salary:
+        field_name: "Basic Salary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your basic salary (in MUR)."
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for providing all the necessary information."
+      exit_message_success_1:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our dedicated loan officer shall reach out to you shortly for taking this further."
+      exit_message_success_2:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Alternately, you can also submit all documents here https://mauritius.digid.ai/#?prod_code=MORLOA"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 2.
+  smart_pel:
+    description: show Smart PEL" menu
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Smart PEL"
+      short: "Smart PEL"
+    samples:
+          - Smart PEL menu
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Great. I can help you with applying for a Smart PEL."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      email_address:
+        field_name: "Email address"
+        validation_function: validate_email_address
+        failure_validation_responses:
+          - Your email address seems to be in an incorrect format.
+        output_prompt:
+          pointer: email_address
+        user_input:
+          pointer: email_address
+      customer_name:
+        field_name: "Customer Name"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your full name"
+        user_input:
+          args:
+            type: TEXT
+      date_of_birth:
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
+        user_input:
+          pointer: date_of_birth
+      address:
+        field_name: "Address"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Please enter your address"
+        user_input:
+          args:
+            type: TEXT
+      exit_message_success:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Thank you for providing all the necessary information."
+      exit_message_success_1:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Our dedicated officer shall reach out to you shortly for taking this further."
+      exit_message_success_2:
+        field_name: "Exit message Success"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Alternately, you can also submit all the necessary document here: https://mauritius.digid.ai/#?prod_code=MORLOA.\n\n"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 3.
+  account_dashboard:
+    description: show your account dashboard
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account Dashboard"
+      short: "Account Dashboard"
+    samples:
+      - What is my  loan account balance?
+      - How much money do I have in my loan account?
+      - Show my loan account balance
+      - Account Dashboard
+      - A/C Dashboard"
+      - Loan Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your loan account balance."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      account_balance:
+        field_name: "Account balance"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_loan_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 4.
+  account_balance:
+    description: show your account balance
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Account Balance"
+      short: "Account Balance"
+    samples:
+      - What is my account balance?
+      - How much money do I have in my account?
+      - Show my account balance
+      - Bank balance
+      - A/C Balance
+      - Account Balance
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your account balance. "
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      account_balance:
+        field_name: "Account balance"
+        output_prompt:
+          args:
+            type: DYNAMIC_CONTENT
+            data_function: get_and_display_account_balance
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  
+
+  ###############################################################################
+  positive:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "Yes"
+      - Sure
+      - correct
+      - No problem
+      - that's right
+      - yes please
+      - affirmative
+      - roger that
+      - of course
+  negative:
+    description: polarity
+    type: "polarity"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    samples:
+      - "No"
+      - Sorry
+      - No, I don't think so
+      - I dont know
+      - It's not right
+      - Not exactly
+      - Nothing to do
+      - I forgot my
+      - I forgot it
+      - I don't want to tell you
+  SPL_transfer_to_human:
+    description: transfer to human
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transfer to Agent"
+      short: "Transfer to Agent"
+    samples:
+      - I want to talk to a human
+      - Please transfer me to a human
+      - i want to talk to an agent
+      - transfer me to an agent
+    task_finish_function: transfer_to_human
+  SPL_reset:
+    description: reset conversation
+    type: "special_task"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Reset conversation"
+      short: "Reset conversation"
+    samples:
+      - reset conversation
+      - restart conversation
+      - start from scratch
+      - clear everything
+      - i want to start from beginning
+    task_finish_function: reset_dialog_state
+  ########################################################################
