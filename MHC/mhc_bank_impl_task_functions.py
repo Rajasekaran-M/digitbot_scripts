@@ -114,7 +114,7 @@ def get_and_display_loan_account_balance(
     context: "UserMessageWithContext",
 ) -> TaskEntityFunctionResponse:
     loan_account = context.user_response
-    message = f"Loan Account Details:\n\n Account Number: *{loan_account}*\n\nPrincipal Outstanding: 27,986.28 MUR\n\nBalance Tenure: 14 Months\n\nEMI for Last Month: 2,456.80 MUR"
+    message = f"Loan Account Details:\n\nAccount Number: *{loan_account}*\n\nBorrower: Mr.John Wick\n\nLoan Type:Housing Loan\n\nLoan Amount:32,345.60 MUR\n\nCurrent Rate Of Interest:6.67 % (per annum)\n\nBalance Term: 32 Months"
     return TaskEntityFunctionResponse(success=True, text_message=message)
 
 

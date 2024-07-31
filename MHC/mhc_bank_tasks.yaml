@@ -129,9 +129,11 @@ OutputPrompts:
         long: "Loan Accounts"
         short: "Loan Accounts"
       menu_list_rows:
-        - title: "Account Dashboard"
+        - title: "Account Summary"
           description: null
-        - title: "Disbursal Summary"
+        - title: "Disbursal Details"
+          description: null
+        - title: "Interest Rate Movement"
           description: null
         - title: "Interest Statement"
           description: null
@@ -464,6 +466,27 @@ Task:
               - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
         user_input:
           pointer: date_of_birth
+      upload_your_national_id:
+        field_name: "National Id Card"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Upload Your National Id Card"
+              short: "Upload Your National Id Card"
+            footer_text: null
+            button_captions:
+              - long: "Upload"
+                short: "Upload"
+              - long: "Later"
+                short: "Later"
+        user_input:
+          args:
+            type: TEXT
       employment status:
         field_name: "Employment Status"
         output_prompt:
@@ -598,13 +621,34 @@ Task:
               - "Please enter your date of birth in DD-MM-YYYY format (such as 01-01-2023)."
         user_input:
           pointer: date_of_birth
+      upload_your_national_id:
+        field_name: "National Id Card"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Upload Your National Id Card"
+              short: "Upload Your National Id Card"
+            footer_text: null
+            button_captions:
+              - long: "Upload"
+                short: "Upload"
+              - long: "Later"
+                short: "Later"
+        user_input:
+          args:
+            type: TEXT
       address:
         field_name: "Address"
         output_prompt:
           args:
             type: TEXT
             content:
-              - "Please enter your address"
+              - "Please enter your address."
         user_input:
           args:
             type: TEXT
@@ -635,18 +679,15 @@ Task:
           pointer: exit_message_at_task_end
   ###############################################################################
   # 3.
-  account_dashboard:
-    description: show your account dashboard
+  account_summary:
+    description: show your account summary
     channel_scope: ["WEB", "WHATSAPP", "TEXT"]
     task_suggestion:
-      long: "Account Dashboard"
-      short: "Account Dashboard"
+      long: "Account Summary"
+      short: "Account Summary"
     samples:
-      - What is my  loan account balance?
-      - How much money do I have in my loan account?
-      - Show my loan account balance
       - Account Dashboard
-      - A/C Dashboard"
+      - Account Summary
       - Loan Account Balance
     entities:
       welcome_text:
@@ -754,7 +795,287 @@ Task:
         output_prompt:
           pointer: exit_message_at_task_end
   ###############################################################################
-  
+  # 5.
+  transaction_history:
+    description: bank transaction history
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Transaction History"
+      short: "Transaction History"
+    samples:
+      - bank account transaction history
+      - Show my recent bank account transactions
+      - A/C Transaction History
+      - A/C Txn History
+      - Transaction History
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your recent account transactions."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      account_transactions_text:
+        field_name: "Account transactions"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the list of transactions below. We also have provided it as a document for your convenience.
+      account_transactions_document:
+        field_name: "Account transactions document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mhc.smartsellhub.com/MHC_Statement.pdf"
+            web_title: "Account transactions PDF"
+            web_description: "Please click on the link to view the document"
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 6.
+  disbursal_details:
+    description: disbursal details
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Disbursal Details"
+      short: "Disbursal Details"
+    samples:
+      - Disbursal Details
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your recent Disbursal Details."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      disbursal_summary:
+        field_name: "Disbursal Summary"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the disbursal summary below. We also have provided it as a document for your convenience.
+      disbursal_summary_document:
+        field_name: "Disbursal summary document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mhc.smartsellhub.com/Disbursement_Summary.pdf"
+            web_title: "Disbursal Summary"
+            web_description: "Please click on the link to view the document."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  # 6.
+  interest_rate_movement:
+    description: interest rate movement
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Interest Rate Movement"
+      short: "Inter. Rate Movement"
+    samples:
+      - Interest Rate Movement
+      - Inter. Rate Movement
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your recent interest rate movements."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      interest_rate_movement:
+        field_name: "Interest Rate Movement"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the Interest Rate Movement below. We also have provided it as a document for your convenience.
+      interest_rate_movement_document:
+        field_name: "Interest rate movement document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mhc.smartsellhub.com/Interest_Rate_Changes.pdf"
+            web_title: "Interest Rate Movement Document"
+            web_description: "Please click on the link to view the document."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
+  interest_statement:
+    description: interest statement"
+    channel_scope: ["WEB", "WHATSAPP", "TEXT"]
+    task_suggestion:
+      long: "Interest Statement"
+      short: "Interest Statement"
+    samples:
+      - Interest Statement
+    entities:
+      welcome_text:
+        field_name: "Welcome text"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "Sure. I can help you with retrieving your interest statement."
+      phone_number:
+        field_name: "Phone number"
+        output_prompt:
+          pointer: phone_number
+        user_input:
+          pointer: phone_number
+      OTP:
+        field_name: "OTP"
+        validation_function: validate_OTP
+        process_function: set_user_as_authenticated
+        max_entity_turns: 3
+        output_prompt:
+          pointer: OTP
+        user_input:
+          pointer: OTP
+        success_responses:
+          - We have successfully authenticated you.
+        failure_validation_responses:
+          - The OTP you entered is incorrect. Please try again.
+        failure_process_responses:
+          - We were unable to authenticate you.
+      list_of_bank_accounts:
+        field_name: "List of bank accounts"
+        output_prompt:
+          pointer: bank_account_as_two_buttons
+        user_input:
+          pointer: bank_account
+      financial_year:
+        field_name: "Financial Year"
+        output_prompt:
+          args:
+            type: BUTTONS
+            header_type: "text"
+            header_text:
+              long: ""
+              short: ""
+            body_prologue:
+              long: "Choose the Financial Year."
+              short: "Choose the Financial Year."
+            footer_text: null
+            button_captions:
+              - long: "FY 23"
+                short: "FY 23"
+              - long: "FY 22"
+                short: "FY 22"
+        user_input:
+          args:
+            type: TEXT
+      interest_statement:
+        field_name: "interest statement"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - Please find the Interest Statement below. We also have provided it as a document for your convenience.
+      interest_statement_document:
+        field_name: "Interest statement document"
+        output_prompt:
+          args:
+            type: DOCUMENT
+            url: "https://mhc.smartsellhub.com/Interest_Certificate.pdf"
+            web_title: "Interest Statement Document"
+            web_description: "Please click on the link to view the document."
+      exit_message_at_task_end:
+        field_name: "Exit message at end"
+        output_prompt:
+          pointer: exit_message_at_task_end
+  ###############################################################################
 
   ###############################################################################
   positive:
