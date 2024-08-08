@@ -487,6 +487,8 @@ Task:
       short: "Import Financing"
     samples:
       - Import Financing
+      - I'm looking to get loan for my import business
+      - Can I get a loan for my import and export business
     entities:
       welcome_text:
         field_name: "Welcome message"
@@ -495,6 +497,13 @@ Task:
             type: TEXT
             content:
               - "Our import financing services help you pay for goods and services purchased from international suppliers."
+      welcome_text_1:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "For more information on Import Financing, please click the link below:\n\nhttps://chatcep.smartsellhub.com/hc/help-center/articles/1722942173-import-finance"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -508,6 +517,10 @@ Task:
       short: "Export Financing"
     samples:
       - Export Financing
+      - I want to know about export financing
+      - tell me about export financing
+      - I'm looking to get loan for my export business
+      - Can I get a loan for export
     entities:
       welcome_text:
         field_name: "Welcome message"
@@ -516,6 +529,13 @@ Task:
             type: TEXT
             content:
               - "Our export financing solutions provide you with the funds needed to fulfil international orders."
+      welcome_text_1:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "For more information about Export Financing, please click the link below:\n\nhttps://chatcep.smartsellhub.com/hc/help-center/articles/1722942758-export-finance"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -538,6 +558,13 @@ Task:
             type: TEXT
             content:
               - "Our supply chain financing solutions optimize your cash flow and improve supplier relationships."
+      welcome_text_1:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "For more information about Supply Chain Financing, please click the link below:\n\nhttps://chatcep.smartsellhub.com/hc/help-center/articles/1722943442-supply-chain-finance"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
@@ -552,6 +579,9 @@ Task:
     samples:
       - Working Capital Loans
       - Working Capital Loan
+      - I'm looking to get loan for my working capital
+      - Working capital loan
+      - Ecommerce business loan
     entities:
       welcome_text:
         field_name: "Welcome message"
@@ -560,6 +590,13 @@ Task:
             type: TEXT
             content:
               - "Our working capital loans provide the funds you need to manage day-to-day operations."
+      welcome_text_1:
+        field_name: "Welcome message"
+        output_prompt:
+          args:
+            type: TEXT
+            content:
+              - "For more information about Working Capital Loans, please click the link below:\n\nhttps://chatcep.smartsellhub.com/hc/help-center/articles/1722943607-working-capital-loans"
       exit_message_at_task_end:
         field_name: "Exit message at end"
         output_prompt:
